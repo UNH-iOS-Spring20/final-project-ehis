@@ -31,6 +31,13 @@ class foodHubTests: XCTestCase {
         
         let noNameItem = MenuItem("", false, ["Standard": 9.99], [""])
         XCTAssertNil(noNameItem)
+        
+        let negPriceItem = MenuItem("Pizza", false, ["": -11.50], [""])
+        XCTAssertNil(negPriceItem)
+        
+        let menu = StoreMenu([])
+        XCTAssertEqual(0, menu?.items.count)
+        
     }
 
     func testPerformanceExample() {

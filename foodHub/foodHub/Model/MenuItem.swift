@@ -13,21 +13,13 @@ class MenuItem{
     var descriptions: [String]
     
     init? (_ name: String, _ hasSizes: Bool, _ info: [String: Double], _ descriptions: [String]){
-        if name.isEmpty {
+        if name.isEmpty || info.values.contains(where: {$0 < 0.0}) {
             return nil
         }
-        if info.count != descriptions.count {
+        if (info.count != descriptions.count) || (hasSizes && info.count <= 1){
             return nil
         }
-        if hasSizes && info.count <= 1 {
-            return nil
-        }
-        if info.values.contains(where: {$0 < 0.0}){
-            return nil
-        }
-            //{$0 < 0} {
-            //return nil
-        //}
+        
         self.name = name
         self.hasSizes = hasSizes
         self.info = info
