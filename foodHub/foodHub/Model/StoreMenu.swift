@@ -9,7 +9,12 @@
 class StoreMenu {
     var items: [MenuItem]
     
-    init? (_ items: [MenuItem]){
-        self.items = items
+    init (_ items: [MenuItem]){
+        if items.isEmpty {
+            self.items = []
+        }
+        else {
+            self.items = items
+        }
     }
 }

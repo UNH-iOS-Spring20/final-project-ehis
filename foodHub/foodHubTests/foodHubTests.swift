@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import os
 @testable import foodHub
 
 class foodHubTests: XCTestCase {
@@ -36,7 +37,20 @@ class foodHubTests: XCTestCase {
         XCTAssertNil(negPriceItem)
         
         let menu = StoreMenu([])
-        XCTAssertEqual(0, menu?.items.count)
+        XCTAssertEqual(0, menu.items.count)
+        
+        do {
+            //let negPriceItem = MenuItem("Pizza", false, ["": -11.50], [""])
+            if negPriceItem == nil {
+                throw MenuErrors.nilItem
+            }
+            try menu.items.append(negPriceItem!)
+            XCTAssertEqual(0, menu.items.count)
+        } catch {
+            os_log("\n\n\tTried to add nil item to menu... failed")
+        }
+        
+        
         
     }
 
