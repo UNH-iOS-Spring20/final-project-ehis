@@ -7,14 +7,16 @@
 //
 
 class StoreMenu {
-    var items: [MenuItem]
+    var items: [MenuItem] //don't want nil values
     
-    init (_ items: [MenuItem]){
+    init (){
+        self.items = []
+    }
+    init? (_ items: [MenuItem]){
         if items.isEmpty {
-            self.items = []
+            return nil
         }
-        else {
-            self.items = items
-        }
+        
+        self.items = items
     }
 }

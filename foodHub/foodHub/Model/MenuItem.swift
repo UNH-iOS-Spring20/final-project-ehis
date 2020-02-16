@@ -19,7 +19,7 @@ class MenuItem{
         if name.isEmpty || info.values.contains(where: {$0 < 0.0}) {
             return nil
         }
-        if (info.count != descriptions.count) || (hasSizes && info.count <= 1){
+        if (info.count != descriptions.count) || (hasSizes && info.count <= 1) || (!hasSizes && info.count != 1){
             return nil
         }
         

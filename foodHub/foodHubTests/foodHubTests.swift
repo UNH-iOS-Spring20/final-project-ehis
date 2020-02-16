@@ -21,13 +21,15 @@ class foodHubTests: XCTestCase {
     }
 
     func testMenuItemInitSucceeds() {
-        //let pizzaItem = MenuItem(name: "Pizza", hasSizes: false, info: ["Standard": 9.99], descriptions: [""])
         let pizzaItem = MenuItem("Pizza", false, ["Standard": 9.99], [""])
         XCTAssertNotNil(pizzaItem)
+        
+        let multiSizePizzaItem = MenuItem("Pizza", true, ["Medium": 9.99, "Large": 11.99], ["Medium pizza", "Large pizza"])
+        XCTAssertNotNil(multiSizePizzaItem)
     }
 
     func testMenuItemInitFails() {
-        let badPizzaItem = MenuItem("Pizza", false, ["Medium": 9.99, "Large": 11.99], [""]) //pizza has one size, but multiple sizes supplied
+        let badPizzaItem = MenuItem("Pizza", false, ["Medium": 9.99, "Large": 11.99], ["", ""]) //pizza has one size, but multiple sizes supplied
         XCTAssertNil(badPizzaItem)
         
         let noNameItem = MenuItem("", false, ["Standard": 9.99], [""])
@@ -35,23 +37,33 @@ class foodHubTests: XCTestCase {
         
         let negPriceItem = MenuItem("Pizza", false, ["": -11.50], [""])
         XCTAssertNil(negPriceItem)
+    }
+    
+    func testStoreMenuInitPass() {
+        let menu = StoreMenu()
+        XCTAssertEqual(0, menu.items.count)
         
-        let menu = StoreMenu([])
+        menu.items.append(MenuItem("Pizza", false, ["Standard": 9.99], [""])!)
+        XCTAssertEqual(1, menu.items.count)
+    }
+    
+    func testStoreMenuInitFails() {
+        let menu = StoreMenu()
         XCTAssertEqual(0, menu.items.count)
         
         do {
-            //let negPriceItem = MenuItem("Pizza", false, ["": -11.50], [""])
-            if negPriceItem == nil {
+            let itemToAppend = MenuItem("Pizza", false, ["": -11.50], [""])
+            if itemToAppend == nil {
                 throw MenuErrors.nilItem
             }
-            try menu.items.append(negPriceItem!)
-            XCTAssertEqual(0, menu.items.count)
+            else{
+                menu.items.append(itemToAppend!)
+            }
         } catch {
             os_log("\n\n\tTried to add nil item to menu... failed")
         }
         
-        
-        
+        XCTAssertEqual(0, menu.items.count) //make sure nothing got added
     }
 
     func testPerformanceExample() {
