@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>157024728495-grolf22jbf2gkth3co3bdgl05uo2rb2e.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.157024728495-grolf22jbf2gkth3co3bdgl05uo2rb2e</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBu6FPePJ4WL40-ietBj3oE8LjmXuM5TZg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>157024728495</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>edu.newhaven.foodHub</string>
+	<key>PROJECT_ID</key>
+	<string>foodhub-ios</string>
+	<key>STORAGE_BUCKET</key>
+	<string>foodhub-ios.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:157024728495:ios:9ec649dd5913fdd36f2b5a</string>
+	<key>DATABASE_URL</key>
+	<string>https://foodhub-ios.firebaseio.com</string>
+</dict>
+</plist>
