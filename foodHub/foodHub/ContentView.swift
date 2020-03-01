@@ -14,37 +14,80 @@ let db = Firestore.firestore()
 struct ContentView: View {
     var body: some View {
         VStack {
-            Button(action: {
-                createFoodie()
-            }) {
-             Text("Create a foodie")
-                .font(.largeTitle)
+            HStack{
+                Button(action: {
+                    createEater()
+                }) {
+                 Text("New eater")
+                    .font(.body)
+                }
+                .padding(10)
+                
+                Button(action: {
+                    createFoodie()
+                }) {
+                 Text("New foodie")
+                    .font(.body)
+                }
+                .padding(10)
             }
-            .padding(10.0)
+            .padding(10)
             
-            Button(action: {
-                updateFoodies()
-            }) {
-             Text("Update foodies")
-                .font(.largeTitle)
+            HStack{
+                Button(action: {
+                    updateEater()
+                }) {
+                 Text("Update eaters")
+                    .font(.body)
+                }
+                .padding(10)
+                
+                Button(action: {
+                    updateFoodies()
+                }) {
+                 Text("Update foodies")
+                    .font(.body)
+                }
+                .padding(10)
             }
-            .padding(10.0)
+            .padding(10)
             
-            Button(action: {
-                deleteCollection(collection: "foodies")
-            }) {
-             Text("Delete all foodies")
-                .font(.largeTitle)
+            HStack{
+                Button(action: {
+                    getCollection(collection: "eaters")
+                }) {
+                 Text("Get all eaters")
+                    .font(.body)
+                }
+                .padding(10)
+                
+                Button(action: {
+                    getCollection(collection: "foodies")
+                }) {
+                 Text("Get all foodies")
+                    .font(.body)
+                }
+                .padding(10)
             }
-            .padding(10.0)
+            .padding(10)
             
-            Button(action: {
-                getCollection(collection: "foodies")
-            }) {
-             Text("Get all foodies")
-                .font(.largeTitle)
+            HStack{
+                Button(action: {
+                    deleteCollection(collection: "eaters")
+                }) {
+                 Text("Delete all eaters")
+                    .font(.body)
+                }
+                .padding(10)
+                
+                Button(action: {
+                    deleteCollection(collection: "foodies")
+                }) {
+                 Text("Delete all foodies")
+                    .font(.body)
+                }
+                .padding(10)
             }
-            .padding(10.0)
         }
     }
 }
@@ -55,6 +98,7 @@ private func getCollection(collection: String){
             print("Error getting documents: \(err)")
         }
         else {
+            print("")
             for document in querySnapshot!.documents {
                 print("\(document.documentID) => \(document.data())")
             }
@@ -67,6 +111,7 @@ private func deleteCollection(collection: String){
         if let err = err {
             print("Error getting documents: \(err)")
         } else {
+            print("")
             for document in querySnapshot!.documents {
             print("Deleting \(document.documentID) => \(document.data())")
                 document.reference.delete()
@@ -84,6 +129,7 @@ private func createFoodie(){
         "city": "West Haven",
         "zipCode": 06516
     ])
+    print("Foodie(s) created")
 }
 
 private func updateFoodies(){
@@ -94,6 +140,29 @@ private func updateFoodies(){
         "city": "New Haven",
         "zipCode": 06516
     ])
+    print("Foodie(s) updated")
+}
+
+private func createEater(){
+    let foodieRef = db.collection("eaters")
+    
+    foodieRef.document("test_bot_1").setData([
+        "name": "Testy Bot",
+        "email": "testbot01@gmail.com",
+        "zipCode": 06510
+    ])
+    print("Eater(s) created")
+}
+
+private func updateEater(){
+    let foodieRef = db.collection("eaters")
+    
+    foodieRef.document("test_bot_1").setData([
+        "name": "Testy Bot 01",
+        "email": "testbot01@gmail.com",
+        "zipCode": 06510
+    ])
+    print("Eater(s) updated")
 }
 
 struct ContentView_Previews: PreviewProvider {
