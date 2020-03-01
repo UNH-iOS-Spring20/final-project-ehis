@@ -23,6 +23,14 @@ struct ContentView: View {
             .padding(10.0)
             
             Button(action: {
+                updateFoodies()
+            }) {
+             Text("Update foodies")
+                .font(.largeTitle)
+            }
+            .padding(10.0)
+            
+            Button(action: {
                 deleteCollection(collection: "foodies")
             }) {
              Text("Delete all foodies")
@@ -71,12 +79,23 @@ private func deleteCollection(collection: String){
 private func createFoodie(){
     let foodieRef = db.collection("foodies")
     
-    foodieRef.document().setData([
+    foodieRef.document("McDonalds").setData([
         "name": "McDonalds",
         "city": "West Haven",
         "zipCode": 06516
     ])
 }
+
+private func updateFoodies(){
+    let foodieRef = db.collection("foodies")
+    
+    foodieRef.document("McDonalds").setData([
+        "name": "McDonalds",
+        "city": "New Haven",
+        "zipCode": 06516
+    ])
+}
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()

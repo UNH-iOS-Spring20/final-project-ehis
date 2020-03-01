@@ -23,6 +23,15 @@
 		8C78566124030B39008457AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C78566024030B39008457AA /* GoogleService-Info.plist */; };
 		8C78566224030B39008457AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C78566024030B39008457AA /* GoogleService-Info.plist */; };
 		8C78566324030B39008457AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C78566024030B39008457AA /* GoogleService-Info.plist */; };
+		8C802711240C3CB4001FD693 /* foodhub 200x200.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C802710240C3CB4001FD693 /* foodhub 200x200.png */; };
+		8C802712240C3CB4001FD693 /* foodhub 200x200.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C802710240C3CB4001FD693 /* foodhub 200x200.png */; };
+		8C802713240C3CB4001FD693 /* foodhub 200x200.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C802710240C3CB4001FD693 /* foodhub 200x200.png */; };
+		8C802716240C3EC1001FD693 /* foodhub-120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C802714240C3EC1001FD693 /* foodhub-120x120.png */; };
+		8C802717240C3EC1001FD693 /* foodhub-120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C802714240C3EC1001FD693 /* foodhub-120x120.png */; };
+		8C802718240C3EC1001FD693 /* foodhub-120x120.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C802714240C3EC1001FD693 /* foodhub-120x120.png */; };
+		8C802719240C3EC1001FD693 /* foodhub-180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C802715240C3EC1001FD693 /* foodhub-180x180.png */; };
+		8C80271A240C3EC1001FD693 /* foodhub-180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C802715240C3EC1001FD693 /* foodhub-180x180.png */; };
+		8C80271B240C3EC1001FD693 /* foodhub-180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C802715240C3EC1001FD693 /* foodhub-180x180.png */; };
 		8C884ECE23F8B4570063B3CD /* StoreMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C884ECD23F8B4570063B3CD /* StoreMenu.swift */; };
 		8C884ECF23F8B4570063B3CD /* StoreMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C884ECD23F8B4570063B3CD /* StoreMenu.swift */; };
 		8C884ED023F8B4570063B3CD /* StoreMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C884ECD23F8B4570063B3CD /* StoreMenu.swift */; };
@@ -68,6 +77,9 @@
 		8C19DC1E23F895E0004F1380 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C19DC2B23F89E3E004F1380 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		8C78566024030B39008457AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8C802710240C3CB4001FD693 /* foodhub 200x200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "foodhub 200x200.png"; sourceTree = "<group>"; };
+		8C802714240C3EC1001FD693 /* foodhub-120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "foodhub-120x120.png"; sourceTree = "<group>"; };
+		8C802715240C3EC1001FD693 /* foodhub-180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "foodhub-180x180.png"; sourceTree = "<group>"; };
 		8C884ECD23F8B4570063B3CD /* StoreMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreMenu.swift; sourceTree = "<group>"; };
 		BBC5D1BE77998E15E37BC5F3 /* Pods-foodHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodHub.debug.xcconfig"; path = "Target Support Files/Pods-foodHub/Pods-foodHub.debug.xcconfig"; sourceTree = "<group>"; };
 		CE52A181549B0F5F8934A6DD /* Pods-foodHub-foodHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodHub-foodHubUITests.release.xcconfig"; path = "Target Support Files/Pods-foodHub-foodHubUITests/Pods-foodHub-foodHubUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +163,7 @@
 		8C19DBF923F895DC004F1380 /* foodHub */ = {
 			isa = PBXGroup;
 			children = (
+				8C80270F240C3C7E001FD693 /* Resources */,
 				8C19DC2A23F89DC2004F1380 /* Model */,
 				8C19DBFA23F895DC004F1380 /* AppDelegate.swift */,
 				8C19DBFC23F895DC004F1380 /* SceneDelegate.swift */,
@@ -197,6 +210,24 @@
 				8C884ECD23F8B4570063B3CD /* StoreMenu.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8C80270F240C3C7E001FD693 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8C80271C240C3F3D001FD693 /* App-Icons */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8C80271C240C3F3D001FD693 /* App-Icons */ = {
+			isa = PBXGroup;
+			children = (
+				8C802710240C3CB4001FD693 /* foodhub 200x200.png */,
+				8C802714240C3EC1001FD693 /* foodhub-120x120.png */,
+				8C802715240C3EC1001FD693 /* foodhub-180x180.png */,
+			);
+			path = "App-Icons";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +341,9 @@
 			files = (
 				8C19DC0723F895E0004F1380 /* LaunchScreen.storyboard in Resources */,
 				8C78566124030B39008457AA /* GoogleService-Info.plist in Resources */,
+				8C802719240C3EC1001FD693 /* foodhub-180x180.png in Resources */,
+				8C802716240C3EC1001FD693 /* foodhub-120x120.png in Resources */,
+				8C802711240C3CB4001FD693 /* foodhub 200x200.png in Resources */,
 				8C19DC0423F895E0004F1380 /* Preview Assets.xcassets in Resources */,
 				8C19DC0123F895E0004F1380 /* Assets.xcassets in Resources */,
 			);
@@ -319,7 +353,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C80271A240C3EC1001FD693 /* foodhub-180x180.png in Resources */,
 				8C78566224030B39008457AA /* GoogleService-Info.plist in Resources */,
+				8C802712240C3CB4001FD693 /* foodhub 200x200.png in Resources */,
+				8C802717240C3EC1001FD693 /* foodhub-120x120.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,7 +364,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C80271B240C3EC1001FD693 /* foodhub-180x180.png in Resources */,
 				8C78566324030B39008457AA /* GoogleService-Info.plist in Resources */,
+				8C802713240C3CB4001FD693 /* foodhub 200x200.png in Resources */,
+				8C802718240C3EC1001FD693 /* foodhub-120x120.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
