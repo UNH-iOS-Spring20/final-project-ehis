@@ -48,44 +48,13 @@ struct FoodieView: View {
     }
 }
 
-/*
-private func getCollection(collection: String){
-    db.collection(collection).getDocuments() { (querySnapshot, err) in
-        if let err = err {
-            print("Error getting documents: \(err)")
-        }
-        else {
-            print("")
-            for document in querySnapshot!.documents {
-                print("\(document.documentID) => \(document.data())")
-            }
-        }
-    }
-}
- */
-    
-/*rivate func deleteCollection(collection: String){
-    db.collection(collection).getDocuments() { (querySnapshot, err) in
-        if let err = err {
-            print("Error getting documents: \(err)")
-        } else {
-            print("")
-            for document in querySnapshot!.documents {
-            print("Deleting \(document.documentID) => \(document.data())")
-                document.reference.delete()
-            }
-        }
-    
-    }
-}
-*/
 private func createFoodie(){
     let foodieRef = db.collection("foodies")
     
-    foodieRef.document("McDonalds").setData([
-        "name": "McDonalds",
-        "city": "West Haven",
-        "zipCode": 06516
+    foodieRef.document("Humpy-06510").setData([
+        "name": "Humpty",
+        "city": "UNH",
+        "zipCode": "06516"
     ])
     print("Foodie(s) created")
 }
@@ -93,10 +62,11 @@ private func createFoodie(){
 private func updateFoodies(){
     let foodieRef = db.collection("foodies")
     
-    foodieRef.document("McDonalds").setData([
-        "name": "McDonalds",
-        "city": "New Haven",
-        "zipCode": 06516
+    foodieRef.document("McDonalds-06516").setData([
+        "address": "300 Boston Post Rd",
+        "city": "West Haven Haven",
+        "state": "CT",
+        "zipCode": "06516"
     ])
     print("Foodie(s) updated")
 }

@@ -63,6 +63,7 @@ struct ContentView: View {
                     document.reference.delete()
                 }
             }
+            print("")
         
         }
     }

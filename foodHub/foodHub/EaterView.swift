@@ -47,42 +47,13 @@ struct EaterView: View {
         }
     }
 }
-/*
-private func getCollection(collection: String){
-    db.collection(collection).getDocuments() { (querySnapshot, err) in
-        if let err = err {
-            print("Error getting documents: \(err)")
-        }
-        else {
-            print("")
-            for document in querySnapshot!.documents {
-                print("\(document.documentID) => \(document.data())")
-            }
-        }
-    }
-}
-    
-private func deleteCollection(collection: String){
-    db.collection(collection).getDocuments() { (querySnapshot, err) in
-        if let err = err {
-            print("Error getting documents: \(err)")
-        } else {
-            print("")
-            for document in querySnapshot!.documents {
-            print("Deleting \(document.documentID) => \(document.data())")
-                document.reference.delete()
-            }
-        }
-    
-    }
-}
-*/
+
 private func createEater(){
     let foodieRef = db.collection("eaters")
     
-    foodieRef.document("test_bot_1").setData([
-        "name": "Testy Bot",
-        "email": "testbot01@gmail.com",
+    foodieRef.document("test_2@gmail.com").setData([
+        "name": "Testy Bot2",
+        "email": "test_2@gmail.com",
         "zipCode": 06510
     ])
     print("Eater(s) created")
