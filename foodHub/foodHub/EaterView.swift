@@ -54,7 +54,7 @@ private func createEater(){
     foodieRef.document("test_2@gmail.com").setData([
         "name": "Testy Bot2",
         "email": "test_2@gmail.com",
-        "zipCode": 06510
+        "zipCode": "06510"
     ])
     print("Eater(s) created")
 }
@@ -62,10 +62,11 @@ private func createEater(){
 private func updateEater(){
     let foodieRef = db.collection("eaters")
     
-    foodieRef.document("test_bot_1").setData([
-        "name": "Testy Bot 01",
-        "email": "testbot01@gmail.com",
-        "zipCode": 06510
+    foodieRef.document("test_2@gmail.com").setData([
+        "name": "Testy Bot2",
+        "email": "test_2@gmail.com",
+        "zipCode": "06516",
+        "address": "Buckman 226, UNH"
     ])
     print("Eater(s) updated")
 }
