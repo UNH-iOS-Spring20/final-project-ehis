@@ -59,12 +59,18 @@ struct ContentView: View {
             } else {
                 print("")
                 for document in querySnapshot!.documents {
-                print("Deleting \(document.documentID) => \(document.data())")
-                    document.reference.delete()
+                    if (document.get("isAdmin") as? Bool) == true{
+                        print("Skipping admin user")
+                    }
+                    else {
+                        if (document.get("isActive") as? Bool) == true{
+                            print("Deactivating \(document.documentID) => \(document.data())")
+                            document.reference.setData(["isActive": false], merge: true)
+                        }
+                    }
                 }
             }
             print("")
-        
         }
     }
 }

@@ -67,7 +67,7 @@ private func updateFoodies(){
         "city": "West Haven Haven",
         "state": "CT",
         "zipCode": "06516"
-    ])
+    ], merge: true)
     print("Foodie(s) updated")
 }
 

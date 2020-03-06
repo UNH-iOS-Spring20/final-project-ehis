@@ -63,11 +63,10 @@ private func updateEater(){
     let foodieRef = db.collection("eaters")
     
     foodieRef.document("test_2@gmail.com").setData([
-        "name": "Testy Bot2",
-        "email": "test_2@gmail.com",
-        "zipCode": "06516",
-        "address": "Buckman 226, UNH"
-    ])
+        "address": "Buckman 226, UNH",
+        "isAdmin": false,
+        "isActive": true
+    ], merge: true)
     print("Eater(s) updated")
 }
 
