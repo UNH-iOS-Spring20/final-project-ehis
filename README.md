@@ -1,2 +1,2 @@
 # final-project-ehis
-final-project-this created by GitHub Classroom
+my iOS development class' project... uses Swift/SwiftUI
