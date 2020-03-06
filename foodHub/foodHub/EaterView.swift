@@ -54,7 +54,9 @@ private func createEater(){
     foodieRef.document("test_2@gmail.com").setData([
         "name": "Testy Bot2",
         "email": "test_2@gmail.com",
-        "zipCode": "06510"
+        "zipCode": "06510",
+        "isActive": true,
+        "isAdmin": false
     ])
     print("Eater(s) created")
 }

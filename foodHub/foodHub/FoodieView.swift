@@ -54,7 +54,8 @@ private func createFoodie(){
     foodieRef.document("Humpy-06510").setData([
         "name": "Humpty",
         "city": "UNH",
-        "zipCode": "06516"
+        "zipCode": "06516",
+        "isActive": true
     ])
     print("Foodie(s) created")
 }
@@ -66,7 +67,8 @@ private func updateFoodies(){
         "address": "300 Boston Post Rd",
         "city": "West Haven Haven",
         "state": "CT",
-        "zipCode": "06516"
+        "zipCode": "06516",
+        "isActive": true
     ], merge: true)
     print("Foodie(s) updated")
 }
