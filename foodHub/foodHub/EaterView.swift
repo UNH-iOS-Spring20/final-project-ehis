@@ -16,10 +16,6 @@ struct EaterView: View {
                 NavigationLink(
                     destination: CreateEaterView()
                 ){
-//                Button(action: {
-//                    createEater()
-//                }) {
-                
                  Text("New eater")
                     .font(.largeTitle)
                 }
@@ -54,6 +50,7 @@ struct EaterView: View {
     }
 }
 
+/*
 private func createEater(){
     let eaterRef = db.collection("eaters")
     
@@ -66,6 +63,7 @@ private func createEater(){
     ])
     print("Eater(s) created")
 }
+*/
 
 private func updateEater(){
     let eaterRef = db.collection("eaters")

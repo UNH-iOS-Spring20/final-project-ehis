@@ -11,43 +11,46 @@ import FirebaseFirestore
 
 struct FoodieView: View {
     var body: some View {
-        VStack {
-            Button(action: {
-                createFoodie()
-            }) {
-             Text("New foodie")
-                .font(.largeTitle)
+        NavigationView{
+            VStack {
+                NavigationLink(
+                    destination: CreateFoodieView()
+                ){
+                 Text("New foodie")
+                    .font(.largeTitle)
+                }
+                .padding(10)
+                
+                Button(action: {
+                    updateFoodies()
+                }) {
+                 Text("Update foodies")
+                    .font(.largeTitle)
+                }
+                .padding(10)
+                
+                Button(action: {
+                    ContentView.getCollection(collection: "foodies")
+                }) {
+                 Text("Get all foodies")
+                    .font(.largeTitle)
+                }
+                .padding(10)
+                
+                Button(action: {
+                    ContentView.deleteCollection(collection: "foodies")
+                }) {
+                 Text("Delete all foodies")
+                    .font(.largeTitle)
+                }
+                .padding(10)
+                
             }
-            .padding(10)
-            
-            Button(action: {
-                updateFoodies()
-            }) {
-             Text("Update foodies")
-                .font(.largeTitle)
-            }
-            .padding(10)
-            
-            Button(action: {
-                ContentView.getCollection(collection: "foodies")
-            }) {
-             Text("Get all foodies")
-                .font(.largeTitle)
-            }
-            .padding(10)
-            
-            Button(action: {
-                ContentView.deleteCollection(collection: "foodies")
-            }) {
-             Text("Delete all foodies")
-                .font(.largeTitle)
-            }
-            .padding(10)
-            
         }
     }
 }
 
+/*
 private func createFoodie(){
     let foodieRef = db.collection("foodies")
     
@@ -59,6 +62,7 @@ private func createFoodie(){
     ])
     print("Foodie(s) created")
 }
+*/
 
 private func updateFoodies(){
     let foodieRef = db.collection("foodies")

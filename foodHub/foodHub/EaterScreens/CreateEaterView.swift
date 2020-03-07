@@ -58,7 +58,7 @@ private func createEater(_ name: String, _ address: String, _ email: String, _ z
     else {
         eaterRef.document(tempEater!.email).getDocument {
             (document, error) in
-            if !document!.exists{
+            if !document!.exists {
                 eaterRef.document(tempEater!.email).setData([
                     "name": tempEater!.name,
                     "email": tempEater!.email,
