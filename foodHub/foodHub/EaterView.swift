@@ -11,47 +11,53 @@ import FirebaseFirestore
 
 struct EaterView: View {
     var body: some View {
-        VStack {
-            Button(action: {
-                createEater()
-            }) {
-             Text("New eater")
-                .font(.largeTitle)
+        NavigationView {
+            VStack {
+                NavigationLink(
+                    destination: CreateEaterView()
+                ){
+//                Button(action: {
+//                    createEater()
+//                }) {
+                
+                 Text("New eater")
+                    .font(.largeTitle)
+                }
+                .padding(10)
+                
+                Button(action: {
+                    updateEater()
+                }) {
+                 Text("Update eaters")
+                    .font(.largeTitle)
+                }
+                .padding(10)
+                
+                Button(action: {
+                    ContentView.getCollection(collection: "eaters")
+                }) {
+                 Text("Get all eaters")
+                    .font(.largeTitle)
+                }
+                .padding(10)
+                
+                Button(action: {
+                    ContentView.deleteCollection(collection: "eaters")
+                }) {
+                 Text("Delete all eaters")
+                    .font(.largeTitle)
+                }
+                .padding(10)
+                
             }
-            .padding(10)
-            
-            Button(action: {
-                updateEater()
-            }) {
-             Text("Update eaters")
-                .font(.largeTitle)
-            }
-            .padding(10)
-            
-            Button(action: {
-                ContentView.getCollection(collection: "eaters")
-            }) {
-             Text("Get all eaters")
-                .font(.largeTitle)
-            }
-            .padding(10)
-            
-            Button(action: {
-                ContentView.deleteCollection(collection: "eaters")
-            }) {
-             Text("Delete all eaters")
-                .font(.largeTitle)
-            }
-            .padding(10)
-            
         }
     }
 }
 
 private func createEater(){
-    let foodieRef = db.collection("eaters")
+    let eaterRef = db.collection("eaters")
     
-    foodieRef.document("test_2@gmail.com").setData([
+    eaterRef.document("test_2@gmail.com").setData([
         "name": "Testy Bot2",
         "email": "test_2@gmail.com",
         "zipCode": "06510",
@@ -62,9 +68,9 @@ private func createEater(){
 }
 
 private func updateEater(){
-    let foodieRef = db.collection("eaters")
+    let eaterRef = db.collection("eaters")
     
-    foodieRef.document("test_2@gmail.com").setData([
+    eaterRef.document("test_2@gmail.com").setData([
         "address": "Buckman 226, UNH",
         "isAdmin": false,
         "isActive": true
