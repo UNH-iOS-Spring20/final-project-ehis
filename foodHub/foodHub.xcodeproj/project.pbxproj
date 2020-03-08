@@ -20,12 +20,12 @@
 		8C19DC2C23F89E3E004F1380 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19DC2B23F89E3E004F1380 /* MenuItem.swift */; };
 		8C19DC2D23F89E3E004F1380 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19DC2B23F89E3E004F1380 /* MenuItem.swift */; };
 		8C19DC2E23F89E3E004F1380 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19DC2B23F89E3E004F1380 /* MenuItem.swift */; };
-		8C4F11BB24144F8200541E5E /* CreateFoodieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F11BA24144F8200541E5E /* CreateFoodieView.swift */; };
-		8C4F11BC24144F8200541E5E /* CreateFoodieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F11BA24144F8200541E5E /* CreateFoodieView.swift */; };
-		8C4F11BD24144F8200541E5E /* CreateFoodieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F11BA24144F8200541E5E /* CreateFoodieView.swift */; };
 		8C4F11BF241450AC00541E5E /* FoodieUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F11BE241450AC00541E5E /* FoodieUser.swift */; };
 		8C4F11C0241450AC00541E5E /* FoodieUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F11BE241450AC00541E5E /* FoodieUser.swift */; };
 		8C4F11C1241450AC00541E5E /* FoodieUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F11BE241450AC00541E5E /* FoodieUser.swift */; };
+		8C5B13BD2415A2C800A53689 /* CreateFoodieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B13BC2415A2C800A53689 /* CreateFoodieView.swift */; };
+		8C5B13BE2415A2C800A53689 /* CreateFoodieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B13BC2415A2C800A53689 /* CreateFoodieView.swift */; };
+		8C5B13BF2415A2C800A53689 /* CreateFoodieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B13BC2415A2C800A53689 /* CreateFoodieView.swift */; };
 		8C78566124030B39008457AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C78566024030B39008457AA /* GoogleService-Info.plist */; };
 		8C78566224030B39008457AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C78566024030B39008457AA /* GoogleService-Info.plist */; };
 		8C78566324030B39008457AA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8C78566024030B39008457AA /* GoogleService-Info.plist */; };
@@ -112,8 +112,8 @@
 		8C19DC1C23F895E0004F1380 /* foodHubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = foodHubUITests.swift; sourceTree = "<group>"; };
 		8C19DC1E23F895E0004F1380 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C19DC2B23F89E3E004F1380 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
-		8C4F11BA24144F8200541E5E /* CreateFoodieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateFoodieView.swift; sourceTree = "<group>"; };
 		8C4F11BE241450AC00541E5E /* FoodieUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodieUser.swift; sourceTree = "<group>"; };
+		8C5B13BC2415A2C800A53689 /* CreateFoodieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFoodieView.swift; sourceTree = "<group>"; };
 		8C78566024030B39008457AA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8C802710240C3CB4001FD693 /* foodhub 200x200.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "foodhub 200x200.png"; sourceTree = "<group>"; };
 		8C802714240C3EC1001FD693 /* foodhub-120x120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "foodhub-120x120.png"; sourceTree = "<group>"; };
@@ -211,6 +211,7 @@
 		8C19DBF923F895DC004F1380 /* foodHub */ = {
 			isa = PBXGroup;
 			children = (
+				8C5B13BB2415A2C800A53689 /* FoodieScreens */,
 				8CEB66D82413282B00E1DEBF /* EaterScreens */,
 				8C80270F240C3C7E001FD693 /* Resources */,
 				8C19DC2A23F89DC2004F1380 /* Model */,
@@ -265,6 +266,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		8C5B13BB2415A2C800A53689 /* FoodieScreens */ = {
+			isa = PBXGroup;
+			children = (
+				8C5B13BC2415A2C800A53689 /* CreateFoodieView.swift */,
+			);
+			path = FoodieScreens;
+			sourceTree = "<group>";
+		};
 		8C80270F240C3C7E001FD693 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,7 +302,6 @@
 			isa = PBXGroup;
 			children = (
 				8CEB66D924132BAB00E1DEBF /* CreateEaterView.swift */,
-				8C4F11BA24144F8200541E5E /* CreateFoodieView.swift */,
 			);
 			path = EaterScreens;
 			sourceTree = "<group>";
@@ -567,8 +575,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C4F11BB24144F8200541E5E /* CreateFoodieView.swift in Sources */,
 				8C19DBFB23F895DC004F1380 /* AppDelegate.swift in Sources */,
+				8C5B13BD2415A2C800A53689 /* CreateFoodieView.swift in Sources */,
 				8C19DC2C23F89E3E004F1380 /* MenuItem.swift in Sources */,
 				8CEB66D524131F9000E1DEBF /* EaterUser.swift in Sources */,
 				8CEB66DA24132BAB00E1DEBF /* CreateEaterView.swift in Sources */,
@@ -585,6 +593,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C5B13BE2415A2C800A53689 /* CreateFoodieView.swift in Sources */,
 				8C884ECF23F8B4570063B3CD /* StoreMenu.swift in Sources */,
 				8C19DC1223F895E0004F1380 /* foodHubTests.swift in Sources */,
 				8C4F11C0241450AC00541E5E /* FoodieUser.swift in Sources */,
@@ -592,7 +601,6 @@
 				8C802737240C4B58001FD693 /* EaterView.swift in Sources */,
 				8C19DC2D23F89E3E004F1380 /* MenuItem.swift in Sources */,
 				8C80273B240C4B6E001FD693 /* FoodieView.swift in Sources */,
-				8C4F11BC24144F8200541E5E /* CreateFoodieView.swift in Sources */,
 				8CEB66DB24132BAB00E1DEBF /* CreateEaterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -601,6 +609,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C5B13BF2415A2C800A53689 /* CreateFoodieView.swift in Sources */,
 				8C884ED023F8B4570063B3CD /* StoreMenu.swift in Sources */,
 				8C19DC1D23F895E0004F1380 /* foodHubUITests.swift in Sources */,
 				8C4F11C1241450AC00541E5E /* FoodieUser.swift in Sources */,
@@ -608,7 +617,6 @@
 				8C802738240C4B58001FD693 /* EaterView.swift in Sources */,
 				8C19DC2E23F89E3E004F1380 /* MenuItem.swift in Sources */,
 				8C80273C240C4B6E001FD693 /* FoodieView.swift in Sources */,
-				8C4F11BD24144F8200541E5E /* CreateFoodieView.swift in Sources */,
 				8CEB66DC24132BAB00E1DEBF /* CreateEaterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
