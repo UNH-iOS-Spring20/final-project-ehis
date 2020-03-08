@@ -40,7 +40,6 @@ struct CreateFoodieView: View {
                 .border(Color.black)
             
             Button(action: {
-                
                 (self.success, self.status) = createFoodie(self.name, self.email, self.address, self.zipCode, self.city, self.state, true)
             }) {
              Text("Create!")
@@ -53,7 +52,6 @@ struct CreateFoodieView: View {
                     .font(.body)
                     .frame(alignment: .trailing)
             }
-            //.padding(10)
         }
         .padding(15)
         .font(.title)
@@ -70,12 +68,11 @@ private func createFoodie(_ name: String, _ email: String, _ address: String, _ 
     let foodieRef = db.collection("foodies")
     let tempFoodie = FoodieUser(name, zipCode, address, email, city, state)
     let tempId = name + "-" + zipCode
-    var outBool: Bool = true
-    var outString: String = ""
+    var outBool: Bool = false
+    var outString: String = "User already exists"
     
     if (tempFoodie == nil) {
         print("Unable to create foodie")
-        outBool = false
         outString = "Invalid details given"
     }
     else {
@@ -96,11 +93,12 @@ private func createFoodie(_ name: String, _ email: String, _ address: String, _ 
                     ], merge: true)
                 }
                 print("Foodie created")
+                outBool = true
+                outString = ""
             }
             else {
                 print("Unable to create foodie")
-                outBool = false
-                outString = "User already exists"
+                print("Foodie exists")
             }
         }
     }

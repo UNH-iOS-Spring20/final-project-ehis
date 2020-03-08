@@ -11,7 +11,6 @@ import FirebaseFirestore
 
 struct EaterView: View {
     var body: some View {
-        NavigationView {
             VStack {
                 NavigationLink(
                     destination: CreateEaterView()
@@ -44,26 +43,10 @@ struct EaterView: View {
                     .font(.largeTitle)
                 }
                 .padding(10)
-                
             }
-        }
+        .navigationBarTitle(Text("Eater"), displayMode: .inline)
     }
 }
-
-/*
-private func createEater(){
-    let eaterRef = db.collection("eaters")
-    
-    eaterRef.document("test_2@gmail.com").setData([
-        "name": "Testy Bot2",
-        "email": "test_2@gmail.com",
-        "zipCode": "06510",
-        "isActive": true,
-        "isAdmin": false
-    ])
-    print("Eater(s) created")
-}
-*/
 
 private func updateEater(){
     let eaterRef = db.collection("eaters")

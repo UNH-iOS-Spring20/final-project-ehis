@@ -15,14 +15,13 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack{
-                 
                 NavigationLink(
                     destination: EaterView()
                 )
                 {
                     Text("Eater")
                         .font(.largeTitle)
-                }
+                    }
                 .padding(15)
                 NavigationLink(
                     destination: FoodieView()

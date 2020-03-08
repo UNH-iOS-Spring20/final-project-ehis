@@ -11,7 +11,6 @@ import FirebaseFirestore
 
 struct FoodieView: View {
     var body: some View {
-        NavigationView{
             VStack {
                 NavigationLink(
                     destination: CreateFoodieView()
@@ -46,23 +45,9 @@ struct FoodieView: View {
                 .padding(10)
                 
             }
-        }
+            .navigationBarTitle(Text("Foodie"), displayMode: .inline)
     }
 }
-
-/*
-private func createFoodie(){
-    let foodieRef = db.collection("foodies")
-    
-    foodieRef.document("Humpy-06510").setData([
-        "name": "Humpty",
-        "city": "UNH",
-        "zipCode": "06516",
-        "isActive": true
-    ])
-    print("Foodie(s) created")
-}
-*/
 
 private func updateFoodies(){
     let foodieRef = db.collection("foodies")
