@@ -5,7 +5,19 @@
 //  Created by Ekore, Ehiremen Alex on 3/6/20.
 //  Copyright © 2020 Ekore, Ehiremen Alex. All rights reserved.
 
-class EaterUser{
+
+struct EaterUser: Identifiable {
+    var id: String
+    var name: String
+    var address: String
+    var email: String
+    var isActive: Bool
+    var isAdmin: Bool
+    var zipCode: String
+}
+/*
+class EaterUser: Identifiable{
+    var id: String
     var name: String
     var address: String
     var email: String
@@ -30,3 +42,4 @@ class EaterUser{
         self.zipCode = zipCode
     }
 }
+ */

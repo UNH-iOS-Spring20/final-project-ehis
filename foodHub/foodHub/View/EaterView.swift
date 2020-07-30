@@ -8,7 +8,7 @@
 
 import SwiftUI
 import FirebaseFirestore
-
+/*
 struct EaterView: View {
     var body: some View {
             VStack {
@@ -47,7 +47,21 @@ struct EaterView: View {
         .navigationBarTitle(Text("Eater"), displayMode: .inline)
     }
 }
-
+*/
+struct EaterView: View {
+var body: some View {
+        VStack {
+            NavigationLink(
+                destination: CreateEaterView()
+            ){
+             Text("New eater")
+                .font(.largeTitle)
+            }
+            .padding(10)
+        }
+    }
+}
+            
 private func updateEater(){
     let eaterRef = db.collection("eaters")
     
@@ -64,3 +78,4 @@ struct EaterView_Previews: PreviewProvider {
         EaterView()
     }
 }
+

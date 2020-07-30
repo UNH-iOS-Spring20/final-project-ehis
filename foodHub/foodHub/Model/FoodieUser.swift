@@ -6,6 +6,17 @@
 //  Copyright © 2020 Ekore, Ehiremen Alex. All rights reserved.
 //
 
+struct FoodieUser{
+    var id: String
+    var name: String
+    var address: String
+    var email: String
+    var isActive: Bool
+    var zipCode: String
+    var city: String
+    var state: String
+}
+/*
 class FoodieUser{
     var name: String
     var address: String
@@ -30,3 +41,4 @@ class FoodieUser{
         self.state = state
     }
 }
+*/
