@@ -37,7 +37,7 @@ class FirebaseSession: ObservableObject {
                     zipCode: diff.document.get("zipCode") as! String,
                     city: diff.document.get("city") as? String,
                     state: diff.document.get("state") as? String,
-                    myMenu: diff.document.get("menu") as? StoreMenu)
+                    myMenu: diff.document.reference.collection("menu").document() as? StoreMenu)
                     /*
                     let foodie = FoodieUser(id: diff.document.get("id") as! String,
                                             name: diff.document.get("name") as! String,
@@ -48,6 +48,9 @@ class FirebaseSession: ObservableObject {
                                             city: diff.document.get("city") as! String,
                                             state: diff.document.get("state") as! String)
                      */
+                    if (foodie?.myMenu != nil){
+                        print("\n \(diff.document.reference.collection("menu").document().documentID)")
+                    }
                     if foodie != nil {
                         self.foodies.append(foodie!)
                     }

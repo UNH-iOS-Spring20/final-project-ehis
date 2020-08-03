@@ -9,7 +9,8 @@ enum MenuErrors: Error{
     case nilItem
 }
 
-class MenuItem{
+class MenuItem: Identifiable{
+    var id: String
     var name: String
     var hasSizes: Bool
     var info: [String: Double] //size, price
@@ -23,6 +24,7 @@ class MenuItem{
             return nil
         }
         
+        id = name
         self.name = name
         self.hasSizes = hasSizes
         self.info = info
