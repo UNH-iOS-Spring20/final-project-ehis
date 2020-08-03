@@ -28,6 +28,7 @@ class FoodieUser: Identifiable{
     var zipCode: String
     var city: String?
     var state: String?
+    var myMenu: StoreMenu
     /*
     var name: String?
     var address: String?
@@ -51,9 +52,10 @@ class FoodieUser: Identifiable{
             self.zipCode = zipCode
             self.city = city
             self.state = state
+            self.myMenu = StoreMenu()
         }
     }
-    init? (allFields id: String, name: String, address: String?, email: String?, isActive: Bool, zipCode: String, city: String?, state: String?){
+    init? (allFields id: String, name: String, address: String?, email: String?, isActive: Bool, zipCode: String, city: String?, state: String?, myMenu: StoreMenu?){
         if name.isEmpty || zipCode.isEmpty {
             return nil
         }
@@ -66,6 +68,7 @@ class FoodieUser: Identifiable{
             self.zipCode = zipCode
             self.city = city
             self.state = state
+            self.myMenu = myMenu ?? StoreMenu()
         }
     }
     /*

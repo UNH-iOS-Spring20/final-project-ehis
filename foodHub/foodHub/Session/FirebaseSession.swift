@@ -36,7 +36,8 @@ class FirebaseSession: ObservableObject {
                     isActive: diff.document.get("isActive") as! Bool,
                     zipCode: diff.document.get("zipCode") as! String,
                     city: diff.document.get("city") as? String,
-                    state: diff.document.get("state") as? String)
+                    state: diff.document.get("state") as? String,
+                    myMenu: diff.document.get("menu") as? StoreMenu)
                     /*
                     let foodie = FoodieUser(id: diff.document.get("id") as! String,
                                             name: diff.document.get("name") as! String,
