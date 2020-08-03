@@ -16,7 +16,7 @@ struct Debug: View {
                     destination: EaterView()
                 )
                 {
-                    Text("Eater")
+                    Text("eat food")
                         .font(.largeTitle)
                     }
                 .padding(15)
@@ -24,12 +24,12 @@ struct Debug: View {
                     destination: FoodieView()
                 )
                 {
-                    Text("Foodie")
+                    Text("sell food")
                         .font(.largeTitle)
                 }
                 .padding(15)
             }
-        .navigationBarTitle(Text("I am a..."))
+        .navigationBarTitle(Text("I want to..."))
         }
     }
     

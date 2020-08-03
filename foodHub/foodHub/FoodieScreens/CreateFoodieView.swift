@@ -66,8 +66,9 @@ struct CreateFoodieView_Previews: PreviewProvider {
 
 private func createFoodie(_ name: String, _ email: String, _ address: String, _ zipCode: String, _ city: String, _ state: String, _ isActive: Bool) -> (Bool, String) {
     let foodieRef = db.collection("foodies")
-    let tempFoodie = FoodieUser(name, zipCode, address, email, city, state)
     let tempId = name + "-" + zipCode
+    let tempFoodie: FoodieUser? = FoodieUser(name, address, email, zipCode, city, state)
+//    let tempFoodie = FoodieUser(allFields: tempId, name: name, address: address, email: email, isActive: isActive, zipCode: zipCode, city: city, state: state)
     var outBool: Bool = false
     var outString: String = "User already exists"
     
@@ -80,16 +81,16 @@ private func createFoodie(_ name: String, _ email: String, _ address: String, _ 
             (document, error) in
             if !document!.exists {
                 foodieRef.document(tempId).setData([
-                    "name": tempFoodie!.name,
-                    "email": tempFoodie!.email,
-                    "zipCode": tempFoodie!.zipCode,
-                    "city": tempFoodie!.city,
-                    "state": tempFoodie!.state,
-                    "isActive": tempFoodie!.isActive
+                    "name": tempFoodie?.name,
+                    "email": tempFoodie?.email,
+                    "zipCode": tempFoodie?.zipCode,
+                    "city": tempFoodie?.city,
+                    "state": tempFoodie?.state,
+                    "isActive": tempFoodie?.isActive
                 ], merge: true)
-                if tempFoodie!.address != "" {
+                if tempFoodie?.address != "" {
                     foodieRef.document(tempId).setData([
-                        "address": tempFoodie!.address
+                        "address": tempFoodie?.address
                     ], merge: true)
                 }
                 print("Foodie created")
@@ -102,5 +103,35 @@ private func createFoodie(_ name: String, _ email: String, _ address: String, _ 
             }
         }
     }
+    
+    /*
+    else {
+        foodieRef.document(tempId).getDocument {
+            (document, error) in
+            if !document!.exists {
+                foodieRef.document(tempId).setData([
+                    "name": tempFoodie?.name!,
+                    "email": tempFoodie?.email!,
+                    "zipCode": tempFoodie?.zipCode!,
+                    "city": tempFoodie?.city!,
+                    "state": tempFoodie?.state!,
+                    "isActive": tempFoodie?.isActive!
+                ], merge: true)
+                if tempFoodie?.address != "" {
+                    foodieRef.document(tempId).setData([
+                        "address": tempFoodie?.address!
+                    ], merge: true)
+                }
+                print("Foodie created")
+                outBool = true
+                outString = ""
+            }
+            else {
+                print("Unable to create foodie")
+                print("Foodie exists")
+            }
+        }
+    }
+    */
     return (outBool, outString)
 }

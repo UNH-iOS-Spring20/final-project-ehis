@@ -58,7 +58,8 @@ struct CreateEaterView_Previews: PreviewProvider {
 
 private func createEater(_ name: String, _ address: String, _ email: String, _ zip: String)  -> (Bool, String) {
     let eaterRef = db.collection("eaters")
-    let tempEater = EaterUser(name, address, email, isAdmin: false, zipCode: zip)
+    let tempEater: EaterUser! = EaterUser(name, address, email, isAdmin: false, zipCode: zip)
+//    let tempEater = EaterUser(id: email, name: name, address: address, email: email, isActive: true, isAdmin: false, zipCode: zip)
     var outBool: Bool = false
     var outString: String = "User already exists"
     
@@ -67,19 +68,19 @@ private func createEater(_ name: String, _ address: String, _ email: String, _ z
         outString = "Invalid details given"
     }
     else {
-        eaterRef.document(tempEater!.email).getDocument {
+        eaterRef.document(tempEater.email).getDocument {
             (document, error) in
             if !document!.exists {
-                eaterRef.document(tempEater!.email).setData([
-                    "name": tempEater!.name,
-                    "email": tempEater!.email,
-                    "zipCode": tempEater!.zipCode,
+                eaterRef.document(tempEater.email).setData([
+                    "name": tempEater.name,
+                    "email": tempEater.email,
+                    "zipCode": tempEater.zipCode,
                     "isActive": true,
                     "isAdmin": false
                 ], merge: true)
-                if tempEater!.address != "" {
-                    eaterRef.document(tempEater!.email).setData([
-                        "address": tempEater!.address
+                if tempEater.address != "" {
+                    eaterRef.document(tempEater.email).setData([
+                        "address": tempEater.address
                     ], merge: true)
                 }
                 print("Eater created")

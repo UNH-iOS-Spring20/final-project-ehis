@@ -16,10 +16,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack{
-            List {
-                Text("Foodies")
-//                ForEach(fbSession)
-            }
+            Debug()
         }
     }
 

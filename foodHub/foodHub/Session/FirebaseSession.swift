@@ -29,7 +29,16 @@ class FirebaseSession: ObservableObject {
             snapshot.documentChanges.forEach { diff in
                 if (diff.type == .added) {
                     print ("New foodie: \(diff.document.data())")
-                    let foodie = FoodieUser(id: diff.document.documentID,
+                    let foodie: FoodieUser? = FoodieUser(allFields: diff.document.documentID,
+                    name: diff.document.get("name") as! String,
+                    address: diff.document.get("address") as? String,
+                    email: diff.document.get("email") as? String,
+                    isActive: diff.document.get("isActive") as! Bool,
+                    zipCode: diff.document.get("zipCode") as! String,
+                    city: diff.document.get("city") as? String,
+                    state: diff.document.get("state") as? String)
+                    /*
+                    let foodie = FoodieUser(id: diff.document.get("id") as! String,
                                             name: diff.document.get("name") as! String,
                                             address: diff.document.get("address") as! String,
                                             email: diff.document.get("email") as! String,
@@ -37,18 +46,16 @@ class FirebaseSession: ObservableObject {
                                             zipCode: diff.document.get("zipCode") as! String,
                                             city: diff.document.get("city") as! String,
                                             state: diff.document.get("state") as! String)
+                     */
+                    if foodie != nil {
+                        self.foodies.append(foodie!)
+                    }
+                    else {
+                        print("nil foodie encountered")
+                    }
                 }
-                
-                /*
-                 self.name = name
-                 self.address = address
-                 self.email = email
-                 self.isActive = true
-                 self.zipCode = zipCode
-                 self.city = city
-                 self.state = state
-                 */
             }
+            
         }
         
         
@@ -61,6 +68,29 @@ class FirebaseSession: ObservableObject {
             snapshot.documentChanges.forEach { diff in
                 if (diff.type == .added) {
                     print ("New eater: \(diff.document.data())")
+                    
+                    let eater = EaterUser(allFields: diff.document.documentID,
+                    name: diff.document.get("name") as! String,
+                    address: diff.document.get("address") as? String ?? "",
+                    email: diff.document.get("email") as! String,
+                    isActive: diff.document.get("isActive") as! Bool,
+                    isAdmin: diff.document.get("isAdmin") as! Bool,
+                    zipCode: diff.document.get("zipCode") as! String)
+                    /*
+                    let eater = EaterUser(id: diff.document.documentID,
+                                            name: diff.document.get("name") as! String,
+                                            address: diff.document.get("address") as! String,
+                                            email: diff.document.get("email") as! String,
+                                            isActive: diff.document.get("isActive") as! Bool,
+                                            isAdmin: diff.document.get("isAdmin") as! Bool,
+                                            zipCode: diff.document.get("zipCode") as! String)
+                     */
+                    if eater != nil {
+                        self.eaters.append(eater!)
+                    }
+                    else {
+                        print("nil eater encountered")
+                    }
                 }
                 
             }
