@@ -57,6 +57,7 @@ struct CreateEaterView_Previews: PreviewProvider {
 }
 
 private func createEater(_ name: String, _ address: String, _ email: String, _ zip: String)  -> (Bool, String) {
+    /*
     let eaterRef = db.collection("eaters")
     let tempEater: EaterUser! = EaterUser(name, address, email, isAdmin: false, zipCode: zip)
 //    let tempEater = EaterUser(id: email, name: name, address: address, email: email, isActive: true, isAdmin: false, zipCode: zip)
@@ -94,4 +95,6 @@ private func createEater(_ name: String, _ address: String, _ email: String, _ z
         }
     }
     return (outBool, outString)
+ */
+    return (true, "HardCode")
 }

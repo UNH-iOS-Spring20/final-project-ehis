@@ -63,6 +63,7 @@ var body: some View {
 }
             
 private func updateEater(){
+    /*
     let eaterRef = db.collection("eaters")
     
     eaterRef.document("test_2@gmail.com").setData([
@@ -70,6 +71,7 @@ private func updateEater(){
         "isAdmin": false,
         "isActive": true
     ], merge: true)
+    */
     print("Eater(s) updated")
 }
 

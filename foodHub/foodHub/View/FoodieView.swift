@@ -65,6 +65,7 @@ var body: some View {
 }
 
 private func updateFoodies(){
+    /*
     let foodieRef = db.collection("foodies")
     
     foodieRef.document("McDonalds-06516").setData([
@@ -74,6 +75,7 @@ private func updateFoodies(){
         "zipCode": "06516",
         "isActive": true
     ], merge: true)
+ */
     print("Foodie(s) updated")
 }
 

@@ -5,8 +5,9 @@
 //  Created by Ekore, Ehiremen Alex on 3/7/20.
 //  Copyright © 2020 Ekore, Ehiremen Alex. All rights reserved.
 //
+import FirebaseFirestore
 
-class FoodieUser: Identifiable{
+struct FoodieUser: Identifiable{
     var id: String
     var name: String
     var address: String?
@@ -48,5 +49,30 @@ class FoodieUser: Identifiable{
             self.menuItems = menuItems;
         }
     }
+}
+
+extension FoodieUser: DocumentSerializable {
+    init? (id: String, dictionary: [String: Any]) {
+        guard let name = dictionary["name"] as? String,
+            let address = dictionary["address"] as? String,
+            let email = dictionary["email"] as? String,
+            let isActive = dictionary["isActive"] as? Bool,
+            let zipCode = dictionary["zipCode"] as? String,
+            let city = dictionary["city"] as? String,
+            let state = dictionary["state"] as? String,
+            
+            let tempItems = dictionary["menuItems"] as? [DocumentReference]
+        else {
+            return nil
+        }
+        
+        var menuItems = [String]()
+        for item in tempItems {
+            menuItems.append(item.path)
+        }
+        
+        self.init(allFields: id, name: name, address: address, email: email, isActive: isActive, zipCode: zipCode, city: city, state: state, menuItems: menuItems)
+    }
+    
 }
 

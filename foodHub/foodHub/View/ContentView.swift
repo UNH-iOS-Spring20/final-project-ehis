@@ -9,11 +9,18 @@
 import SwiftUI
 import FirebaseFirestore
 
-let db = Firestore.firestore()
+let queryFoodies = Firestore.firestore().collection("foodies")
+let queryEaters = Firestore.firestore().collection("eaters")
+let queryMenuItems = Firestore.firestore().collection("menuItemUnits")
+let queryMenuGroups = Firestore.firestore().collection("menuItems")
+
 
 struct ContentView: View {
-    @ObservedObject private var fbSession = firebaseSession
-    
+    @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (query: queryFoodies)
+    @ObservedObject private var eaters = FirebaseCollection<EaterUser> (query: queryEaters)
+    @ObservedObject private var menuItems = FirebaseCollection<MenuItemUnit> (query: queryMenuItems)
+    @ObservedObject private var menuItemGroups = FirebaseCollection<MenuItemGroup> (query: queryMenuGroups)
+ 
     var body: some View {
         VStack{
             Debug()

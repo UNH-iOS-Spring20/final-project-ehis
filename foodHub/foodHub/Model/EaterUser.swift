@@ -17,7 +17,7 @@ struct EaterUser: Identifiable {
 }
 */
 
-class EaterUser: Identifiable{
+struct EaterUser: Identifiable{
     var id: String
     var name: String
     var address: String
@@ -60,3 +60,21 @@ class EaterUser: Identifiable{
     }
 }
  
+extension EaterUser: DocumentSerializable {
+    init? (id: String, dictionary: [String: Any]) {
+        guard let name = dictionary["name"] as? String,
+            let email = dictionary["email"] as? String,
+            let isActive = dictionary["isActive"] as? Bool,
+            let isAdmin = dictionary["isAdmin"] as? Bool,
+            let zipCode = dictionary["zipCode"] as? String
+            
+        else {
+            return nil
+        }
+        
+
+        let address = dictionary["address"] as! String? ?? ""
+        
+        self.init(allFields: id, name: name, address: address, email: email, isActive: isActive, isAdmin: isAdmin, zipCode: zipCode)
+    }
+}

@@ -65,6 +65,7 @@ struct CreateFoodieView_Previews: PreviewProvider {
 }
 
 private func createFoodie(_ name: String, _ email: String, _ address: String, _ zipCode: String, _ city: String, _ state: String, _ isActive: Bool) -> (Bool, String) {
+    /*
     let foodieRef = db.collection("foodies")
     let tempId = name + "-" + zipCode
     let tempFoodie: FoodieUser? = FoodieUser(name, address, email, zipCode, city, state)
@@ -134,4 +135,6 @@ private func createFoodie(_ name: String, _ email: String, _ address: String, _ 
     }
     */
     return (outBool, outString)
+ */
+    return (true, "Hard code")
 }

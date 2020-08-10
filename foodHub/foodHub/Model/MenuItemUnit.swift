@@ -25,3 +25,17 @@ struct MenuItemUnit: Identifiable {
         self.description = description
     }
 }
+
+extension MenuItemUnit: DocumentSerializable {
+    init? (id: String, dictionary: [String: Any]) {
+        guard let size = dictionary["size"] as? String,
+            let price = dictionary["price"] as? Double,
+            let description = dictionary["description"] as? String
+        else {
+            return nil
+        }
+        
+        self.init(full: id, size: size, price: price, description: description)
+    }
+    
+}

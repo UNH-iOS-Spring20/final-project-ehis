@@ -36,6 +36,7 @@ struct Debug: View {
     
 }
 
+/*
 private func getCollection(collection: String){
     db.collection(collection).getDocuments() { (querySnapshot, err) in
         if let err = err {
@@ -71,6 +72,7 @@ private func deleteCollection(collection: String){
         print("")
     }
 }
+ */
 
 struct Debug_Previews: PreviewProvider {
     static var previews: some View {
