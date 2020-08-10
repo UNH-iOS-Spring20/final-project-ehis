@@ -6,19 +6,6 @@
 //  Copyright © 2020 Ekore, Ehiremen Alex. All rights reserved.
 //
 
-/*
-struct FoodieUser: Identifiable{
-    var id: String
-    var name: String
-    var address: String
-    var email: String
-    var isActive: Bool
-    var zipCode: String
-    var city: String
-    var state: String
-}
-*/
-
 class FoodieUser: Identifiable{
     var id: String
     var name: String
@@ -28,16 +15,7 @@ class FoodieUser: Identifiable{
     var zipCode: String
     var city: String?
     var state: String?
-    var myMenu: StoreMenu
-    /*
-    var name: String?
-    var address: String?
-    var email: String?
-    var isActive: Bool?
-    var zipCode: String?
-    var city: String?
-    var state: String?
-    */
+    var menuItems = [String]() // names of all the group items in the menu (i.e. doesn't go as detailed as size of item)
     
     init? (_ name: String, _ address: String, _ email: String, _ zipCode: String, _ city: String, _ state: String){
         if name.isEmpty || zipCode.isEmpty {
@@ -52,10 +30,9 @@ class FoodieUser: Identifiable{
             self.zipCode = zipCode
             self.city = city
             self.state = state
-            self.myMenu = StoreMenu()
         }
     }
-    init? (allFields id: String, name: String, address: String?, email: String?, isActive: Bool, zipCode: String, city: String?, state: String?, myMenu: StoreMenu?){
+    init? (allFields id: String, name: String, address: String?, email: String?, isActive: Bool, zipCode: String, city: String?, state: String?, menuItems: [String]){
         if name.isEmpty || zipCode.isEmpty {
             return nil
         }
@@ -68,25 +45,8 @@ class FoodieUser: Identifiable{
             self.zipCode = zipCode
             self.city = city
             self.state = state
-            self.myMenu = myMenu ?? StoreMenu()
+            self.menuItems = menuItems;
         }
     }
-    /*
-    init? (allFields id: String, name: String?, address: String?, email: String?, isActive: Bool?, zipCode: String?, city: String?, state: String?){
-        if ((name?.isEmpty) != nil) || name == nil || ((zipCode?.isEmpty) != nil) || zipCode == nil {
-            return nil
-        }
-        else {
-            self.id = id
-            self.name = name
-            self.address = address
-            self.email = email
-            self.isActive = isActive
-            self.zipCode = zipCode
-            self.city = city
-            self.state = state
-        }
-    }
-     */
 }
 
