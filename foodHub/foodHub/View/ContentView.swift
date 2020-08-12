@@ -9,7 +9,7 @@
 import SwiftUI
 import FirebaseFirestore
 
-let queryFoodies = Firestore.firestore().collection("foodies")
+let queryFoodies = Firestore.firestore().collection("foodies2")
 let queryEaters = Firestore.firestore().collection("eaters")
 let queryMenuItems = Firestore.firestore().collection("menuItemUnits")
 let queryMenuGroups = Firestore.firestore().collection("menuItems")

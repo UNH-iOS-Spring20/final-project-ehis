@@ -28,6 +28,14 @@ struct Debug: View {
                         .font(.largeTitle)
                 }
                 .padding(15)
+                NavigationLink(
+                    destination: ShowDebug()
+                )
+                {
+                    Text("view debug data")
+                        .font(.largeTitle)
+                }
+                .padding(15)
             }
         .navigationBarTitle(Text("I want to..."))
         }

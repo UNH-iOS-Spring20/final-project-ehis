@@ -55,7 +55,7 @@ extension FoodieUser: DocumentSerializable {
     init? (id: String, dictionary: [String: Any]) {
         guard let name = dictionary["name"] as? String,
             let address = dictionary["address"] as? String,
-            let email = dictionary["email"] as? String,
+            let email = ((dictionary["email"] as? String) != nil) ? dictionary["email"] as? String : "",
             let isActive = dictionary["isActive"] as? Bool,
             let zipCode = dictionary["zipCode"] as? String,
             let city = dictionary["city"] as? String,
