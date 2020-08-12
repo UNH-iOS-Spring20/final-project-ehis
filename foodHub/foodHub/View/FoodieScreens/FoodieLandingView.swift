@@ -50,13 +50,25 @@ struct FoodieView: View {
     }
 }
 */
-struct FoodieView: View {
-var body: some View {
+struct FoodieLandingView: View {
+//@ObservedObject private var foodies = FirebaseCollection<FoodieUser> (query: queryFoodies)
+    @State static var sessionFoodieUser: FoodieUser?
+    // static state var makes it such that there can be ONE active foodie user during the session
+    
+    var body: some View {
         VStack {
             NavigationLink(
                 destination: CreateFoodieView()
             ){
              Text("New foodie")
+                .font(.largeTitle)
+            }
+            .padding(10)
+            
+            NavigationLink(
+                destination: FoodieHomeView()
+            ){
+             Text("Skip")
                 .font(.largeTitle)
             }
             .padding(10)
@@ -82,7 +94,7 @@ private func updateFoodies(){
  
 struct FoodieView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodieView()
+        FoodieLandingView()
     }
 }
 

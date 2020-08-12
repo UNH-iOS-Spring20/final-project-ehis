@@ -1,5 +1,5 @@
 //
-//  EaterHomeView.swift
+//  FoodieHomeView.swift
 //  foodHub
 //
 //  Created by Ehiremen Ekore on 8/12/20.
@@ -8,7 +8,8 @@
 
 import SwiftUI
 
-struct EaterHomeView: View {
+struct FoodieHomeView: View {
+//    let sessionFoodieUser: FoodieUser
     var body: some View {
         VStack {
             ListFoodiesView()
@@ -20,12 +21,13 @@ struct EaterHomeView: View {
                     .font(.largeTitle)
             }.padding()
             */
-        }
+        }.navigationBarItems(leading: EditButton())
     }
 }
 
-struct EaterHomeView_Previews: PreviewProvider {
+struct FoodieHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        EaterHomeView()
+        FoodieHomeView()
     }
 }
+

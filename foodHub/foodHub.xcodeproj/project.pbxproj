@@ -51,7 +51,7 @@
 		8C802733240C4378001FD693 /* foodhub-1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C802731240C4378001FD693 /* foodhub-1024x1024.png */; };
 		8C802734240C4378001FD693 /* foodhub-1024x1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C802731240C4378001FD693 /* foodhub-1024x1024.png */; };
 		8C802736240C4B58001FD693 /* EaterLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C802735240C4B58001FD693 /* EaterLandingView.swift */; };
-		8C80273A240C4B6E001FD693 /* FoodieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C802739240C4B6E001FD693 /* FoodieView.swift */; };
+		8C80273A240C4B6E001FD693 /* FoodieLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C802739240C4B6E001FD693 /* FoodieLandingView.swift */; };
 		8CEB66D524131F9000E1DEBF /* EaterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB66D424131F8F00E1DEBF /* EaterUser.swift */; };
 		8CEB66D624131F9000E1DEBF /* EaterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB66D424131F8F00E1DEBF /* EaterUser.swift */; };
 		8CEB66D724131F9000E1DEBF /* EaterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB66D424131F8F00E1DEBF /* EaterUser.swift */; };
@@ -65,6 +65,7 @@
 		CD48A44324E4351E00445241 /* EaterLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C802735240C4B58001FD693 /* EaterLandingView.swift */; };
 		CD48A44524E435E100445241 /* EaterHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48A44424E435E100445241 /* EaterHomeView.swift */; };
 		CD48A44724E436F200445241 /* ListFoodiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48A44624E436F200445241 /* ListFoodiesView.swift */; };
+		CD48A44924E4AFC400445241 /* FoodieHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48A44824E4AFC400445241 /* FoodieHomeView.swift */; };
 		CD6039DC24D8920100300697 /* MenuItemUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6039DB24D8920100300697 /* MenuItemUnit.swift */; };
 		CD6039DE24D8922200300697 /* MenuItemGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6039DD24D8922200300697 /* MenuItemGroup.swift */; };
 		CD68D40C24E0FA2800436DD5 /* FirebaseCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD68D40B24E0FA2800436DD5 /* FirebaseCollection.swift */; };
@@ -123,7 +124,7 @@
 		8C80272D240C41F4001FD693 /* foodhub-87x87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "foodhub-87x87.png"; sourceTree = "<group>"; };
 		8C802731240C4378001FD693 /* foodhub-1024x1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "foodhub-1024x1024.png"; sourceTree = "<group>"; };
 		8C802735240C4B58001FD693 /* EaterLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EaterLandingView.swift; sourceTree = "<group>"; };
-		8C802739240C4B6E001FD693 /* FoodieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodieView.swift; sourceTree = "<group>"; };
+		8C802739240C4B6E001FD693 /* FoodieLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodieLandingView.swift; sourceTree = "<group>"; };
 		8CEB66D424131F8F00E1DEBF /* EaterUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EaterUser.swift; sourceTree = "<group>"; };
 		8CEB66D924132BAB00E1DEBF /* CreateEaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEaterView.swift; sourceTree = "<group>"; };
 		BBC5D1BE77998E15E37BC5F3 /* Pods-foodHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodHub.debug.xcconfig"; path = "Target Support Files/Pods-foodHub/Pods-foodHub.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +132,7 @@
 		CD48A44024E4252A00445241 /* FoodieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodieDetailView.swift; sourceTree = "<group>"; };
 		CD48A44424E435E100445241 /* EaterHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EaterHomeView.swift; sourceTree = "<group>"; };
 		CD48A44624E436F200445241 /* ListFoodiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFoodiesView.swift; sourceTree = "<group>"; };
+		CD48A44824E4AFC400445241 /* FoodieHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodieHomeView.swift; sourceTree = "<group>"; };
 		CD6039DB24D8920100300697 /* MenuItemUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemUnit.swift; sourceTree = "<group>"; };
 		CD6039DD24D8922200300697 /* MenuItemGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemGroup.swift; sourceTree = "<group>"; };
 		CD68D40B24E0FA2800436DD5 /* FirebaseCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCollection.swift; sourceTree = "<group>"; };
@@ -272,9 +274,10 @@
 		8C5B13BB2415A2C800A53689 /* FoodieScreens */ = {
 			isa = PBXGroup;
 			children = (
-				8C802739240C4B6E001FD693 /* FoodieView.swift */,
+				8C802739240C4B6E001FD693 /* FoodieLandingView.swift */,
 				8C5B13BC2415A2C800A53689 /* CreateFoodieView.swift */,
 				CD48A44024E4252A00445241 /* FoodieDetailView.swift */,
+				CD48A44824E4AFC400445241 /* FoodieHomeView.swift */,
 			);
 			path = FoodieScreens;
 			sourceTree = "<group>";
@@ -614,8 +617,9 @@
 				8CEB66D524131F9000E1DEBF /* EaterUser.swift in Sources */,
 				8CEB66DA24132BAB00E1DEBF /* CreateEaterView.swift in Sources */,
 				8C802736240C4B58001FD693 /* EaterLandingView.swift in Sources */,
+				CD48A44924E4AFC400445241 /* FoodieHomeView.swift in Sources */,
 				8C19DBFD23F895DC004F1380 /* SceneDelegate.swift in Sources */,
-				8C80273A240C4B6E001FD693 /* FoodieView.swift in Sources */,
+				8C80273A240C4B6E001FD693 /* FoodieLandingView.swift in Sources */,
 				8C19DBFF23F895DC004F1380 /* ContentView.swift in Sources */,
 				8C4F11BF241450AC00541E5E /* FoodieUser.swift in Sources */,
 				CD48A44724E436F200445241 /* ListFoodiesView.swift in Sources */,

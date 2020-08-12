@@ -21,7 +21,7 @@ struct Debug: View {
                     }
                 .padding(15)
                 NavigationLink(
-                    destination: FoodieView()
+                    destination: FoodieLandingView()
                 )
                 {
                     Text("sell food")

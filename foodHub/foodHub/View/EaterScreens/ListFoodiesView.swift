@@ -13,6 +13,7 @@ struct ListFoodiesView: View {
     @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (query: queryFoodies)
     var body: some View {
 //        NavigationView{
+        VStack{
             List {
                 ForEach(foodies.items) { foodie in
                     NavigationLink(destination: FoodieDetailView(foodie: foodie)){
@@ -20,6 +21,7 @@ struct ListFoodiesView: View {
                     }
                 }
             }
+        }
 //        }
     }
 }
