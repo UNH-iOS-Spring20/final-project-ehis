@@ -48,7 +48,7 @@ struct EaterView: View {
     }
 }
 */
-struct EaterView: View {
+struct EaterLandingView: View {
 var body: some View {
         VStack {
             NavigationLink(
@@ -58,7 +58,16 @@ var body: some View {
                 .font(.largeTitle)
             }
             .padding(10)
+            
+            NavigationLink(
+                destination: EaterHomeView()
+            ){
+             Text("Skip")
+                .font(.largeTitle)
+            }
+            .padding(10)
         }
+//        .navigationBarTitle(Text("Go back"))
     }
 }
             
@@ -77,7 +86,7 @@ private func updateEater(){
 
 struct EaterView_Previews: PreviewProvider {
     static var previews: some View {
-        EaterView()
+        EaterLandingView()
     }
 }
 

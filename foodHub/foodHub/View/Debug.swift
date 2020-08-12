@@ -13,7 +13,7 @@ struct Debug: View {
         NavigationView {
             VStack{
                 NavigationLink(
-                    destination: EaterView()
+                    destination: EaterLandingView()
                 )
                 {
                     Text("eat food")
