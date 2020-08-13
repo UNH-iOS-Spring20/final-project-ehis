@@ -9,8 +9,9 @@
 import SwiftUI
 
 struct ShowDebug: View {
-    @ObservedObject private var menuItems = FirebaseCollection<MenuItemUnit> (query: queryMenuItems)
+//    @ObservedObject private var menuItems = FirebaseCollection<MenuItemUnit> (query: queryMenuItems)
     
+    var menuItems = ContentView.menuItems
     var body: some View {
         List {
             ForEach(menuItems.items) { menuItem in

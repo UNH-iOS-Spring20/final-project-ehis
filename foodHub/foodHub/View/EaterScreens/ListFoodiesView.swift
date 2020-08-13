@@ -10,7 +10,8 @@ import SwiftUI
 import FirebaseFirestore
 
 struct ListFoodiesView: View {
-    @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (query: queryFoodies)
+//    @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (query: queryFoodies)
+    var foodies = ContentView.foodies
     var body: some View {
 //        NavigationView{
         VStack{

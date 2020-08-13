@@ -16,10 +16,10 @@ let queryMenuGroups = Firestore.firestore().collection("menuItems")
 
 
 struct ContentView: View {
-    @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (query: queryFoodies)
-    @ObservedObject private var eaters = FirebaseCollection<EaterUser> (query: queryEaters)
-    @ObservedObject private var menuItems = FirebaseCollection<MenuItemUnit> (query: queryMenuItems)
-    @ObservedObject private var menuItemGroups = FirebaseCollection<MenuItemGroup> (query: queryMenuGroups)
+    @ObservedObject static var foodies = FirebaseCollection<FoodieUser> (query: queryFoodies)
+    @ObservedObject static var eaters = FirebaseCollection<EaterUser> (query: queryEaters)
+    @ObservedObject static var menuItems = FirebaseCollection<MenuItemUnit> (query: queryMenuItems)
+    @ObservedObject static var menuItemGroups = FirebaseCollection<MenuItemGroup> (query: queryMenuGroups)
  
     var body: some View {
         VStack{
