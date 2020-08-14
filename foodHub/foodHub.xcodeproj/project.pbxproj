@@ -66,6 +66,7 @@
 		CD48A44524E435E100445241 /* EaterHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48A44424E435E100445241 /* EaterHomeView.swift */; };
 		CD48A44724E436F200445241 /* ListFoodiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48A44624E436F200445241 /* ListFoodiesView.swift */; };
 		CD48A44924E4AFC400445241 /* FoodieHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48A44824E4AFC400445241 /* FoodieHomeView.swift */; };
+		CD4F774224E6245D0014AC77 /* StoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4F774124E6245D0014AC77 /* StoreInfoView.swift */; };
 		CD6039DC24D8920100300697 /* MenuItemUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6039DB24D8920100300697 /* MenuItemUnit.swift */; };
 		CD6039DE24D8922200300697 /* MenuItemGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6039DD24D8922200300697 /* MenuItemGroup.swift */; };
 		CD68D40C24E0FA2800436DD5 /* FirebaseCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD68D40B24E0FA2800436DD5 /* FirebaseCollection.swift */; };
@@ -133,6 +134,7 @@
 		CD48A44424E435E100445241 /* EaterHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EaterHomeView.swift; sourceTree = "<group>"; };
 		CD48A44624E436F200445241 /* ListFoodiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListFoodiesView.swift; sourceTree = "<group>"; };
 		CD48A44824E4AFC400445241 /* FoodieHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodieHomeView.swift; sourceTree = "<group>"; };
+		CD4F774124E6245D0014AC77 /* StoreInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreInfoView.swift; sourceTree = "<group>"; };
 		CD6039DB24D8920100300697 /* MenuItemUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemUnit.swift; sourceTree = "<group>"; };
 		CD6039DD24D8922200300697 /* MenuItemGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemGroup.swift; sourceTree = "<group>"; };
 		CD68D40B24E0FA2800436DD5 /* FirebaseCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseCollection.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				8C5B13BC2415A2C800A53689 /* CreateFoodieView.swift */,
 				CD48A44024E4252A00445241 /* FoodieDetailView.swift */,
 				CD48A44824E4AFC400445241 /* FoodieHomeView.swift */,
+				CD4F774124E6245D0014AC77 /* StoreInfoView.swift */,
 			);
 			path = FoodieScreens;
 			sourceTree = "<group>";
@@ -608,6 +611,7 @@
 			files = (
 				8C19DBFB23F895DC004F1380 /* AppDelegate.swift in Sources */,
 				CD6039DE24D8922200300697 /* MenuItemGroup.swift in Sources */,
+				CD4F774224E6245D0014AC77 /* StoreInfoView.swift in Sources */,
 				CD68D40C24E0FA2800436DD5 /* FirebaseCollection.swift in Sources */,
 				CD48A44524E435E100445241 /* EaterHomeView.swift in Sources */,
 				CDB3910E24D254EB00FD43B2 /* Debug.swift in Sources */,

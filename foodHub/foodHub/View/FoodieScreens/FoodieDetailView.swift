@@ -19,10 +19,16 @@ struct FoodieDetailView: View {
             List{
                 ForEach(foodie.menuItems, id: \.self) { item in
                     Text(item)
-                    
                 }
                 Spacer()
             }
+            NavigationLink(
+                destination: StoreInfoView(foodie: self.foodie)
+            ){
+             Text("Store Info!")
+                .font(.body)
+            }
+            .padding(10)
         }.padding()
         
     }
