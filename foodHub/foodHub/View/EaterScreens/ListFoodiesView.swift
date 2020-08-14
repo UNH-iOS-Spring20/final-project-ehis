@@ -22,6 +22,7 @@ struct ListFoodiesView: View {
                     }
                 }
             }
+            .navigationBarTitle("Foodies near me")
         }
 //        }
     }

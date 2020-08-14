@@ -13,9 +13,6 @@ struct FoodieDetailView: View {
     
     var body: some View {
         VStack {
-            Text(foodie.name)
-                .font(.largeTitle)
-            
             List{
                 ForEach(foodie.menuItems, id: \.self) { item in
                     Text(item)
@@ -29,6 +26,7 @@ struct FoodieDetailView: View {
                 .font(.body)
             }
             .padding(10)
+            .navigationBarTitle(foodie.name)
         }.padding()
         
     }
