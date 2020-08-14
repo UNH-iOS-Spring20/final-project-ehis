@@ -26,8 +26,6 @@ struct ContentView: View {
             Debug()
         }
     }
-
-
     
 }
 

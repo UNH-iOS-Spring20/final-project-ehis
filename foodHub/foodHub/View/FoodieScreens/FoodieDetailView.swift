@@ -17,13 +17,10 @@ struct FoodieDetailView: View {
                 .font(.largeTitle)
             
             List{
-                Text(foodie.menuItems[0])
-                
-                /*
-                for item in foodie.menuItems {
+                ForEach(foodie.menuItems, id: \.self) { item in
                     Text(item)
+                    
                 }
- */
                 Spacer()
             }
         }.padding()
