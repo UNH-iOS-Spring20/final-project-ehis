@@ -14,43 +14,33 @@ struct StoreInfoView: View {
         VStack(alignment: .leading, spacing: 1){
             Text(foodie.name)
                 .font(.title)
-                .padding(10)
             if foodie.address != nil {
                 Text(foodie.address!)
                     .font(.body)
-                .padding(10)
             }
             
             if foodie.city != nil {
                 Text(foodie.city!)
-                    .font(.body)
-                .padding(10)
-            }
+                    .font(.body)            }
             
             HStack{
                 if foodie.state != nil {
                     Text(foodie.state! + ", ")
                         .font(.body)
-                    .padding(10)
                 }
                 
                 Text(foodie.zipCode)
                     .font(.body)
             }
             
-            
-            if foodie.address != nil {
+            if foodie.email != nil {
                 HStack{
                     Text("Contact us:")
                         .font(.body)
-                        .padding(10)
                     
                     Text(foodie.email!)
                         .font(.body)
                 }
-//                Text(foodie.email!)
-//                    .font(.body)
-//                .padding(10)
             }
         }.padding()
     }
