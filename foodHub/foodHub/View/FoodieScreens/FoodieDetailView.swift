@@ -14,9 +14,9 @@ struct FoodieDetailView: View {
     var body: some View {
         VStack {
             List{
-                ForEach(foodie.menuItems, id: \.self) { item in
+                ForEach(foodie.menu, id: \.self) { item in
                     Text(item)
-                }.onDelete(perform: removeMenuItem)
+                } //.onDelete(perform: removeMenuItem)
                 /*
                 if FoodieLandingView.sessionFoodieUser?.id == foodie.id {
                     .onDelete
@@ -35,13 +35,15 @@ struct FoodieDetailView: View {
         }.padding()
     }
     
+    /*
     func removeMenuItem (at offsets: IndexSet) {
-        foodie.menuItems.deleteItem(index: offsets.first!)
+        foodie.menu.deleteItem(index: offsets.first!)
     }
+ */
 }
 
 struct FoodieDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodieDetailView(foodie: FoodieUser(allFields: "Test", name: "Test", address: nil, email: nil, isActive: true, zipCode: "00000", city: nil, state: nil, menuItems: ["N/A"])!)
+        FoodieDetailView(foodie: FoodieUser(allFields: "Test", name: "Test", address: "nil", email: "nil", phone: "nil", isActive: true, zipCode: "00000", city: "nil", state: "nil", menu: ["N/A"])!)
     }
 }

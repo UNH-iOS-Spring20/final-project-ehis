@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ShowDebug: View {
-    let menuItemGroups = ContentView.menuItemGroups
+//    let menuItemGroups = ContentView.menuItemGroups
     
     private var menuItems = ContentView.menuItems
     var body: some View {
@@ -17,7 +17,7 @@ struct ShowDebug: View {
             ForEach(menuItems.items) { menuItem in
                 Text(menuItem.id)
             }
-        }
+        }.navigationBarTitle("Food menu Groups")
     }
 }
 
