@@ -9,14 +9,19 @@
 import SwiftUI
 
 struct FoodieDetailView: View {
-    let foodie: FoodieUser
+    var foodie: FoodieUser
     
     var body: some View {
         VStack {
             List{
                 ForEach(foodie.menuItems, id: \.self) { item in
                     Text(item)
+                }.onDelete(perform: removeMenuItem)
+                /*
+                if FoodieLandingView.sessionFoodieUser?.id == foodie.id {
+                    .onDelete
                 }
+                */
                 Spacer()
             }
             NavigationLink(
@@ -28,7 +33,10 @@ struct FoodieDetailView: View {
             .padding(10)
             .navigationBarTitle(foodie.name)
         }.padding()
-        
+    }
+    
+    func removeMenuItem (at offsets: IndexSet) {
+        foodie.menuItems.deleteItem(index: offsets.first!)
     }
 }
 
