@@ -21,7 +21,6 @@ struct ListFoodiesView: View {
                 ForEach(foodies.items) { foodie in
                     NavigationLink(destination: FoodieDetailView(foodie: foodie)){
                         Text(foodie.id)
-//                        Text(foodie.name)
                     }
                 }
             }

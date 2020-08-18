@@ -8,19 +8,17 @@
 
 import SwiftUI
 
-var out = ""
+
 struct FoodieDetailView: View {
     var foodie: FoodieUser
-    
     @ObservedObject var menuItems = FirebaseCollection<MenuItem> (query: queryMenuItems)
 //    var menuItems: [MenuItemDetail]
-    
     
     var body: some View {
         VStack {
             List{
                 ForEach(foodie.menu, id: \.self) { item in
-                    NavigationLink(destination: MenuView(menuItem: item)
+                    NavigationLink(destination: MenuView(menuItem: getMenuItemName(menuItems: self.menuItems, item: item))
                     ){
                         Text(fetchItemName(menuItems: self.menuItems, item: item))
                     }
@@ -57,14 +55,22 @@ struct FoodieDetailView_Previews: PreviewProvider {
     }
 }
 
-func fetchItemName (menuItems: FirebaseCollection<MenuItem>, item: String) -> String {
+func fetchItemName (menuItems: FirebaseCollection<MenuItem>, item: String) -> (String) {
     for temp in menuItems.items {
         if temp.id == item {
-            return temp.name
+            return (temp.name)
         }
     }
-    
     return ""
+}
+
+func getMenuItemName (menuItems: FirebaseCollection<MenuItem>, item: String) -> (MenuItem) {
+    for temp in menuItems.items {
+        if temp.id == item {
+            return (temp)
+        }
+    }
+    return MenuItem()
 }
 
 /*

@@ -14,6 +14,13 @@ struct MenuItem: Identifiable {
     var customizable: Bool
     var members = [String]()
     
+    init(){
+        self.id = ""
+        self.owner = ""
+        self.name = ""
+        self.customizable = false
+    }
+    
     init (noID owner: String, name: String, customizable: Bool, members: [String]){
         self.id = owner + "-" + name
         self.owner = owner

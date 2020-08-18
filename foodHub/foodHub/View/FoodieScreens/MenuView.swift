@@ -9,13 +9,26 @@
 import SwiftUI
 
 struct MenuView: View {
+    var menuItem: MenuItem
+    
+    @ObservedObject var menuItemDetails = FirebaseCollection<MenuItemDetail> (query: queryMenuItemDetails)
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(menuItem.id)
     }
 }
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView()
+        MenuView(menuItem: MenuItem())
     }
 }
+//
+//func temp (group: String) {
+//
+//    ForEach(ContentView.$menuItemDetails, id: \.self) { item in
+//        var test = ContentView.$menuItemDetails
+//
+//    }
+//
+//}
