@@ -20,7 +20,8 @@ struct ListFoodiesView: View {
             List {
                 ForEach(foodies.items) { foodie in
                     NavigationLink(destination: FoodieDetailView(foodie: foodie)){
-                            Text(foodie.id)
+                        Text(foodie.id)
+//                        Text(foodie.name)
                     }
                 }
             }

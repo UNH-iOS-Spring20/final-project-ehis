@@ -12,13 +12,20 @@ var out = ""
 struct FoodieDetailView: View {
     var foodie: FoodieUser
     
+    @ObservedObject var menuItems = FirebaseCollection<MenuItem> (query: queryMenuItems)
+//    var menuItems: [MenuItemDetail]
+    
+    
     var body: some View {
         VStack {
             List{
                 ForEach(foodie.menu, id: \.self) { item in
-                    Text(fetchItemName(item: item))
+                    NavigationLink(destination: MenuView(menuItem: item)
+                    ){
+                        Text(fetchItemName(menuItems: self.menuItems, item: item))
+                    }
                 } //.onDelete(perform: removeMenuItem)
-                .navigationBarItems(leading: EditButton())
+                //.navigationBarItems(leading: EditButton())
                 /*
                 if FoodieLandingView.sessionFoodieUser?.id == foodie.id {
                     .onDelete
@@ -50,15 +57,27 @@ struct FoodieDetailView_Previews: PreviewProvider {
     }
 }
 
-func fetchItemName (item: String) -> String {
-    let docRef = queryMenuItems.document(item)
-    
-    docRef.getDocument { (document, error) in
-        if let document = document, document.exists {
-            
-            out = document.data()!["name"] as! String
-            print("Document found: \(item), \(out)")
+func fetchItemName (menuItems: FirebaseCollection<MenuItem>, item: String) -> String {
+    for temp in menuItems.items {
+        if temp.id == item {
+            return temp.name
         }
     }
-    return out
+    
+    return ""
 }
+
+/*
+ func fetchItemName (item: String) -> String {
+     let docRef = queryMenuItems.document(item)
+     
+     docRef.getDocument { (document, error) in
+         if let document = document, document.exists {
+             
+             out = document.data()!["name"] as! String
+             print("Document found: \(item), \(out)")
+         }
+     }
+     return out
+ }
+ */
