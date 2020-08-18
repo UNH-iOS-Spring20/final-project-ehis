@@ -44,6 +44,7 @@ class FirebaseCollection<T: DocumentSerializable>: ObservableObject {
     
     func deleteItem(index: Int){
         print("Deleting item: \(items[index])")
+        // TODO: write code for delete item
 //        let id = self.items[index].id
 //        query.document(id).delete() { err in
 //            if let err = err {
@@ -52,5 +53,13 @@ class FirebaseCollection<T: DocumentSerializable>: ObservableObject {
 //                print("Successfully removed document")
 //            }
 //        }
+    }
+    
+    func addItem(data: [String: Any]){
+        // TODO: write code for add item to collection
+    }
+    
+    func updateItem() {
+        // TODO: update document
     }
 }

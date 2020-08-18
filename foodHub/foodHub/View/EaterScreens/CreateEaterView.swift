@@ -52,6 +52,7 @@ struct CreateEaterView: View {
     }
     
     func createEater() {
+        // TODO: validate data and connect to firestore
         print("creating eater...")
         dismiss()
     }

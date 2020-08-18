@@ -9,14 +9,16 @@
 import SwiftUI
 
 struct CreateFoodieView: View {
-    @State var name: String = ""
-    @State var address: String = ""
-    @State var email: String = ""
-    @State var zipCode: String = ""
-    @State var city: String = ""
-    @State var state: String = ""
-    @State var success: Bool = true
-    @State var status: String = ""
+    @Environment(\.presentationMode) var presentationMode
+    @State var name = ""
+    @State var address = ""
+    @State var email = ""
+    @State var phone = ""
+    @State var zipCode = ""
+    @State var city = ""
+    @State var state = ""
+//    @State var success: Bool = true
+//    @State var status: String = ""
     
 //    @State var sessionFoodieUser: FoodieUser?
     
@@ -32,6 +34,9 @@ struct CreateFoodieView: View {
             TextField(" Address", text: $address)
                 .border(Color.black)
             
+            TextField(" Phone", text: $phone)
+            .border(Color.black)
+            
             TextField(" Zip Code", text: $zipCode)
                 .border(Color.black)
             
@@ -42,7 +47,8 @@ struct CreateFoodieView: View {
                 .border(Color.black)
             
             Button(action: {
-                (self.success, self.status, FoodieLandingView.sessionFoodieUser) = createFoodie(self.name, self.email, self.address, self.zipCode, self.city, self.state, true)
+                self.createFoodie()
+//                (self.success, self.status, FoodieLandingView.sessionFoodieUser) = createFoodie(self.name, self.email, self.address, self.zipCode, self.city, self.state, true)
 
             }) {
              Text("Create!")
@@ -50,14 +56,25 @@ struct CreateFoodieView: View {
             }
             .padding(10)
             
+            /*
             if !success {
                 Text(status)
                     .font(.body)
                     .frame(alignment: .trailing)
             }
+            */
         }
         .padding(15)
         .font(.title)
+    }
+    
+    func createFoodie(){
+        // TODO: validate data and connect to firestore
+        print("creating foodie...")
+        dismiss()
+    }
+    func dismiss() {
+        presentationMode.wrappedValue.dismiss()
     }
 }
 
@@ -67,6 +84,7 @@ struct CreateFoodieView_Previews: PreviewProvider {
     }
 }
 
+/*
 private func createFoodie(_ name: String, _ email: String, _ address: String, _ zipCode: String, _ city: String, _ state: String, _ isActive: Bool) -> (Bool, String, FoodieUser?) {
     /*
     let foodieRef = db.collection("foodies")
@@ -141,3 +159,4 @@ private func createFoodie(_ name: String, _ email: String, _ address: String, _ 
  */
     return (true, "Hard code", nil)
 }
+*/
