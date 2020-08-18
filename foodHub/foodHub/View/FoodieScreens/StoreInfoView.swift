@@ -14,18 +14,18 @@ struct StoreInfoView: View {
         VStack(alignment: .leading, spacing: 1){
             Text(foodie.name)
                 .font(.title)
-            if foodie.address != nil {
-                Text(foodie.address!)
+            if !foodie.address.isEmpty {
+                Text(foodie.address)
                     .font(.body)
             }
             
-            if foodie.city != nil {
-                Text(foodie.city!)
+            if !foodie.city.isEmpty {
+                Text(foodie.city)
                     .font(.body)            }
             
             HStack{
-                if foodie.state != nil {
-                    Text(foodie.state! + ", ")
+                if !foodie.state.isEmpty {
+                    Text(foodie.state + ", ")
                         .font(.body)
                 }
                 
@@ -33,12 +33,12 @@ struct StoreInfoView: View {
                     .font(.body)
             }
             
-            if foodie.email != nil {
+            if !foodie.email.isEmpty {
                 HStack{
                     Text("Contact us:")
                         .font(.body)
                     
-                    Text(foodie.email!)
+                    Text(foodie.email)
                         .font(.body)
                 }
             }
@@ -48,6 +48,6 @@ struct StoreInfoView: View {
 
 struct StoreInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        StoreInfoView(foodie: FoodieUser(allFields: "Test", name: "Test", address: nil, email: nil, isActive: true, zipCode: "00000", city: nil, state: nil, menuItems: ["N/A"])!)
+        StoreInfoView(foodie: FoodieUser(allFields: "Test", name: "Test", address: "nil", email: "nil", phone: "nil", isActive: true, zipCode: "00000", city: "nil", state: "nil", menu: ["N/A"])!)
     }
 }

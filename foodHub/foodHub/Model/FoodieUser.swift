@@ -6,19 +6,28 @@
 //  Copyright © 2020 Ekore, Ehiremen Alex. All rights reserved.
 //
 import FirebaseFirestore
+//import CoreLocation
 
 struct FoodieUser: Identifiable{
     var id: String
     var name: String
-    var address: String?
-    var email: String?
+    var address: String
+    var email: String
+    var phone: String
     var isActive: Bool
     var zipCode: String
-    var city: String?
-    var state: String?
-    var menuItems = [String]() // names of all the group items in the menu (i.e. doesn't go as detailed as size of item)
+    var city: String
+    var state: String
+    var menu = [String]()
+//    fileprivate var coordinates: Coordinates
     
-    init? (_ name: String, _ address: String, _ email: String, _ zipCode: String, _ city: String, _ state: String){
+ /*   var locationCoordinate: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(
+            latitude: coordinates.latitude,
+            longitude: coordinates.longitude)
+    }
+ */
+    init? (_ name: String, _ address: String, _ email: String, _ phone: String, _ zipCode: String, _ city: String, _ state: String){
         if name.isEmpty || zipCode.isEmpty {
             return nil
         }
@@ -27,13 +36,14 @@ struct FoodieUser: Identifiable{
             self.name = name
             self.address = address
             self.email = email
+            self.phone = phone
             self.isActive = true
             self.zipCode = zipCode
             self.city = city
             self.state = state
         }
     }
-    init? (allFields id: String, name: String, address: String?, email: String?, isActive: Bool, zipCode: String, city: String?, state: String?, menuItems: [String]){
+    init? (allFields id: String, name: String, address: String, email: String, phone: String, isActive: Bool, zipCode: String, city: String, state: String, menu: [String]){
         if name.isEmpty || zipCode.isEmpty {
             return nil
         }
@@ -42,11 +52,12 @@ struct FoodieUser: Identifiable{
             self.name = name
             self.address = address
             self.email = email
+            self.phone = phone
             self.isActive = isActive
             self.zipCode = zipCode
             self.city = city
             self.state = state
-            self.menuItems = menuItems;
+            self.menu = menu;
         }
     }
 }
@@ -55,24 +66,25 @@ extension FoodieUser: DocumentSerializable {
     init? (id: String, dictionary: [String: Any]) {
         guard let name = dictionary["name"] as? String,
             let address = dictionary["address"] as? String,
-            let email = ((dictionary["email"] as? String) != nil) ? dictionary["email"] as? String : "",
+            let email = dictionary["email"] as? String,
+            let phone = dictionary["phone"] as? String,
             let isActive = dictionary["isActive"] as? Bool,
             let zipCode = dictionary["zipCode"] as? String,
             let city = dictionary["city"] as? String,
             let state = dictionary["state"] as? String,
-            
-            let tempItems = dictionary["menuItems"] as? [DocumentReference]
+            let menu = dictionary["menu"] as? [String]
         else {
             return nil
         }
         
-        var menuItems = [String]()
-        for item in tempItems {
-            menuItems.append(item.path)
-        }
-        
-        self.init(allFields: id, name: name, address: address, email: email, isActive: isActive, zipCode: zipCode, city: city, state: state, menuItems: menuItems)
+        self.init(allFields: id, name: name, address: address, email: email, phone: phone, isActive: isActive, zipCode: zipCode, city: city, state: state, menu: menu)
     }
     
 }
 
+/*
+struct Coordinates: Hashable, Codable {
+    var latitude: Double
+    var longitude: Double
+}
+*/

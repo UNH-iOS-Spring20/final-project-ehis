@@ -21,7 +21,7 @@ struct FoodieHomeView: View {
                     .font(.largeTitle)
             }.padding()
             */
-        }.navigationBarItems(leading: EditButton())
+        }//.navigationBarItems(leading: EditButton())
     }
 }
 
