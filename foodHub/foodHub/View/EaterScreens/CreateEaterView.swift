@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct CreateEaterView: View {
+    @Environment(\.presentationMode) var presentationMode
     @State var name: String = ""
     @State var address: String = ""
     @State var email: String = ""
@@ -32,7 +33,8 @@ struct CreateEaterView: View {
                 .border(Color.black)
             
             Button(action: {
-                (self.eaterGood, self.eaterStatus) = createEater(self.name, self.address, self.email, self.zipCode)
+//                (self.eaterGood, self.eaterStatus) = createEater(self.name, self.address, self.email, self.zipCode)
+                self.createEater()
             }) {
              Text("Create!")
                 .font(.largeTitle)
@@ -48,6 +50,15 @@ struct CreateEaterView: View {
         .padding(15)
         .font(.title)
     }
+    
+    func createEater() {
+        print("creating eater...")
+        dismiss()
+    }
+    
+    func dismiss() {
+        presentationMode.wrappedValue.dismiss()
+    }
 }
 
 struct CreateEaterView_Previews: PreviewProvider {
@@ -56,6 +67,7 @@ struct CreateEaterView_Previews: PreviewProvider {
     }
 }
 
+/*
 private func createEater(_ name: String, _ address: String, _ email: String, _ zip: String)  -> (Bool, String) {
     /*
     let eaterRef = db.collection("eaters")
@@ -96,5 +108,7 @@ private func createEater(_ name: String, _ address: String, _ email: String, _ z
     }
     return (outBool, outString)
  */
+    dismiss()
     return (true, "HardCode")
 }
+ */
