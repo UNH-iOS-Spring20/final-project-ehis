@@ -18,6 +18,7 @@ struct FoodieDetailView: View {
                 ForEach(foodie.menu, id: \.self) { item in
                     Text(fetchItemName(item: item))
                 } //.onDelete(perform: removeMenuItem)
+                .navigationBarItems(leading: EditButton())
                 /*
                 if FoodieLandingView.sessionFoodieUser?.id == foodie.id {
                     .onDelete
