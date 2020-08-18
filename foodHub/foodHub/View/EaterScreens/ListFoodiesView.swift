@@ -10,6 +10,8 @@ import SwiftUI
 import FirebaseFirestore
 
 struct ListFoodiesView: View {
+//    var foodies = ContentView.foodies
+    // copying from ContentView.foodies makes me need to refresh the page for info to show
     @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (query: queryFoodies)
 //    var foodies = ContentView.foodies
     var body: some View {
