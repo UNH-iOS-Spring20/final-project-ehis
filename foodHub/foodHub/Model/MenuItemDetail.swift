@@ -8,7 +8,7 @@
 
 import FirebaseFirestore
 
-struct MenuItemDetail: Identifiable {
+struct MenuItemDetail: Identifiable, Hashable {
     var id: String
     var size: String
     var price: Double

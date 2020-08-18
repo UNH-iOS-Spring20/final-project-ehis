@@ -17,10 +17,10 @@ struct FoodieDetailView: View {
     var body: some View {
         VStack {
             List{
-                ForEach(foodie.menu, id: \.self) { item in
-                    NavigationLink(destination: MenuView(menuItem: getMenuItemName(menuItems: self.menuItems, item: item))
+                ForEach(foodie.menu, id: \.self) { itemGroup in
+                    NavigationLink(destination: MenuView(menuItem: getMenuItemGroup(menuItems: self.menuItems, itemGroup: itemGroup))
                     ){
-                        Text(fetchItemName(menuItems: self.menuItems, item: item))
+                        Text(getGroupName(menuItems: self.menuItems, itemGroup: itemGroup))
                     }
                 } //.onDelete(perform: removeMenuItem)
                 //.navigationBarItems(leading: EditButton())
@@ -55,18 +55,18 @@ struct FoodieDetailView_Previews: PreviewProvider {
     }
 }
 
-func fetchItemName (menuItems: FirebaseCollection<MenuItem>, item: String) -> (String) {
+func getGroupName (menuItems: FirebaseCollection<MenuItem>, itemGroup: String) -> (String) {
     for temp in menuItems.items {
-        if temp.id == item {
+        if temp.id == itemGroup {
             return (temp.name)
         }
     }
     return ""
 }
 
-func getMenuItemName (menuItems: FirebaseCollection<MenuItem>, item: String) -> (MenuItem) {
+func getMenuItemGroup (menuItems: FirebaseCollection<MenuItem>, itemGroup: String) -> (MenuItem) {
     for temp in menuItems.items {
-        if temp.id == item {
+        if temp.id == itemGroup {
             return (temp)
         }
     }
