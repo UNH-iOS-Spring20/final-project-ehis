@@ -10,48 +10,48 @@ import SwiftUI
 import FirebaseFirestore
 
 /*
-struct FoodieView: View {
-    var body: some View {
-            VStack {
-                NavigationLink(
-                    destination: CreateFoodieView()
-                ){
-                 Text("New foodie")
-                    .font(.largeTitle)
-                }
-                .padding(10)
-                
-                Button(action: {
-                    updateFoodies()
-                }) {
-                 Text("Update foodies")
-                    .font(.largeTitle)
-                }
-                .padding(10)
-                
-                Button(action: {
-                    ContentView.getCollection(collection: "foodies")
-                }) {
-                 Text("Get all foodies")
-                    .font(.largeTitle)
-                }
-                .padding(10)
-                
-                Button(action: {
-                    ContentView.deleteCollection(collection: "foodies")
-                }) {
-                 Text("Delete all foodies")
-                    .font(.largeTitle)
-                }
-                .padding(10)
-                
-            }
-            .navigationBarTitle(Text("Foodie"), displayMode: .inline)
-    }
-}
-*/
+ struct FoodieView: View {
+ var body: some View {
+ VStack {
+ NavigationLink(
+ destination: CreateFoodieView()
+ ){
+ Text("New foodie")
+ .font(.largeTitle)
+ }
+ .padding(10)
+ 
+ Button(action: {
+ updateFoodies()
+ }) {
+ Text("Update foodies")
+ .font(.largeTitle)
+ }
+ .padding(10)
+ 
+ Button(action: {
+ ContentView.getCollection(collection: "foodies")
+ }) {
+ Text("Get all foodies")
+ .font(.largeTitle)
+ }
+ .padding(10)
+ 
+ Button(action: {
+ ContentView.deleteCollection(collection: "foodies")
+ }) {
+ Text("Delete all foodies")
+ .font(.largeTitle)
+ }
+ .padding(10)
+ 
+ }
+ .navigationBarTitle(Text("Foodie"), displayMode: .inline)
+ }
+ }
+ */
 struct FoodieLandingView: View {
-//@ObservedObject private var foodies = FirebaseCollection<FoodieUser> (query: queryFoodies)
+    //@ObservedObject private var foodies = FirebaseCollection<FoodieUser> (query: queryFoodies)
     @State static var sessionFoodieUser: FoodieUser?
     // static state var makes it such that there can be ONE active foodie user during the session
     
@@ -60,16 +60,16 @@ struct FoodieLandingView: View {
             NavigationLink(
                 destination: CreateFoodieView()
             ){
-             Text("New foodie")
-                .font(.largeTitle)
+                Text("New foodie")
+                    .font(.largeTitle)
             }
             .padding(10)
             
             NavigationLink(
                 destination: FoodieHomeView()
             ){
-             Text("Skip")
-                .font(.largeTitle)
+                Text("Skip")
+                    .font(.largeTitle)
             }
             .padding(10)
         }
@@ -78,20 +78,20 @@ struct FoodieLandingView: View {
 
 private func updateFoodies(){
     /*
-    let foodieRef = db.collection("foodies")
-    
-    foodieRef.document("McDonalds-06516").setData([
-        "address": "300 Boston Post Rd",
-        "city": "West Haven Haven",
-        "state": "CT",
-        "zipCode": "06516",
-        "isActive": true
-    ], merge: true)
- */
+     let foodieRef = db.collection("foodies")
+     
+     foodieRef.document("McDonalds-06516").setData([
+     "address": "300 Boston Post Rd",
+     "city": "West Haven Haven",
+     "state": "CT",
+     "zipCode": "06516",
+     "isActive": true
+     ], merge: true)
+     */
     print("Foodie(s) updated")
 }
 
- 
+
 struct FoodieView_Previews: PreviewProvider {
     static var previews: some View {
         FoodieLandingView()

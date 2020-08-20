@@ -15,7 +15,7 @@ class FoodieUser: FirebaseCodable{
     @Published var address: String
     @Published var email: String
     @Published var phone: String
-    var isActive: Bool
+    @Published var isActive: Bool
     @Published var zipCode: String
     @Published var city: String
     @Published var state: String

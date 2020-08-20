@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ShowDebug: View {
-//    let menuItemGroups = ContentView.menuItemGroups
+    //    let menuItemGroups = ContentView.menuItemGroups
     
     var body: some View {
         List {

@@ -17,60 +17,84 @@ struct CreateFoodieView: View {
     @State var zipCode = ""
     @State var city = ""
     @State var state = ""
-//    @State var success: Bool = true
-//    @State var status: String = ""
+    //    @State var success: Bool = true
+    //    @State var status: String = ""
     
-//    @State var sessionFoodieUser: FoodieUser?
+    //    @State var sessionFoodieUser: FoodieUser?
     
     var body: some View {
-        VStack {
-            TextField(" Name", text: $name)
-                .border(Color.black)
-            
-            TextField(" email", text: $email)
-                .border(Color.black)
-                .autocapitalization(UITextAutocapitalizationType.none)
-            
-            TextField(" Address", text: $address)
-                .border(Color.black)
-            
-            TextField(" Phone", text: $phone)
-            .border(Color.black)
-            
-            TextField(" Zip Code", text: $zipCode)
-                .border(Color.black)
-            
-            TextField(" City", text: $city)
-                .border(Color.black)
-            
-            TextField(" State", text: $state)
-                .border(Color.black)
-            
-            Button(action: {
-                self.createFoodie()
-//                (self.success, self.status, FoodieLandingView.sessionFoodieUser) = createFoodie(self.name, self.email, self.address, self.zipCode, self.city, self.state, true)
-
-            }) {
-             Text("Create!")
-                .font(.largeTitle)
-            }
-            .padding(10)
-            
-            /*
-            if !success {
-                Text(status)
-                    .font(.body)
-                    .frame(alignment: .trailing)
-            }
-            */
-        }
-        .padding(15)
-        .font(.title)
+        Group{
+            VStack {
+                TextField("Name", text: $name)
+                    .border(Color.black)
+                
+                TextField("email", text: $email)
+                    .border(Color.black)
+                    .keyboardType(UIKeyboardType.emailAddress)
+                    .autocapitalization(UITextAutocapitalizationType.none)
+                
+                TextField("Phone", text: $phone)
+                    .border(Color.black)
+                    .keyboardType(UIKeyboardType.decimalPad)
+                
+                TextField("Address", text: $address)
+                    .border(Color.black)
+                
+                TextField("City", text: $city)
+                    .border(Color.black)
+                
+                HStack{
+                    TextField("State", text: $state)
+                        .border(Color.black)
+                        .autocapitalization(UITextAutocapitalizationType.allCharacters)
+                    
+                    TextField("Zip Code", text: $zipCode)
+                        .border(Color.black)
+                        .keyboardType(UIKeyboardType.decimalPad)
+                }
+                
+                Button(action: {
+                    self.createFoodie()
+                    //                (self.success, self.status, FoodieLandingView.sessionFoodieUser) = createFoodie(self.name, self.email, self.address, self.zipCode, self.city, self.state, true)
+                    
+                }) {
+                    Text("Create!")
+                        .font(.largeTitle)
+                }
+                
+                /*
+                 if !success {
+                 Text(status)
+                 .font(.body)
+                 .frame(alignment: .trailing)
+                 }
+                 */
+            }.font(.title)
+            Spacer()
+        }.padding()
+        
     }
     
     func createFoodie(){
-        // TODO: validate data and connect to firestore
         print("creating foodie...")
+        if !name.isEmpty && !address.isEmpty && !email.isEmpty && !phone.isEmpty && !zipCode.isEmpty && !city.isEmpty && !state.isEmpty{
+            let data = [
+                "name": name,
+                "address": address,
+                "email": email,
+                "phone": phone,
+                "isActive": true,
+                "zipCode": zipCode,
+                "city": city,
+                "state": state
+                ] as [String : Any]
+            
+            foodiesCollectionRef.addDocument(data: data)
+            print("foodie created!")
+        }
+        else {
+            print("failed to create... invalid credentials given")
+        }
         dismiss()
     }
     func dismiss() {
@@ -85,78 +109,78 @@ struct CreateFoodieView_Previews: PreviewProvider {
 }
 
 /*
-private func createFoodie(_ name: String, _ email: String, _ address: String, _ zipCode: String, _ city: String, _ state: String, _ isActive: Bool) -> (Bool, String, FoodieUser?) {
-    /*
-    let foodieRef = db.collection("foodies")
-    let tempId = name + "-" + zipCode
-    let tempFoodie: FoodieUser? = FoodieUser(name, address, email, zipCode, city, state)
-//    let tempFoodie = FoodieUser(allFields: tempId, name: name, address: address, email: email, isActive: isActive, zipCode: zipCode, city: city, state: state)
-    var outBool: Bool = false
-    var outString: String = "User already exists"
-    
-    if (tempFoodie == nil) {
-        print("Unable to create foodie")
-        outString = "Invalid details given"
-    }
-    else {
-        foodieRef.document(tempId).getDocument {
-            (document, error) in
-            if !document!.exists {
-                foodieRef.document(tempId).setData([
-                    "name": tempFoodie?.name,
-                    "email": tempFoodie?.email,
-                    "zipCode": tempFoodie?.zipCode,
-                    "city": tempFoodie?.city,
-                    "state": tempFoodie?.state,
-                    "isActive": tempFoodie?.isActive
-                ], merge: true)
-                if tempFoodie?.address != "" {
-                    foodieRef.document(tempId).setData([
-                        "address": tempFoodie?.address
-                    ], merge: true)
-                }
-                print("Foodie created")
-                outBool = true
-                outString = ""
-            }
-            else {
-                print("Unable to create foodie")
-                print("Foodie exists")
-            }
-        }
-    }
-    
-    /*
-    else {
-        foodieRef.document(tempId).getDocument {
-            (document, error) in
-            if !document!.exists {
-                foodieRef.document(tempId).setData([
-                    "name": tempFoodie?.name!,
-                    "email": tempFoodie?.email!,
-                    "zipCode": tempFoodie?.zipCode!,
-                    "city": tempFoodie?.city!,
-                    "state": tempFoodie?.state!,
-                    "isActive": tempFoodie?.isActive!
-                ], merge: true)
-                if tempFoodie?.address != "" {
-                    foodieRef.document(tempId).setData([
-                        "address": tempFoodie?.address!
-                    ], merge: true)
-                }
-                print("Foodie created")
-                outBool = true
-                outString = ""
-            }
-            else {
-                print("Unable to create foodie")
-                print("Foodie exists")
-            }
-        }
-    }
-    */
-    return (outBool, outString)
+ private func createFoodie(_ name: String, _ email: String, _ address: String, _ zipCode: String, _ city: String, _ state: String, _ isActive: Bool) -> (Bool, String, FoodieUser?) {
+ /*
+ let foodieRef = db.collection("foodies")
+ let tempId = name + "-" + zipCode
+ let tempFoodie: FoodieUser? = FoodieUser(name, address, email, zipCode, city, state)
+ //    let tempFoodie = FoodieUser(allFields: tempId, name: name, address: address, email: email, isActive: isActive, zipCode: zipCode, city: city, state: state)
+ var outBool: Bool = false
+ var outString: String = "User already exists"
+ 
+ if (tempFoodie == nil) {
+ print("Unable to create foodie")
+ outString = "Invalid details given"
+ }
+ else {
+ foodieRef.document(tempId).getDocument {
+ (document, error) in
+ if !document!.exists {
+ foodieRef.document(tempId).setData([
+ "name": tempFoodie?.name,
+ "email": tempFoodie?.email,
+ "zipCode": tempFoodie?.zipCode,
+ "city": tempFoodie?.city,
+ "state": tempFoodie?.state,
+ "isActive": tempFoodie?.isActive
+ ], merge: true)
+ if tempFoodie?.address != "" {
+ foodieRef.document(tempId).setData([
+ "address": tempFoodie?.address
+ ], merge: true)
+ }
+ print("Foodie created")
+ outBool = true
+ outString = ""
+ }
+ else {
+ print("Unable to create foodie")
+ print("Foodie exists")
+ }
+ }
+ }
+ 
+ /*
+ else {
+ foodieRef.document(tempId).getDocument {
+ (document, error) in
+ if !document!.exists {
+ foodieRef.document(tempId).setData([
+ "name": tempFoodie?.name!,
+ "email": tempFoodie?.email!,
+ "zipCode": tempFoodie?.zipCode!,
+ "city": tempFoodie?.city!,
+ "state": tempFoodie?.state!,
+ "isActive": tempFoodie?.isActive!
+ ], merge: true)
+ if tempFoodie?.address != "" {
+ foodieRef.document(tempId).setData([
+ "address": tempFoodie?.address!
+ ], merge: true)
+ }
+ print("Foodie created")
+ outBool = true
+ outString = ""
+ }
+ else {
+ print("Unable to create foodie")
+ print("Foodie exists")
+ }
+ }
+ }
  */
-    return (true, "Hard code", nil)
-}
-*/
+ return (outBool, outString)
+ */
+ return (true, "Hard code", nil)
+ }
+ */

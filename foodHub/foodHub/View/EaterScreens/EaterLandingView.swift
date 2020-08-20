@@ -9,78 +9,78 @@
 import SwiftUI
 import FirebaseFirestore
 /*
-struct EaterView: View {
-    var body: some View {
-            VStack {
-                NavigationLink(
-                    destination: CreateEaterView()
-                ){
-                 Text("New eater")
-                    .font(.largeTitle)
-                }
-                .padding(10)
-                
-                Button(action: {
-                    updateEater()
-                }) {
-                 Text("Update eaters")
-                    .font(.largeTitle)
-                }
-                .padding(10)
-                
-                Button(action: {
-                    ContentView.getCollection(collection: "eaters")
-                }) {
-                 Text("Get all eaters")
-                    .font(.largeTitle)
-                }
-                .padding(10)
-                
-                Button(action: {
-                    ContentView.deleteCollection(collection: "eaters")
-                }) {
-                 Text("Delete all eaters")
-                    .font(.largeTitle)
-                }
-                .padding(10)
-            }
-        .navigationBarTitle(Text("Eater"), displayMode: .inline)
-    }
-}
-*/
+ struct EaterView: View {
+ var body: some View {
+ VStack {
+ NavigationLink(
+ destination: CreateEaterView()
+ ){
+ Text("New eater")
+ .font(.largeTitle)
+ }
+ .padding(10)
+ 
+ Button(action: {
+ updateEater()
+ }) {
+ Text("Update eaters")
+ .font(.largeTitle)
+ }
+ .padding(10)
+ 
+ Button(action: {
+ ContentView.getCollection(collection: "eaters")
+ }) {
+ Text("Get all eaters")
+ .font(.largeTitle)
+ }
+ .padding(10)
+ 
+ Button(action: {
+ ContentView.deleteCollection(collection: "eaters")
+ }) {
+ Text("Delete all eaters")
+ .font(.largeTitle)
+ }
+ .padding(10)
+ }
+ .navigationBarTitle(Text("Eater"), displayMode: .inline)
+ }
+ }
+ */
 struct EaterLandingView: View {
-var body: some View {
+    var body: some View {
         VStack {
             NavigationLink(
                 destination: CreateEaterView()
             ){
-             Text("New eater")
-                .font(.largeTitle)
+                Text("New eater")
+                    .font(.largeTitle)
             }
             .padding(10)
             
             NavigationLink(
                 destination: EaterHomeView()
             ){
-             Text("Skip")
-                .font(.largeTitle)
+                Text("Skip")
+                    .font(.largeTitle)
             }
             .padding(10)
         }
-//        .navigationBarTitle(Text("Go back"))
+        //        .navigationBarTitle(Text("Go back"))
     }
 }
-            
+
 private func updateEater(){
     /*
-    let eaterRef = db.collection("eaters")
-    
-    eaterRef.document("test_2@gmail.com").setData([
-        "address": "Buckman 226, UNH",
-        "isAdmin": false,
-        "isActive": true
-    ], merge: true)
-    */
+     let eaterRef = db.collection("eaters")
+     
+     eaterRef.document("test_2@gmail.com").setData([
+     "address": "Buckman 226, UNH",
+     "isAdmin": false,
+     "isActive": true
+     ], merge: true)
+     */
     print("Eater(s) updated")
 }
 
