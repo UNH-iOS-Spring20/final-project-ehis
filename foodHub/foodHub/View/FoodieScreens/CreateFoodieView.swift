@@ -21,7 +21,7 @@ struct CreateFoodieView: View {
     
     var body: some View {
         Group{
-            VStack {
+            VStack (spacing: 20) {
                 TextField("Name", text: $name)
                     .border(Color.black)
                 
@@ -57,6 +57,7 @@ struct CreateFoodieView: View {
                         .font(.largeTitle)
                 }
             }.font(.title)
+            .navigationBarTitle("Create foodie")
             Spacer()
         }.padding()
         

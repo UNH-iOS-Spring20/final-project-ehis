@@ -16,7 +16,7 @@ struct CreateEaterView: View {
     
     var body: some View {
         Group{
-            VStack {
+            VStack (spacing: 20) {
                 TextField("Name", text: $name)
                     .border(Color.black)
                 
@@ -36,6 +36,7 @@ struct CreateEaterView: View {
                         .font(.largeTitle)
                 }
             }.font(.title)
+                .navigationBarTitle("Create user")
             Spacer()
         }.padding()
     }
