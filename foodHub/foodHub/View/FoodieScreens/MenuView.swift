@@ -9,6 +9,14 @@
 import SwiftUI
 
 struct MenuView: View {
+    var body: some View {
+        List {
+            Text ("Menu view")
+        }
+    }
+}
+/*
+struct MenuView: View {
     var menuItem: MenuItem
     
     @ObservedObject var menuItemDetails = FirebaseCollection<MenuItemDetail> (query: queryMenuItemDetails)
@@ -38,25 +46,14 @@ struct MenuView: View {
         }
     }
 }
+*/
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView(menuItem: MenuItem())
+        MenuView()
     }
 }
 
-func getMenuItemDetails (menuItemDetails: FirebaseCollection<MenuItemDetail>, itemArr: [String]) -> [MenuItemDetail] {
-    var myArr = [MenuItemDetail]()
-    for item in itemArr{
-        for temp in menuItemDetails.items {
-            if temp.id == item {
-                myArr.append(temp)
-            }
-        }
-    }
-    
-    return myArr
-}
 //
 //func temp (group: String) {
 //

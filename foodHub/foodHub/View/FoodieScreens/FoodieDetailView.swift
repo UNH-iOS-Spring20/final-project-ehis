@@ -11,26 +11,11 @@ import SwiftUI
 
 struct FoodieDetailView: View {
     var foodie: FoodieUser
-    @ObservedObject var menuItems = FirebaseCollection<MenuItem> (query: queryMenuItems)
 //    var menuItems: [MenuItemDetail]
     
     var body: some View {
         VStack {
-            List{
-                ForEach(foodie.menu, id: \.self) { itemGroup in
-                    NavigationLink(destination: MenuView(menuItem: getMenuItemGroup(menuItems: self.menuItems, itemGroup: itemGroup))
-                    ){
-                        Text(getGroupName(menuItems: self.menuItems, itemGroup: itemGroup))
-                    }
-                } //.onDelete(perform: removeMenuItem)
-                //.navigationBarItems(leading: EditButton())
-                /*
-                if FoodieLandingView.sessionFoodieUser?.id == foodie.id {
-                    .onDelete
-                }
-                */
-                Spacer()
-            }
+            
             NavigationLink(
                 destination: StoreInfoView(foodie: self.foodie)
             ){
@@ -51,10 +36,20 @@ struct FoodieDetailView: View {
 
 struct FoodieDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodieDetailView(foodie: FoodieUser(allFields: "Test", name: "Test", address: "nil", email: "nil", phone: "nil", isActive: true, zipCode: "00000", city: "nil", state: "nil", menu: ["N/A"])!)
+        FoodieDetailView(foodie: FoodieUser(id: "1", data: [
+            "name": "name",
+            "address": "address",
+            "email": "email",
+            "phone": "phone",
+            "isActive": true,
+            "zipCode": "zipCode",
+            "city": "city",
+            "state": "state"
+        ])!)
     }
 }
 
+/*
 func getGroupName (menuItems: FirebaseCollection<MenuItem>, itemGroup: String) -> (String) {
     for temp in menuItems.items {
         if temp.id == itemGroup {
@@ -73,7 +68,6 @@ func getMenuItemGroup (menuItems: FirebaseCollection<MenuItem>, itemGroup: Strin
     return MenuItem()
 }
 
-/*
  func fetchItemName (item: String) -> String {
      let docRef = queryMenuItems.document(item)
      

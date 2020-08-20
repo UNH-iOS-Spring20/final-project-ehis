@@ -12,7 +12,7 @@ import FirebaseFirestore
 struct ListFoodiesView: View {
 //    var foodies = ContentView.foodies
     // copying from ContentView.foodies makes me need to refresh the page for info to show
-    @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (query: queryFoodies)
+    @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (collectionRef: foodiesCollectionRef)
 //    var foodies = ContentView.foodies
     var body: some View {
 //        NavigationView{
@@ -20,7 +20,7 @@ struct ListFoodiesView: View {
             List {
                 ForEach(foodies.items) { foodie in
                     NavigationLink(destination: FoodieDetailView(foodie: foodie)){
-                        Text(foodie.id)
+                        Text(foodie.data["name"] as! String)
                     }
                 }
             }

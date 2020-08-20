@@ -41,12 +41,4 @@ class MenuItem: FirebaseCodable {
         self.size = size
         self.price = price
     }
-    
-    init(){
-        self.id = ""
-        self.name = ""
-        self.customizable = false
-        self.description = ""
-    }
 }
-
