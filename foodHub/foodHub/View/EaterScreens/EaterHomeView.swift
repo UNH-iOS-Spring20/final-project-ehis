@@ -13,13 +13,13 @@ struct EaterHomeView: View {
         VStack {
             ListFoodiesView()
             /*
-            NavigationLink(
-                destination: ListFoodiesView()
-            ){
-                Text("List foodies")
-                    .font(.largeTitle)
-            }.padding()
-            */
+             NavigationLink(
+             destination: ListFoodiesView()
+             ){
+             Text("List foodies")
+             .font(.largeTitle)
+             }.padding()
+             */
         }
     }
 }

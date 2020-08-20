@@ -9,18 +9,18 @@
 import SwiftUI
 
 struct FoodieHomeView: View {
-//    let sessionFoodieUser: FoodieUser
+    //    let sessionFoodieUser: FoodieUser
     var body: some View {
         VStack {
             ListFoodiesView()
             /*
-            NavigationLink(
-                destination: ListFoodiesView()
-            ){
-                Text("List foodies")
-                    .font(.largeTitle)
-            }.padding()
-            */
+             NavigationLink(
+             destination: ListFoodiesView()
+             ){
+             Text("List foodies")
+             .font(.largeTitle)
+             }.padding()
+             */
         }//.navigationBarItems(leading: EditButton())
     }
 }

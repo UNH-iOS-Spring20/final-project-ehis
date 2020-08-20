@@ -14,15 +14,15 @@ struct Debug: View {
             VStack{
                 NavigationLink(
                     destination: EaterLandingView()
-                )
+                    )
                 {
                     Text("eat food")
                         .font(.largeTitle)
-                    }
+                }
                 .padding(15)
                 NavigationLink(
                     destination: FoodieLandingView()
-                )
+                    )
                 {
                     Text("sell food")
                         .font(.largeTitle)
@@ -30,14 +30,14 @@ struct Debug: View {
                 .padding(15)
                 NavigationLink(
                     destination: ShowDebug()
-                )
+                    )
                 {
                     Text("view debug data")
                         .font(.largeTitle)
                 }
                 .padding(15)
             }
-        .navigationBarTitle(Text("I want to..."))
+            .navigationBarTitle(Text("I want to..."))
         }
     }
     
@@ -45,41 +45,41 @@ struct Debug: View {
 }
 
 /*
-private func getCollection(collection: String){
-    db.collection(collection).getDocuments() { (querySnapshot, err) in
-        if let err = err {
-            print("Error getting documents: \(err)")
-        }
-        else {
-            print("")
-            for document in querySnapshot!.documents {
-                print("\(document.documentID) => \(document.data())")
-            }
-        }
-    }
-}
-
-private func deleteCollection(collection: String){
-    db.collection(collection).getDocuments() { (querySnapshot, err) in
-        if let err = err {
-            print("Error getting documents: \(err)")
-        } else {
-            print("")
-            for document in querySnapshot!.documents {
-                if (document.get("isAdmin") as? Bool) == true{
-                    print("Skipping admin user")
-                }
-                else {
-                    if (document.get("isActive") as? Bool) == true{
-                        print("Deactivating \(document.documentID) => \(document.data())")
-                        document.reference.setData(["isActive": false], merge: true)
-                    }
-                }
-            }
-        }
-        print("")
-    }
-}
+ private func getCollection(collection: String){
+ db.collection(collection).getDocuments() { (querySnapshot, err) in
+ if let err = err {
+ print("Error getting documents: \(err)")
+ }
+ else {
+ print("")
+ for document in querySnapshot!.documents {
+ print("\(document.documentID) => \(document.data())")
+ }
+ }
+ }
+ }
+ 
+ private func deleteCollection(collection: String){
+ db.collection(collection).getDocuments() { (querySnapshot, err) in
+ if let err = err {
+ print("Error getting documents: \(err)")
+ } else {
+ print("")
+ for document in querySnapshot!.documents {
+ if (document.get("isAdmin") as? Bool) == true{
+ print("Skipping admin user")
+ }
+ else {
+ if (document.get("isActive") as? Bool) == true{
+ print("Deactivating \(document.documentID) => \(document.data())")
+ document.reference.setData(["isActive": false], merge: true)
+ }
+ }
+ }
+ }
+ print("")
+ }
+ }
  */
 
 struct Debug_Previews: PreviewProvider {
