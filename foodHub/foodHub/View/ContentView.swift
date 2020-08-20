@@ -18,7 +18,7 @@ let eatersCollectionRef = Firestore.firestore().collection("eaters")
 
 struct ContentView: View {
     @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (collectionRef: foodiesCollectionRef)
-    @ObservedObject private var eaters = FirebaseCollection<EaterUser> (collectionRef: eatersCollectionRef)
+//    @ObservedObject private var eaters = FirebaseCollection<EaterUser> (collectionRef: eatersCollectionRef)
 //    @ObservedObject static var menuItems = FirebaseCollection<MenuItem> (query: queryMenuItems)
 //    @ObservedObject static var menuItemDetails = FirebaseCollection<MenuItemDetail> (query: queryMenuItemDetails)
  

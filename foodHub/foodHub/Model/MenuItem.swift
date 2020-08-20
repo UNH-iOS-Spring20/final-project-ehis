@@ -5,51 +5,48 @@
 //  Created by Ehiremen Ekore on 8/17/20.
 //  Copyright © 2020 Ekore, Ehiremen Alex. All rights reserved.
 //
+import FirebaseFirestore
 
-struct MenuItem: Identifiable {
+class MenuItem: FirebaseCodable {
     var id: String
-    var owner: String
-//    var ownerZip: String
-    var name: String
-    var customizable: Bool
-    var members = [String]()
+    @Published var name: String
+    @Published var customizable: Bool
+    @Published var description: String
+    @Published var size = [String]()
+    @Published var price = [Double]()
+    
+    var data: [String: Any] {
+        return [
+            "name": name,
+            "customizable": customizable,
+            "size": size,
+            "price": price
+        ]
+    }
+    
+    required init? (id: String, data: [String: Any]) {
+        guard let name = data["name"] as? String,
+            let customizable = data["customizable"] as? Bool,
+            let description = data["description"] as? String,
+            let size = data["size"] as? [String],
+            let price = data["price"] as? [Double]
+            else {
+                return nil
+        }
+        
+        self.id = id
+        self.name = name
+        self.customizable = customizable
+        self.description = description
+        self.size = size
+        self.price = price
+    }
     
     init(){
         self.id = ""
-        self.owner = ""
         self.name = ""
         self.customizable = false
-    }
-    
-    init (noID owner: String, name: String, customizable: Bool, members: [String]){
-        self.id = owner + "-" + name
-        self.owner = owner
-//        self.ownerZip = ownerZip
-        self.name = name
-        self.customizable = customizable
-        self.members = members
-    }
-    
-    init (id: String, owner: String, name: String, customizable: Bool, members: [String]){
-        self.id = id
-        self.owner = owner
-        self.name = name
-        self.customizable = customizable
-        self.members = members
+        self.description = ""
     }
 }
 
-extension MenuItem: DocumentSerializable {
-    init? (id: String, dictionary: [String: Any]) {
-        guard let owner = dictionary["owner"] as? String,
-            let name = dictionary["name"] as? String,
-            let customizable = dictionary["customizable"] as? Bool,
-            let members = dictionary["members"] as? [String]
-        else {
-            return nil
-        }
-        
-        self.init(id: id, owner: owner, name: name, customizable: customizable, members: members)
-    }
-    
-}

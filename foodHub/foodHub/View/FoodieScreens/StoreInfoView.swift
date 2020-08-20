@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct StoreInfoView: View {
-    let foodie: FoodieUser
+    @ObservedObject var foodie: FoodieUser
     var body: some View {
         VStack(alignment: .leading, spacing: 1){
             Text(foodie.name)
@@ -48,6 +48,15 @@ struct StoreInfoView: View {
 
 struct StoreInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        StoreInfoView(foodie: FoodieUser(allFields: "Test", name: "Test", address: "nil", email: "nil", phone: "nil", isActive: true, zipCode: "00000", city: "nil", state: "nil", menu: ["N/A"])!)
+        StoreInfoView(foodie: FoodieUser(id: "1", data: [
+            "name": "name",
+            "address": "address",
+            "email": "email",
+            "phone": "phone",
+            "isActive": true,
+            "zipCode": "zipCode",
+            "city": "city",
+            "state": "state"
+        ])!)
     }
 }
