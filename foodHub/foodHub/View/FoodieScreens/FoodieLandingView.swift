@@ -51,7 +51,6 @@ import FirebaseFirestore
  }
  */
 struct FoodieLandingView: View {
-    //@ObservedObject private var foodies = FirebaseCollection<FoodieUser> (query: queryFoodies)
     @State static var sessionFoodieUser: FoodieUser?
     // static state var makes it such that there can be ONE active foodie user during the session
     
@@ -75,22 +74,6 @@ struct FoodieLandingView: View {
         }
     }
 }
-
-private func updateFoodies(){
-    /*
-     let foodieRef = db.collection("foodies")
-     
-     foodieRef.document("McDonalds-06516").setData([
-     "address": "300 Boston Post Rd",
-     "city": "West Haven Haven",
-     "state": "CT",
-     "zipCode": "06516",
-     "isActive": true
-     ], merge: true)
-     */
-    print("Foodie(s) updated")
-}
-
 
 struct FoodieView_Previews: PreviewProvider {
     static var previews: some View {

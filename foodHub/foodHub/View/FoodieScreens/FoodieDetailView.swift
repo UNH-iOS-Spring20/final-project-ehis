@@ -28,7 +28,7 @@ struct FoodieDetailView: View {
                         Text(menuItem.name)
                     }
                     
-                }//.onDelete(perform: deleteItem)
+                }.onDelete(perform: deleteItem)
                 Spacer()
             }
             
@@ -40,13 +40,14 @@ struct FoodieDetailView: View {
             }
             .padding()
         }.padding()
-        .navigationBarItems(trailing: EditButton())
-        .navigationBarTitle(foodie.name)
+            .navigationBarTitle(foodie.name)
+            .navigationBarItems(trailing: EditButton())
     }
     
     func deleteItem(at offsets: IndexSet){
-        print("deleting")
-        let index = offsets.first!
+        print("Starting delete...")
+        menu.deleteItem(collectionRef: menuCollectionRef, index: offsets.first!)
+        
     }
     /*
      func removeMenuItem (at offsets: IndexSet) {
