@@ -19,6 +19,7 @@ class MenuItem: FirebaseCodable {
         return [
             "name": name,
             "customizable": customizable,
+            "description": description,
             "size": size,
             "price": price
         ]
@@ -27,7 +28,7 @@ class MenuItem: FirebaseCodable {
     required init? (id: String, data: [String: Any]) {
         guard let name = data["name"] as? String,
             let customizable = data["customizable"] as? Bool,
-            let description = data["description"] as? String,
+            let description = data["description"] as? String? ?? "",
             let size = data["size"] as? [String],
             let price = data["price"] as? [Double]
             else {
