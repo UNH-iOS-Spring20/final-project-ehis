@@ -19,6 +19,7 @@ class MenuItem: FirebaseCodable {
         return [
             "name": name,
             "customizable": customizable,
+            "description": description,
             "size": size,
             "price": price
         ]

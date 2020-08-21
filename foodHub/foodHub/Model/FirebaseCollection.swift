@@ -22,7 +22,6 @@ class FirebaseCollection<T: FirebaseCodable>: ObservableObject {
     }
     
     func listenForChanges(collectionRef: CollectionReference){
-        // FIXME: should colelctionRef be query?
         collectionRef.addSnapshotListener { snapshot, error in
             guard let snapshot = snapshot else {
                 print("Error fetching snapshots: \(error)")

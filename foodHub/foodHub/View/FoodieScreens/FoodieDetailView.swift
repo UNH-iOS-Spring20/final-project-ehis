@@ -7,19 +7,29 @@
 //
 
 import SwiftUI
-
+import FirebaseFirestore
 
 struct FoodieDetailView: View {
     @ObservedObject var foodie: FoodieUser
-    //    var menuItems: [MenuItemDetail]
+    @ObservedObject var menu: FirebaseCollection<MenuItem>
+    private var menuCollectionRef: CollectionReference
+    
+    init(foodie: FoodieUser) {
+        self.foodie = foodie
+        self.menuCollectionRef = foodiesCollectionRef.document(foodie.id).collection("menu")
+        self.menu = FirebaseCollection<MenuItem>(collectionRef: menuCollectionRef)
+    }
     
     var body: some View {
         VStack {
             List {
-                //ForEach() {
+                ForEach(menu.items) { menuItem in
+                    NavigationLink(destination: MenuView(menuItem: menuItem)){
+                        Text(menuItem.name)
+                    }
                     
-                    Text("my menu")
-                //}.onDelete(perform: deleteItem)
+                }//.onDelete(perform: deleteItem)
+                Spacer()
             }
             
             NavigationLink(
