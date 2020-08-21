@@ -24,12 +24,9 @@ struct FoodieDetailView: View {
         VStack {
             List {
                 ForEach(menu.items) { menuItem in
-                    HStack{
+                    NavigationLink(destination: MenuView(menuItem: menuItem)){
                         Text(menuItem.name)
-                        Spacer()
-                        Text(menuItem.price[0] as! String)
                     }
-                    
                     
                 }//.onDelete(perform: deleteItem)
                 Spacer()

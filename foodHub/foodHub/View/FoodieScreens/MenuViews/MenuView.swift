@@ -9,9 +9,25 @@
 import SwiftUI
 
 struct MenuView: View {
+    @ObservedObject var menuItem: MenuItem
+    
     var body: some View {
+        Group {
+        Text (menuItem.description)
+            Text( menuItem.customizable ? "* customizable" : "* not customizable")
         List {
-            Text ("Menu view")
+            ForEach (menuItem.price.indices) { index in
+                HStack {
+                    VStack{
+                        Text(self.menuItem.size[index])
+                    }
+                    Spacer()
+                    VStack (alignment: .trailing){
+                        Text(String(self.menuItem.price[index]))
+                    }
+                }
+            }
+        }
         }
     }
 }
@@ -50,7 +66,12 @@ struct MenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView()
+        MenuView(menuItem: MenuItem(id: "test", data:[ "name": "name",
+            "customizable": true,
+            "description": "description",
+            "size": ["small", "medium"],
+            "price": [0.99, 1.99]
+        ])!)
     }
 }
 
