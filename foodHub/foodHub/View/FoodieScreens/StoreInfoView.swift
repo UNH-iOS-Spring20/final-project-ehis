@@ -45,7 +45,7 @@ struct StoreInfoView: View {
                 Text("Edit info")
             }
         }.padding()
-        .font(.body)
+            .font(.body)
         
     }
 }
