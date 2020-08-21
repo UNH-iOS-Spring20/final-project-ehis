@@ -11,7 +11,7 @@ import SwiftUI
 struct StoreInfoView: View {
     @ObservedObject var foodie: FoodieUser
     var body: some View {
-        VStack(alignment: .leading, spacing: 1){
+        VStack(alignment: .leading, spacing: 10){
             Text(foodie.name)
                 .font(.title)
             if !foodie.address.isEmpty {
@@ -41,6 +41,12 @@ struct StoreInfoView: View {
                     Text(foodie.email)
                         .font(.body)
                 }
+            }
+            NavigationLink(
+                destination: EditFoodieView(foodie: self.foodie)
+            ){
+                Text("Edit info")
+                    .font(.body)
             }
         }.padding()
     }

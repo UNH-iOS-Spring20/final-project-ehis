@@ -85,6 +85,7 @@ struct CreateFoodieView: View {
         }
         dismiss()
     }
+    
     func dismiss() {
         presentationMode.wrappedValue.dismiss()
     }
