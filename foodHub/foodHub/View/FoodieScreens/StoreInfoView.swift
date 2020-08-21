@@ -16,39 +16,37 @@ struct StoreInfoView: View {
                 .font(.title)
             if !foodie.address.isEmpty {
                 Text(foodie.address)
-                    .font(.body)
             }
             
             if !foodie.city.isEmpty {
                 Text(foodie.city)
-                    .font(.body)            }
+            }
             
             HStack{
                 if !foodie.state.isEmpty {
                     Text(foodie.state + ", ")
-                        .font(.body)
                 }
                 
                 Text(foodie.zipCode)
-                    .font(.body)
             }
             
             if !foodie.email.isEmpty {
                 HStack{
                     Text("Contact us:")
-                        .font(.body)
-                    
-                    Text(foodie.email)
-                        .font(.body)
+                    VStack{
+                        Text(foodie.email)
+                        Text(foodie.phone)
+                    }
                 }
             }
             NavigationLink(
                 destination: EditFoodieView(foodie: self.foodie)
             ){
                 Text("Edit info")
-                    .font(.body)
             }
         }.padding()
+        .font(.body)
+        
     }
 }
 
