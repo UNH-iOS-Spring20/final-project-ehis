@@ -16,15 +16,12 @@ struct CreateFoodieView: View {
     @State var phone = ""
     @State var zipCode = ""
     @State var city = ""
-    @State var state = ""
-    //    @State var success: Bool = true
-    //    @State var status: String = ""
-    
+    @State var state = ""    
     //    @State var sessionFoodieUser: FoodieUser?
     
     var body: some View {
         Group{
-            VStack {
+            VStack (spacing: 20) {
                 TextField("Name", text: $name)
                     .border(Color.black)
                 
@@ -55,21 +52,12 @@ struct CreateFoodieView: View {
                 
                 Button(action: {
                     self.createFoodie()
-                    //                (self.success, self.status, FoodieLandingView.sessionFoodieUser) = createFoodie(self.name, self.email, self.address, self.zipCode, self.city, self.state, true)
-                    
                 }) {
                     Text("Create!")
                         .font(.largeTitle)
                 }
-                
-                /*
-                 if !success {
-                 Text(status)
-                 .font(.body)
-                 .frame(alignment: .trailing)
-                 }
-                 */
             }.font(.title)
+            .navigationBarTitle("Create foodie")
             Spacer()
         }.padding()
         
@@ -97,6 +85,7 @@ struct CreateFoodieView: View {
         }
         dismiss()
     }
+    
     func dismiss() {
         presentationMode.wrappedValue.dismiss()
     }

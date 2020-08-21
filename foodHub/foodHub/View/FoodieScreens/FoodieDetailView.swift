@@ -15,6 +15,12 @@ struct FoodieDetailView: View {
     
     var body: some View {
         VStack {
+            List {
+                //ForEach() {
+                    
+                    Text("my menu")
+                //}.onDelete(perform: deleteItem)
+            }
             
             NavigationLink(
                 destination: StoreInfoView(foodie: self.foodie)
@@ -22,11 +28,16 @@ struct FoodieDetailView: View {
                 Text("Store Info!")
                     .font(.body)
             }
-            .padding(10)
-            .navigationBarTitle(foodie.name)
+            .padding()
         }.padding()
+        .navigationBarItems(trailing: EditButton())
+        .navigationBarTitle(foodie.name)
     }
     
+    func deleteItem(at offsets: IndexSet){
+        print("deleting")
+        let index = offsets.first!
+    }
     /*
      func removeMenuItem (at offsets: IndexSet) {
      foodie.menu.deleteItem(index: offsets.first!)

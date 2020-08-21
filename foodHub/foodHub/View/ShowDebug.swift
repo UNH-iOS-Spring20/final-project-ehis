@@ -14,7 +14,7 @@ struct ShowDebug: View {
     var body: some View {
         List {
             Text("Debug screen")
-        }.navigationBarTitle("Food menu Groups")
+        }.navigationBarTitle("Showing random debug")
     }
 }
 

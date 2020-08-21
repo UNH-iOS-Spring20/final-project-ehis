@@ -13,12 +13,10 @@ struct CreateEaterView: View {
     @State var name: String = ""
     @State var email: String = ""
     @State var zipCode: String = ""
-    //    @State var eaterGood: Bool = true
-    //    @State var eaterStatus: String = ""
     
     var body: some View {
         Group{
-            VStack {
+            VStack (spacing: 20) {
                 TextField("Name", text: $name)
                     .border(Color.black)
                 
@@ -37,14 +35,8 @@ struct CreateEaterView: View {
                     Text("Create!")
                         .font(.largeTitle)
                 }
-                /*
-                 if !eaterGood {
-                 Text(eaterStatus)
-                 .font(.body)
-                 .frame(alignment: .trailing)
-                 }
-                 */
             }.font(.title)
+                .navigationBarTitle("Create user")
             Spacer()
         }.padding()
     }
