@@ -31,14 +31,19 @@ struct FoodieDetailView: View {
                 }.onDelete(perform: deleteItem)
                 Spacer()
             }
-            
-            NavigationLink(
-                destination: StoreInfoView(foodie: self.foodie)
-            ){
-                Text("Store Info!")
-                    .font(.body)
+            HStack{
+                NavigationLink(
+                    destination: StoreInfoView(foodie: self.foodie)
+                ){
+                    Text("Store Info!")
+                }
+                Spacer()
+                NavigationLink(
+                    destination: CreateMenuView(menuCollectionRef: menuCollectionRef)
+                ){
+                    Text("New item!")
+                }
             }
-            .padding()
         }.padding()
             .navigationBarTitle(foodie.name)
             .navigationBarItems(trailing: EditButton())
