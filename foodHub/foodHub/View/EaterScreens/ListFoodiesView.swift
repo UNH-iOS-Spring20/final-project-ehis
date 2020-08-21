@@ -10,12 +10,8 @@ import SwiftUI
 import FirebaseFirestore
 
 struct ListFoodiesView: View {
-    //    var foodies = ContentView.foodies
-    // copying from ContentView.foodies makes me need to refresh the page for info to show
     @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (collectionRef: foodiesCollectionRef)
-    //    var foodies = ContentView.foodies
     var body: some View {
-        //        NavigationView{
         VStack{
             List {
                 ForEach(foodies.items) { foodie in
@@ -26,7 +22,6 @@ struct ListFoodiesView: View {
             }
             .navigationBarTitle("Foodies near me")
         }
-        //        }
     }
 }
 

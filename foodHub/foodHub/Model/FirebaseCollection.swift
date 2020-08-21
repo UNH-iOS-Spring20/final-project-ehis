@@ -39,4 +39,18 @@ class FirebaseCollection<T: FirebaseCodable>: ObservableObject {
             self.items = models
         }
     }
+    
+    func deleteItem(collectionRef: CollectionReference, index: Int){
+        print("Deleting items: \(items[index].id)")
+        let id = self.items[index].id as! String
+        collectionRef.document(id).delete() { error in
+            if let error = error {
+                print("Error deleting... \(error)")
+            }
+            else {
+                print("Successfully deleted")
+            }
+        }
+        
+    }
 }
