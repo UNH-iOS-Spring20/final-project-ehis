@@ -7,14 +7,19 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct MenuView: View {
+    var menuCollectionRef: CollectionReference
     @ObservedObject var menuItem: MenuItem
     
     var body: some View {
         Group {
             Text (menuItem.description)
-            Text( menuItem.customizable ? "* customizable" : "* not customizable")
+            HStack {
+                Text("Customizable ")
+                Image(systemName: (menuItem.customizable ? "checkmark.square" : "square"))
+            }
             List {
                 ForEach (menuItem.price.indices) { index in
                     HStack {
@@ -29,12 +34,17 @@ struct MenuView: View {
                 }
             }
         }
+        .navigationBarItems(trailing: NavigationLink(
+            destination: EditMenuView(menuCollectionRef: menuCollectionRef, menuItem: menuItem)
+        ){
+            Image(systemName: "square.and.pencil")
+        })
     }
 }
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView(menuItem: MenuItem(id: "test", data:[
+        MenuView(menuCollectionRef: foodiesCollectionRef.document().collection("menu"), menuItem: MenuItem(id: "test", data:[
             "name": "name",
             "customizable": true,
             "description": "description",

@@ -15,8 +15,11 @@ struct ListFoodiesView: View {
         VStack{
             List {
                 ForEach(foodies.items) { foodie in
-                    NavigationLink(destination: FoodieDetailView(foodie: foodie)){
-                        Text(foodie.data["name"] as! String)
+                    
+                    if foodie.data["isActive"] as! Bool {
+                        NavigationLink(destination: FoodieDetailView(foodie: foodie)){
+                            Text(foodie.data["name"] as! String)
+                        }
                     }
                 }
             }

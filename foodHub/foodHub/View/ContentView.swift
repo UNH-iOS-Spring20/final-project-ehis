@@ -17,8 +17,29 @@ struct ContentView: View {
     @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (collectionRef: foodiesCollectionRef)
     
     var body: some View {
-        VStack{
-            Debug()
+        NavigationView {
+            VStack (spacing: 20){
+                NavigationLink(
+                    destination: EaterLandingView()
+                    )
+                {
+                    Text("eat food")
+                        .font(.largeTitle)
+                }
+                NavigationLink(
+                    destination: FoodieLandingView()
+                    )
+                {
+                    Text("sell food")
+                        .font(.largeTitle)
+                }
+            }.navigationBarTitle("FoodHub", displayMode: .inline)
+            .navigationBarItems(trailing: NavigationLink(
+                    destination: CreditsView()
+                    )
+                {
+                    Image(systemName: "c.circle")
+                })
         }
     }
     
