@@ -50,7 +50,7 @@ struct EditFoodieView: View {
                         .font(.largeTitle)
                 }
             }.font(.body)
-            .navigationBarTitle("Edit \(foodie.name)")
+                .navigationBarTitle("Edit \(foodie.name)")
             Spacer()
         }.padding()
     }
@@ -58,7 +58,7 @@ struct EditFoodieView: View {
     func updateFoodie(){
         print("updating foodie...")
         if !foodie.name.isEmpty && !foodie.address.isEmpty && !foodie.email.isEmpty && !foodie.phone.isEmpty && !foodie.zipCode.isEmpty && !foodie.city.isEmpty && !foodie.state.isEmpty{
-    
+            
             foodiesCollectionRef.document(foodie.id).setData(foodie.data)
             print("foodie updated!")
         }

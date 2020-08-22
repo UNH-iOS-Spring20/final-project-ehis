@@ -24,7 +24,7 @@ struct FoodieDetailView: View {
         VStack {
             List {
                 ForEach(menu.items) { menuItem in
-                    NavigationLink(destination: MenuView(menuItem: menuItem)){
+                    NavigationLink(destination: MenuView(menuCollectionRef: self.menuCollectionRef, menuItem: menuItem)){
                         Text(menuItem.name)
                     }
                     
@@ -45,8 +45,8 @@ struct FoodieDetailView: View {
                 }
             }
         }.padding()
-            .navigationBarTitle(foodie.name)
-        .navigationBarItems(trailing: EditButton())
+            .navigationBarTitle("\(foodie.name)'s Menu")
+            .navigationBarItems(trailing: EditButton())
     }
     
     func deleteItem(at offsets: IndexSet){
@@ -70,36 +70,3 @@ struct FoodieDetailView_Previews: PreviewProvider {
         ])!)
     }
 }
-
-/*
- func getGroupName (menuItems: FirebaseCollection<MenuItem>, itemGroup: String) -> (String) {
- for temp in menuItems.items {
- if temp.id == itemGroup {
- return (temp.name)
- }
- }
- return ""
- }
- 
- func getMenuItemGroup (menuItems: FirebaseCollection<MenuItem>, itemGroup: String) -> (MenuItem) {
- for temp in menuItems.items {
- if temp.id == itemGroup {
- return (temp)
- }
- }
- return MenuItem()
- }
- 
- func fetchItemName (item: String) -> String {
- let docRef = queryMenuItems.document(item)
- 
- docRef.getDocument { (document, error) in
- if let document = document, document.exists {
- 
- out = document.data()!["name"] as! String
- print("Document found: \(item), \(out)")
- }
- }
- return out
- }
- */
