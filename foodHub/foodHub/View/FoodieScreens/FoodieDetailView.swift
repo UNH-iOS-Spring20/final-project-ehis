@@ -54,11 +54,6 @@ struct FoodieDetailView: View {
         menu.deleteItem(collectionRef: menuCollectionRef, index: offsets.first!)
         
     }
-    /*
-     func removeMenuItem (at offsets: IndexSet) {
-     foodie.menu.deleteItem(index: offsets.first!)
-     }
-     */
 }
 
 struct FoodieDetailView_Previews: PreviewProvider {
