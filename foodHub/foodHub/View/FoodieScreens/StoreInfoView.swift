@@ -12,8 +12,12 @@ struct StoreInfoView: View {
     @ObservedObject var foodie: FoodieUser
     var body: some View {
         VStack(alignment: .leading, spacing: 10){
-            Text(foodie.name)
-                .font(.title)
+            HStack{
+                ImageViewController(imageUrl: foodie.photo)
+
+                Text(foodie.name)
+                    .font(.title)                
+            }
             if !foodie.address.isEmpty {
                 Text(foodie.address)
             }
