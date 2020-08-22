@@ -8,6 +8,8 @@
 import FirebaseFirestore
 //import CoreLocation
 
+let defaultPhoto = "https://firebasestorage.googleapis.com/v0/b/foodhub-ios.appspot.com/o/default.jpeg?alt=media&token=c8d1e459-2787-45d3-b846-af4cebc43c56"
+
 class FoodieUser: FirebaseCodable{
     // using @Published on fields that get shown to the user in the app
     var id: String
@@ -19,6 +21,9 @@ class FoodieUser: FirebaseCodable{
     @Published var zipCode: String
     @Published var city: String
     @Published var state: String
+    @Published var photo: String
+    
+    
     
     var data: [String: Any] {
         return [
@@ -29,7 +34,8 @@ class FoodieUser: FirebaseCodable{
             "isActive": isActive,
             "zipCode": zipCode,
             "city": city,
-            "state": state
+            "state": state,
+            "photo": photo
         ]
     }
     
@@ -42,7 +48,7 @@ class FoodieUser: FirebaseCodable{
             let zipCode = data["zipCode"] as? String,
             let city = data["city"] as? String,
             let state = data["state"] as? String
-            else {
+        else {
                 return nil
         }
         
@@ -55,6 +61,7 @@ class FoodieUser: FirebaseCodable{
         self.zipCode = zipCode
         self.city = city
         self.state = state
+        self.photo = data["photo"] as? String ?? defaultPhoto
     }
     
     
