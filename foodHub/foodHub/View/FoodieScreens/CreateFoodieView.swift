@@ -57,7 +57,7 @@ struct CreateFoodieView: View {
                         .font(.largeTitle)
                 }
             }.font(.title)
-            .navigationBarTitle("Create foodie")
+                .navigationBarTitle("Create foodie", displayMode: .inline)
             Spacer()
         }.padding()
         
