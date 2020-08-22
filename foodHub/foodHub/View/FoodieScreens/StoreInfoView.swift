@@ -11,7 +11,7 @@ import SwiftUI
 struct StoreInfoView: View {
     @ObservedObject var foodie: FoodieUser
     var body: some View {
-        VStack(alignment: .leading, spacing: 10){
+        VStack (alignment: .leading, spacing: 10) {
             HStack{
                 ImageViewController(imageUrl: foodie.photo)
 
