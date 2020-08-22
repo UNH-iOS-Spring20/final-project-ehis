@@ -24,7 +24,7 @@ struct FoodieDetailView: View {
         VStack {
             List {
                 ForEach(menu.items) { menuItem in
-                    NavigationLink(destination: MenuView(menuItem: menuItem)){
+                    NavigationLink(destination: MenuView(menuCollectionRef: self.menuCollectionRef, menuItem: menuItem)){
                         Text(menuItem.name)
                     }
                     
@@ -35,17 +35,17 @@ struct FoodieDetailView: View {
                 NavigationLink(
                     destination: StoreInfoView(foodie: self.foodie)
                 ){
-                    Text("Store Info!")
+                    Image(systemName: "info.circle")
                 }
                 Spacer()
                 NavigationLink(
                     destination: CreateMenuView(menuCollectionRef: menuCollectionRef)
                 ){
-                    Text("New item!")
+                    Image(systemName: "plus.circle")
                 }
             }
         }.padding()
-            .navigationBarTitle(foodie.name)
+            .navigationBarTitle("\(foodie.name)'s Menu")
             .navigationBarItems(trailing: EditButton())
     }
     
@@ -54,11 +54,6 @@ struct FoodieDetailView: View {
         menu.deleteItem(collectionRef: menuCollectionRef, index: offsets.first!)
         
     }
-    /*
-     func removeMenuItem (at offsets: IndexSet) {
-     foodie.menu.deleteItem(index: offsets.first!)
-     }
-     */
 }
 
 struct FoodieDetailView_Previews: PreviewProvider {
@@ -75,36 +70,3 @@ struct FoodieDetailView_Previews: PreviewProvider {
         ])!)
     }
 }
-
-/*
- func getGroupName (menuItems: FirebaseCollection<MenuItem>, itemGroup: String) -> (String) {
- for temp in menuItems.items {
- if temp.id == itemGroup {
- return (temp.name)
- }
- }
- return ""
- }
- 
- func getMenuItemGroup (menuItems: FirebaseCollection<MenuItem>, itemGroup: String) -> (MenuItem) {
- for temp in menuItems.items {
- if temp.id == itemGroup {
- return (temp)
- }
- }
- return MenuItem()
- }
- 
- func fetchItemName (item: String) -> String {
- let docRef = queryMenuItems.document(item)
- 
- docRef.getDocument { (document, error) in
- if let document = document, document.exists {
- 
- out = document.data()!["name"] as! String
- print("Document found: \(item), \(out)")
- }
- }
- return out
- }
- */
