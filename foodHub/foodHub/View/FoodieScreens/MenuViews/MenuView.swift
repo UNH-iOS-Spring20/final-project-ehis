@@ -28,7 +28,9 @@ struct MenuView: View {
                     }
                 }
             }
-        }
+        }.navigationBarItems(trailing: Button(action: {}){
+            Image(systemName: "plus.circle")
+        })
     }
 }
 

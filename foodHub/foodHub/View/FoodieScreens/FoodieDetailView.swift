@@ -35,18 +35,18 @@ struct FoodieDetailView: View {
                 NavigationLink(
                     destination: StoreInfoView(foodie: self.foodie)
                 ){
-                    Text("Store Info!")
+                    Image(systemName: "info.circle")
                 }
                 Spacer()
                 NavigationLink(
                     destination: CreateMenuView(menuCollectionRef: menuCollectionRef)
                 ){
-                    Text("New item!")
+                    Image(systemName: "plus.circle")
                 }
             }
         }.padding()
             .navigationBarTitle(foodie.name)
-            .navigationBarItems(trailing: EditButton())
+        .navigationBarItems(trailing: EditButton())
     }
     
     func deleteItem(at offsets: IndexSet){
