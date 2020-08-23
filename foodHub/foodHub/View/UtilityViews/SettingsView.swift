@@ -1,11 +1,11 @@
 //
-//  ContentView.swift
+//  SettingsView.swift
 //  foodHub
 //
-//  Created by Ekore, Ehiremen Alex on 2/15/20.
+//  Created by Ehiremen Ekore on 8/23/20.
 //  Copyright © 2020 Ekore, Ehiremen Alex. All rights reserved.
 //
-// back on 07/28 :)
+
 import SwiftUI
 import FirebaseFirestore
 
@@ -13,30 +13,46 @@ import FirebaseFirestore
 let foodiesCollectionRef = Firestore.firestore().collection("foodies")
 let eatersCollectionRef = Firestore.firestore().collection("eaters")
 
-struct ContentView: View {
+struct SettingsView: View {
     @EnvironmentObject var sessionUser: SessionUser
-    
-    @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (collectionRef: foodiesCollectionRef)
+    var newNavView: Bool
     
     var body: some View {
-        NavigationView {
-            VStack (spacing: 20){
+        
+        HStack{
+            if newNavView {
+                NavigationView {
+                    DebugView()
+                }
+            }
+            else {
+                DebugView()
+            }
+        }
+        
+    }
+    
+    struct DebugView: View{
+        @EnvironmentObject var sessionUser: SessionUser
+        var body: some View {
+            VStack (alignment: .leading, spacing: 20){
                 NavigationLink(
                     destination: EaterLandingView()
                     )
                 {
-                    Text("eat food")
+                    Text("Login as Eater")
                         .font(.largeTitle)
                 }
                 NavigationLink(
                     destination: FoodieLandingView()
                     )
                 {
-                    Text("sell food")
+                    Text("Login as Foodie")
                         .font(.largeTitle)
                 }
                 Button(action: {
-                    self.logOff()
+                    self.sessionUser.reset()
+                    print("session user reset")
                 }) {
                     HStack{
                         Image(systemName: "stop.circle")
@@ -48,15 +64,10 @@ struct ContentView: View {
         }
     }
     
-    func logOff(){
-        sessionUser.reset()
-        print("session user reset")
-    }
-    
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        SettingsView(newNavView: true)
     }
 }

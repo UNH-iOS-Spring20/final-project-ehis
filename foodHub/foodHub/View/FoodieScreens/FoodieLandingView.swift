@@ -10,12 +10,13 @@ import SwiftUI
 import FirebaseFirestore
 
 struct FoodieLandingView: View {
+    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var sessionUser: SessionUser
-    
+    @State private var cantLogin = false
     var body: some View {
-        
         VStack {
-            if !sessionUser.isFoodie && !sessionUser.isEater {
+            
+            //if !sessionUser.isFoodie && !sessionUser.isEater {
                 NavigationLink(
                     destination: CreateFoodieView()
                 ){
@@ -31,12 +32,15 @@ struct FoodieLandingView: View {
                         .font(.largeTitle)
                 }
                 .padding(10)
-            }
-            else {
-                FoodieHomeView(fromHomeTab: true)
-            }
-        }
+           // }
+        }//.onAppear {self.setCantLogin()}
+//        .alert(isPresented: $cantLogin){
+//            Alert(title: Text("Can't Login!"), message: Text("Logout first, please"), dismissButton: .default(Text("OK ")))}
         
+    }
+    func setCantLogin() {
+        cantLogin = sessionUser.isFoodie || sessionUser.isEater
+        presentationMode.wrappedValue.dismiss()
     }
     
     struct SelectFoodiesView: View {
@@ -70,12 +74,10 @@ struct FoodieLandingView: View {
         private func setSessionFoodie(foodie: FoodieUser) {
             sessionUser.setFoodie(foodie: foodie)
             self.showingConfirmLogin.toggle()
-            dismiss()
-        }
-        
-        func dismiss() {
             presentationMode.wrappedValue.dismiss()
         }
+        
+        
     }
 }
 

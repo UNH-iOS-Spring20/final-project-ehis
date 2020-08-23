@@ -10,15 +10,15 @@ import SwiftUI
 
 struct AppTabView: View {
     var body: some View {
-        TabView{
-            ContentView().tabItem{
+        TabView {
+            FoodieHomeView().tabItem{
                 Image(systemName: "house")
                 Text("Home")
             }
             
-            FoodieHomeView(fromHomeTab: false).tabItem{
-                Image(systemName: "list.dash")
-                Text("Foodies")
+            SettingsView(newNavView: true).tabItem{
+                Image(systemName: "gear")
+                Text("Settings")
             }
             
             CreditsView().tabItem{
