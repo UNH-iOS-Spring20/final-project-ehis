@@ -46,11 +46,13 @@ struct EaterDetailView: View {
             Text("\n\(eater.name)'s Favorite Foodies")
                 .bold()
             List {
-                //Section(header: Text("\(eater.name)'s Favorite Foodies")) {
-                    ForEach(Array(eater.favorites), id: \.self) { index in
-                        Text(index)
-                    }
-                //}
+                ForEach(Array(eater.favorites), id: \.self) { index in
+                    Text(index)
+                    //                        NavigationLink(
+                    //                        destination: FoodieDetailView(foodie: foodiesCollectionRef.document(index) as! FoodieUser)){
+                    //                        Text(index)
+                    //                        }
+                }
             }
             if sessionUser.validateEater(eater: eater) {
                 NavigationLink(

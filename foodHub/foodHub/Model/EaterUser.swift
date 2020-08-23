@@ -46,7 +46,8 @@ class EaterUser: FirebaseCodable{
         self.isAdmin = isAdmin
         self.zipCode = zipCode
         self.photo = data["photo"] as? String ?? defaultPhoto
-        self.favorites = data["favorites"] as? Set<String> ?? Set<String>()
+        let favesArr = data["favorites"] as? [String] ?? [String]()
+        self.favorites = Set(favesArr)
     }
     
     #if DEBUG
