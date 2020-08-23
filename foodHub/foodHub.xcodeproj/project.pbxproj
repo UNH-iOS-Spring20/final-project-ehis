@@ -83,6 +83,9 @@
 		CDC83E4024F207DF00388308 /* SessionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E3F24F207DF00388308 /* SessionUser.swift */; };
 		CDC83E4124F207DF00388308 /* SessionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E3F24F207DF00388308 /* SessionUser.swift */; };
 		CDC83E4524F2DF9100388308 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E4424F2DF9100388308 /* SettingsView.swift */; };
+		CDC83E4724F2FB1B00388308 /* ListEatersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E4624F2FB1B00388308 /* ListEatersView.swift */; };
+		CDC83E4924F2FCD500388308 /* EaterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E4824F2FCD500388308 /* EaterDetailView.swift */; };
+		CDC83E4B24F301C500388308 /* EditEaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E4A24F301C500388308 /* EditEaterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +159,9 @@
 		CDC83E3B24F2066800388308 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
 		CDC83E3F24F207DF00388308 /* SessionUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionUser.swift; sourceTree = "<group>"; };
 		CDC83E4424F2DF9100388308 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		CDC83E4624F2FB1B00388308 /* ListEatersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEatersView.swift; sourceTree = "<group>"; };
+		CDC83E4824F2FCD500388308 /* EaterDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EaterDetailView.swift; sourceTree = "<group>"; };
+		CDC83E4A24F301C500388308 /* EditEaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEaterView.swift; sourceTree = "<group>"; };
 		CE52A181549B0F5F8934A6DD /* Pods-foodHub-foodHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodHub-foodHubUITests.release.xcconfig"; path = "Target Support Files/Pods-foodHub-foodHubUITests/Pods-foodHub-foodHubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DB9C41018FF01D20C409BDBA /* Pods-foodHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodHub.release.xcconfig"; path = "Target Support Files/Pods-foodHub/Pods-foodHub.release.xcconfig"; sourceTree = "<group>"; };
 		DD7AF2D6EC259279821F3603 /* Pods_foodHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foodHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -299,6 +305,7 @@
 				CD48A44824E4AFC400445241 /* FoodieHomeView.swift */,
 				CD4F774124E6245D0014AC77 /* StoreInfoView.swift */,
 				CDC83E2A24EF472F00388308 /* EditFoodieView.swift */,
+				CD48A44624E436F200445241 /* ListFoodiesView.swift */,
 				CDC83E2924EF40D900388308 /* MenuViews */,
 			);
 			path = FoodieScreens;
@@ -334,7 +341,9 @@
 				8C802735240C4B58001FD693 /* EaterLandingView.swift */,
 				8CEB66D924132BAB00E1DEBF /* CreateEaterView.swift */,
 				CD48A44424E435E100445241 /* EaterHomeView.swift */,
-				CD48A44624E436F200445241 /* ListFoodiesView.swift */,
+				CDC83E4624F2FB1B00388308 /* ListEatersView.swift */,
+				CDC83E4824F2FCD500388308 /* EaterDetailView.swift */,
+				CDC83E4A24F301C500388308 /* EditEaterView.swift */,
 			);
 			path = EaterScreens;
 			sourceTree = "<group>";
@@ -643,6 +652,7 @@
 				8C19DBFB23F895DC004F1380 /* AppDelegate.swift in Sources */,
 				CDC83E3A24F1DA5700388308 /* Credit.swift in Sources */,
 				CD4F774224E6245D0014AC77 /* StoreInfoView.swift in Sources */,
+				CDC83E4924F2FCD500388308 /* EaterDetailView.swift in Sources */,
 				CD48A44524E435E100445241 /* EaterHomeView.swift in Sources */,
 				CD5489C624EB771E00164913 /* MenuView.swift in Sources */,
 				8C5B13BD2415A2C800A53689 /* CreateFoodieView.swift in Sources */,
@@ -653,6 +663,8 @@
 				8CEB66D524131F9000E1DEBF /* EaterUser.swift in Sources */,
 				8CEB66DA24132BAB00E1DEBF /* CreateEaterView.swift in Sources */,
 				8C802736240C4B58001FD693 /* EaterLandingView.swift in Sources */,
+				CDC83E4724F2FB1B00388308 /* ListEatersView.swift in Sources */,
+				CDC83E4B24F301C500388308 /* EditEaterView.swift in Sources */,
 				CD48A44924E4AFC400445241 /* FoodieHomeView.swift in Sources */,
 				CDC83E2D24F079C100388308 /* CreateMenuView.swift in Sources */,
 				8C19DBFD23F895DC004F1380 /* SceneDelegate.swift in Sources */,

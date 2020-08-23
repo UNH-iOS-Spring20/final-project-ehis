@@ -64,14 +64,14 @@ class FoodieUser: FirebaseCodable{
     
     #if DEBUG
         static let example = FoodieUser(id: "1", data: [
-            "name": "name",
-            "address": "address",
-            "email": "email",
-            "phone": "phone",
+            "name": "Test Eater",
+            "address": "Address",
+            "email": "test@email.com",
+            "phone": "200-TESTING",
             "isActive": true,
-            "zipCode": "zipCode",
-            "city": "city",
-            "state": "state"
+            "zipCode": "00000",
+            "city": "Bot",
+            "state": "AI"
         ])!
     #endif
     //    fileprivate var coordinates: Coordinates
