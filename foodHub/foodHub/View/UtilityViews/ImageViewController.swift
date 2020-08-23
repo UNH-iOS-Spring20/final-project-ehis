@@ -4,8 +4,6 @@
 //
 //  Created by Ehiremen Ekore on 8/22/20.
 //  Copyright © 2020 Ekore, Ehiremen Alex. All rights reserved.
-//
-// Gotten from https://medium.com/macoclock/remote-image-url-with-caching-in-swiftui-611f17cbd985
 
 import Combine
 import SwiftUI
@@ -18,9 +16,11 @@ struct ImageViewController: View {
     }
 
     var body: some View {
-        Image(uiImage: UIImage(data: self.url.data) ?? UIImage()).resizable().clipShape(Circle())
-          .overlay(Circle().stroke(Color.white, lineWidth: 4))
-          .shadow(radius: 10)
+        Image(uiImage: UIImage(data: self.url.data) ?? UIImage())
+            .resizable()
+            .clipShape(Circle())
+            .overlay(Circle().stroke(Color.white, lineWidth: 2))
+//            .shadow(radius: 5)
             .frame(width: 60, height: 60)
     }
 }
