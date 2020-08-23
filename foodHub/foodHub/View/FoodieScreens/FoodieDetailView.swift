@@ -58,15 +58,6 @@ struct FoodieDetailView: View {
 
 struct FoodieDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodieDetailView(foodie: FoodieUser(id: "1", data: [
-            "name": "name",
-            "address": "address",
-            "email": "email",
-            "phone": "phone",
-            "isActive": true,
-            "zipCode": "zipCode",
-            "city": "city",
-            "state": "state"
-        ])!)
+        FoodieDetailView(foodie: FoodieUser.example)
     }
 }

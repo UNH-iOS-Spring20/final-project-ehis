@@ -56,15 +56,6 @@ struct StoreInfoView: View {
 
 struct StoreInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        StoreInfoView(foodie: FoodieUser(id: "1", data: [
-            "name": "name",
-            "address": "address",
-            "email": "email",
-            "phone": "phone",
-            "isActive": true,
-            "zipCode": "zipCode",
-            "city": "city",
-            "state": "state"
-        ])!)
+        StoreInfoView(foodie: FoodieUser.example)
     }
 }

@@ -44,12 +44,6 @@ struct MenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView(menuCollectionRef: foodiesCollectionRef.document().collection("menu"), menuItem: MenuItem(id: "test", data:[
-            "name": "name",
-            "customizable": true,
-            "description": "description",
-            "size": ["small", "medium"],
-            "price": [0.99, 1.99]
-        ])!)
+        MenuView(menuCollectionRef: foodiesCollectionRef.document().collection("menu"), menuItem: MenuItem.example)
     }
 }

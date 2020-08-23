@@ -23,8 +23,6 @@ class FoodieUser: FirebaseCodable{
     @Published var state: String
     @Published var photo: String
     
-    
-    
     var data: [String: Any] {
         return [
             "name": name,
@@ -64,7 +62,18 @@ class FoodieUser: FirebaseCodable{
         self.photo = data["photo"] as? String ?? defaultPhoto
     }
     
-    
+    #if DEBUG
+        static let example = FoodieUser(id: "1", data: [
+            "name": "name",
+            "address": "address",
+            "email": "email",
+            "phone": "phone",
+            "isActive": true,
+            "zipCode": "zipCode",
+            "city": "city",
+            "state": "state"
+        ])!
+    #endif
     //    fileprivate var coordinates: Coordinates
     
     /*   var locationCoordinate: CLLocationCoordinate2D {

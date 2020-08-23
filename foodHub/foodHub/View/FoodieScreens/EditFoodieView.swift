@@ -75,15 +75,6 @@ struct EditFoodieView: View {
 
 struct EditFoodieView_Previews: PreviewProvider {
     static var previews: some View {
-        EditFoodieView(foodie: FoodieUser(id: "1", data: [
-            "name": "name",
-            "address": "address",
-            "email": "email",
-            "phone": "phone",
-            "isActive": true,
-            "zipCode": "zipCode",
-            "city": "city",
-            "state": "state"
-        ])!)
+        EditFoodieView(foodie: FoodieUser.example)
     }
 }

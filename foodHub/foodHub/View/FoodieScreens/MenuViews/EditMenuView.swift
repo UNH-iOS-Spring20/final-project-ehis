@@ -101,12 +101,6 @@ struct EditMenuView: View {
 
 struct AppendMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        EditMenuView(menuCollectionRef: foodiesCollectionRef.document().collection("menu"), menuItem: MenuItem(id: "test", data:[
-            "name": "name",
-            "customizable": true,
-            "description": "description",
-            "size": ["small", "medium"],
-            "price": [0.99, 1.99]
-        ])!)
+        EditMenuView(menuCollectionRef: foodiesCollectionRef.document().collection("menu"), menuItem: MenuItem.example)
     }
 }
