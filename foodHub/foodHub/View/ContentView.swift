@@ -34,12 +34,12 @@ struct ContentView: View {
                         .font(.largeTitle)
                 }
             }.navigationBarTitle("FoodHub", displayMode: .inline)
-            .navigationBarItems(trailing: NavigationLink(
-                    destination: CreditsView()
-                    )
-                {
-                    Image(systemName: "c.circle")
-                })
+//            .navigationBarItems(trailing: NavigationLink(
+//                    destination: CreditsView()
+//                    )
+//                {
+//                    Image(systemName: "c.circle")
+//                })
         }
     }
     

@@ -21,7 +21,7 @@ struct CreditsView: View {
                     Text(credit.name)
                 }
             }
-        }.navigationBarTitle("Credits")
+        }
     }
     
     private struct CreditsDetailView: View {

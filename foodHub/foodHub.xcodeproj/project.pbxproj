@@ -79,6 +79,9 @@
 		CDC83E3324F1B93400388308 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E3224F1B93400388308 /* CreditsView.swift */; };
 		CDC83E3824F1C65F00388308 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E3724F1C65F00388308 /* ImageViewController.swift */; };
 		CDC83E3A24F1DA5700388308 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E3924F1DA5700388308 /* Credit.swift */; };
+		CDC83E3C24F2066800388308 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E3B24F2066800388308 /* AppTabView.swift */; };
+		CDC83E4024F207DF00388308 /* SessionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E3F24F207DF00388308 /* SessionUser.swift */; };
+		CDC83E4124F207DF00388308 /* SessionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E3F24F207DF00388308 /* SessionUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +152,8 @@
 		CDC83E3224F1B93400388308 /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		CDC83E3724F1C65F00388308 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		CDC83E3924F1DA5700388308 /* Credit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credit.swift; sourceTree = "<group>"; };
+		CDC83E3B24F2066800388308 /* AppTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTabView.swift; sourceTree = "<group>"; };
+		CDC83E3F24F207DF00388308 /* SessionUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionUser.swift; sourceTree = "<group>"; };
 		CE52A181549B0F5F8934A6DD /* Pods-foodHub-foodHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodHub-foodHubUITests.release.xcconfig"; path = "Target Support Files/Pods-foodHub-foodHubUITests/Pods-foodHub-foodHubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DB9C41018FF01D20C409BDBA /* Pods-foodHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-foodHub.release.xcconfig"; path = "Target Support Files/Pods-foodHub/Pods-foodHub.release.xcconfig"; sourceTree = "<group>"; };
 		DD7AF2D6EC259279821F3603 /* Pods_foodHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_foodHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -278,6 +283,7 @@
 				8C4F11BE241450AC00541E5E /* FoodieUser.swift */,
 				CD5489BF24EB34B700164913 /* MenuItem.swift */,
 				CDC83E3924F1DA5700388308 /* Credit.swift */,
+				CDC83E3F24F207DF00388308 /* SessionUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -334,6 +340,7 @@
 		CDB3910C24D2547E00FD43B2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CDC83E3B24F2066800388308 /* AppTabView.swift */,
 				8C19DBFE23F895DC004F1380 /* ContentView.swift */,
 				CDC83E3624F1C63800388308 /* UtilityViews */,
 				8CEB66D82413282B00E1DEBF /* EaterScreens */,
@@ -636,6 +643,8 @@
 				CD48A44524E435E100445241 /* EaterHomeView.swift in Sources */,
 				CD5489C624EB771E00164913 /* MenuView.swift in Sources */,
 				8C5B13BD2415A2C800A53689 /* CreateFoodieView.swift in Sources */,
+				CDC83E3C24F2066800388308 /* AppTabView.swift in Sources */,
+				CDC83E4024F207DF00388308 /* SessionUser.swift in Sources */,
 				CDC83E3324F1B93400388308 /* CreditsView.swift in Sources */,
 				CDC83E3824F1C65F00388308 /* ImageViewController.swift in Sources */,
 				8CEB66D524131F9000E1DEBF /* EaterUser.swift in Sources */,
@@ -667,6 +676,7 @@
 				8C4F11C0241450AC00541E5E /* FoodieUser.swift in Sources */,
 				8CEB66D624131F9000E1DEBF /* EaterUser.swift in Sources */,
 				8CEB66DB24132BAB00E1DEBF /* CreateEaterView.swift in Sources */,
+				CDC83E4124F207DF00388308 /* SessionUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
