@@ -10,20 +10,37 @@ import UIKit
 
 class SessionUser: ObservableObject{
     @Published var sessionUser: Any
-    @Published var isSet: Bool
+    @Published var isFoodie: Bool
+    @Published var isEater: Bool
     
     init () {
-        sessionUser = "no initialized session user"
-        isSet = false
+        self.sessionUser = "no initialized session user"
+        self.isFoodie = false
+        self.isEater = false
+        
+        print("session user is empty")
+    }
+   
+    
+    func setEater (eater: EaterUser) {
+        self.sessionUser = eater
+        self.isFoodie = true
+        self.isEater = true
     }
     
-    init (foodie: FoodieUser) {
-        sessionUser = foodie
-        isSet = true
+    func setFoodie(foodie: FoodieUser){
+        self.sessionUser = foodie
+        self.isFoodie = true
+        self.isEater = false
+
+        print("session user is \(foodie.name)")
     }
     
-    init (eater: EaterUser) {
-        sessionUser = eater
-        isSet = true
+    func reset () {
+        self.sessionUser = "no initialized session user"
+        self.isFoodie = false
+        self.isEater = false
+        
+        print("session user is empty")
     }
 }

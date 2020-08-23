@@ -30,6 +30,7 @@ struct AppTabView: View {
 }
 
 struct AppTabView_Previews: PreviewProvider {
+    // fix to prevent Preview from freezing
     static let sessionUser = SessionUser()
     static var previews: some View {
         AppTabView().environmentObject(sessionUser)

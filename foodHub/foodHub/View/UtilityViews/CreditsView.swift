@@ -13,12 +13,14 @@ struct CreditsView: View {
     @ObservedObject private var credits = FirebaseCollection<Credit> (collectionRef: Firestore.firestore().collection("credits"))
     
     var body: some View {
-        List {
-            ForEach (credits.items) { credit in
-                NavigationLink(
-                    destination: CreditsDetailView(credit: credit)
-                ){
-                    Text(credit.name)
+        NavigationView{
+            List {
+                ForEach (credits.items) { credit in
+                    NavigationLink(
+                        destination: CreditsDetailView(credit: credit)
+                    ){
+                        Text(credit.name)
+                    }
                 }
             }
         }

@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct CreateFoodieView: View {
+    @EnvironmentObject var sessionUser: SessionUser
     @Environment(\.presentationMode) var presentationMode
     @State var name = ""
     @State var address = ""
@@ -77,7 +78,9 @@ struct CreateFoodieView: View {
                 "state": state
                 ] as [String : Any]
             
-            foodiesCollectionRef.addDocument(data: data)
+            let docId = foodiesCollectionRef.addDocument(data: data).documentID
+            // lets me have a copy of the new doc's id... for use with initializing sessionFoodieUser
+            //foodiesCollectionRef.addDocument(data: data)
             print("foodie created!")
         }
         else {

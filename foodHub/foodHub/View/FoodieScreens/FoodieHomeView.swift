@@ -9,10 +9,16 @@
 import SwiftUI
 
 struct FoodieHomeView: View {
-    //    let sessionFoodieUser: FoodieUser
+    @EnvironmentObject var sessionUser: SessionUser
+    
     var body: some View {
         VStack {
-            ListFoodiesView()
+            if (sessionUser.isFoodie) {
+                FoodieDetailView(foodie: sessionUser.sessionUser as! FoodieUser)
+            }
+            else {
+                ListFoodiesView()
+            }
             /*
              NavigationLink(
              destination: ListFoodiesView()

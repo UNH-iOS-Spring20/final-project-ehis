@@ -1,5 +1,5 @@
 //
-//  FoodieView.swift
+//  FoodieLandingView.swift
 //  foodHub
 //
 //  Created by Ekore, Ehiremen Alex on 3/1/20.
@@ -10,8 +10,7 @@ import SwiftUI
 import FirebaseFirestore
 
 struct FoodieLandingView: View {
-    @State static var sessionFoodieUser: FoodieUser?
-    // static state var makes it such that there can be ONE active foodie user during the session
+    @EnvironmentObject var sessionUser: SessionUser
     
     var body: some View {
         VStack {
@@ -24,12 +23,46 @@ struct FoodieLandingView: View {
             .padding(10)
             
             NavigationLink(
-                destination: FoodieHomeView()
+                destination: SelectFoodiesView()
             ){
-                Text("Skip")
+                Text("Login")
                     .font(.largeTitle)
             }
             .padding(10)
+        }
+    }
+    
+    struct SelectFoodiesView: View {
+        @EnvironmentObject var sessionUser: SessionUser
+        @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (collectionRef: foodiesCollectionRef)
+        var body: some View {
+            VStack{
+                Text("Select your user: ")
+                List {
+                    ForEach(foodies.items) { foodie in
+                        
+                        Button(action: {
+                            self.setSessionFoodie(foodie: foodie)
+                        }){
+                            HStack{
+                                ImageViewController(imageUrl: foodie.data["photo"] as! String)
+                                Text(foodie.data["name"] as! String)
+                            }
+                        }
+                    }
+                }
+                NavigationLink(
+                    destination: FoodieHomeView()
+                    )
+                {
+                    Text("Confirm")
+                        .font(.largeTitle)
+                }
+            }
+        }
+        
+        private func setSessionFoodie(foodie: FoodieUser) {
+            sessionUser.setFoodie(foodie: foodie)
         }
     }
 }
