@@ -19,7 +19,7 @@ struct ImageViewController: View {
         Image(uiImage: UIImage(data: self.url.data) ?? UIImage())
             .resizable()
             .clipShape(Circle())
-            .overlay(Circle().stroke(Color.white, lineWidth: 2))
+            .overlay(Circle().stroke(Color.gray, lineWidth: 2))
 //            .shadow(radius: 5)
             .frame(width: 60, height: 60)
     }

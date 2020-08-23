@@ -15,11 +15,11 @@ struct CreditsView: View {
     var body: some View {
         List {
             ForEach (credits.items) { credit in
-                NavigationLink(destination:
-                CreditsDetailView(credit: credit)){
+                NavigationLink(
+                    destination: CreditsDetailView(credit: credit)
+                ){
                     Text(credit.name)
                 }
-                
             }
         }.navigationBarTitle("Credits")
     }
@@ -28,7 +28,7 @@ struct CreditsView: View {
         var credit: Credit
         
         var body: some View {
-            VStack (alignment: .leading, spacing: 10) {
+            VStack (alignment: .leading) {
                 Text(credit.name)
                 Text(credit.description)
                 Text(dateAsString(date: credit.date))
@@ -44,8 +44,6 @@ struct CreditsView: View {
         }
     }
 }
-
-
 
 struct CreditsView_Previews: PreviewProvider {
     static var previews: some View {

@@ -64,6 +64,7 @@ struct EditMenuView: View {
         }
     }
     
+    //helps me make local copies of size and price arrays
     func initArrays (){
         numSizes = menuItem.size.count
         for index in 0..<numSizes {
