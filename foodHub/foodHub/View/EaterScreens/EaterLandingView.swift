@@ -8,46 +8,7 @@
 
 import SwiftUI
 import FirebaseFirestore
-/*
- struct EaterView: View {
- var body: some View {
- VStack {
- NavigationLink(
- destination: CreateEaterView()
- ){
- Text("New eater")
- .font(.largeTitle)
- }
- .padding(10)
- 
- Button(action: {
- updateEater()
- }) {
- Text("Update eaters")
- .font(.largeTitle)
- }
- .padding(10)
- 
- Button(action: {
- ContentView.getCollection(collection: "eaters")
- }) {
- Text("Get all eaters")
- .font(.largeTitle)
- }
- .padding(10)
- 
- Button(action: {
- ContentView.deleteCollection(collection: "eaters")
- }) {
- Text("Delete all eaters")
- .font(.largeTitle)
- }
- .padding(10)
- }
- .navigationBarTitle(Text("Eater"), displayMode: .inline)
- }
- }
- */
+
 struct EaterLandingView: View {
     var body: some View {
         VStack {
@@ -67,7 +28,6 @@ struct EaterLandingView: View {
             }
             .padding(10)
         }
-        //        .navigationBarTitle(Text("Go back"))
     }
 }
 

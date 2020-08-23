@@ -4,7 +4,6 @@
 //
 //  Created by Ehiremen Ekore on 8/21/20.
 //  Copyright © 2020 Ekore, Ehiremen Alex. All rights reserved.
-//  Stepper implementation gotten from https://programmingwithswift.com/swiftui-form-beginners-guide/
 
 import SwiftUI
 import FirebaseFirestore
@@ -67,8 +66,8 @@ struct CreateMenuView: View {
             }.navigationBarTitle("New menu item")
             Spacer()
         }.padding()
-        
     }
+    
     func createMenuGroup() {
         print("Creating new menu entry...")
         for index in 0..<numSizes {

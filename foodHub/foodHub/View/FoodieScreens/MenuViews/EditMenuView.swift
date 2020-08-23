@@ -87,12 +87,13 @@ struct EditMenuView: View {
                 return
             }
         }
-        
+
         menuCollectionRef.document(menuItem.id).setData(menuItem.data)
         
         print("item successfully updated")
         dismiss()
     }
+    
     func dismiss() {
         presentationMode.wrappedValue.dismiss()
     }

@@ -4,8 +4,6 @@
 //
 //  Created by Ehiremen Ekore on 8/22/20.
 //  Copyright © 2020 Ekore, Ehiremen Alex. All rights reserved.
-//
-// Gotten from https://medium.com/macoclock/remote-image-url-with-caching-in-swiftui-611f17cbd985
 
 import Combine
 import SwiftUI

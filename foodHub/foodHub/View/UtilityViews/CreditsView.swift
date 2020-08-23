@@ -9,10 +9,8 @@
 import SwiftUI
 import FirebaseFirestore
 
-let creditsCollectionRef = Firestore.firestore().collection("credits")
-
 struct CreditsView: View {
-    @ObservedObject private var credits = FirebaseCollection<Credit> (collectionRef: creditsCollectionRef)
+    @ObservedObject private var credits = FirebaseCollection<Credit> (collectionRef: Firestore.firestore().collection("credits"))
     
     var body: some View {
         List {
