@@ -43,6 +43,9 @@ struct FoodieLandingView: View {
         @EnvironmentObject var sessionUser: SessionUser
         @Environment(\.presentationMode) var presentationMode
         @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (collectionRef: foodiesCollectionRef)
+        
+        @State private var showingConfirmLogin = false
+        
         var body: some View {
             VStack{
                 Text("Select your user: ")
@@ -59,11 +62,14 @@ struct FoodieLandingView: View {
                         }
                     }
                 }
+            }.alert(isPresented: $showingConfirmLogin){
+                Alert(title: Text("Successful Login!"), message: Text("Session user set as \((sessionUser.sessionUser as! FoodieUser).name)"), dismissButton: .default(Text("OK ")))
             }
         }
         
         private func setSessionFoodie(foodie: FoodieUser) {
             sessionUser.setFoodie(foodie: foodie)
+            self.showingConfirmLogin.toggle()
             dismiss()
         }
         
