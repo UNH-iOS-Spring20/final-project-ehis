@@ -15,7 +15,7 @@ struct StoreInfoView: View {
         VStack (alignment: .leading, spacing: 10) {
             HStack{
                 ImageViewController(imageUrl: foodie.photo)
-
+                
                 Text(foodie.name)
                     .font(.title)                
             }
@@ -44,15 +44,14 @@ struct StoreInfoView: View {
                     }
                 }
             }
-            if sessionUser.isFoodie {
-                if (sessionUser.sessionUser as! FoodieUser).id == foodie.id {
-                    NavigationLink(
-                        destination: EditFoodieView(foodie: self.foodie)
-                    ){
-                        Text("Edit info")
-                    }
+            if sessionUser.validateFoodie(foodie: foodie) {
+                NavigationLink(
+                    destination: EditFoodieView(foodie: self.foodie)
+                ){
+                    Text("Edit info")
                 }
             }
+            
             
         }.padding()
             .font(.body)

@@ -20,7 +20,7 @@ class SessionUser: ObservableObject{
         
         print("session user is empty")
     }
-   
+    
     
     func setEater (eater: EaterUser) {
         self.sessionUser = eater
@@ -32,7 +32,7 @@ class SessionUser: ObservableObject{
         self.sessionUser = foodie
         self.isFoodie = true
         self.isEater = false
-
+        
         print("session user is \(foodie.name)")
     }
     
@@ -42,5 +42,23 @@ class SessionUser: ObservableObject{
         self.isEater = false
         
         print("session user is empty")
+    }
+    
+    // is the sessionUser the same as the FoodieUser passed?
+    func validateFoodie (foodie: FoodieUser) -> Bool {
+        if isFoodie {
+            if (sessionUser as! FoodieUser).id == foodie.id {
+                return true
+            }}
+        return false
+    }
+    
+    // is the sessionUser the same as the EaterUser passed?
+    func validateEater (eater: EaterUser) -> Bool {
+        if isFoodie {
+            if (sessionUser as! EaterUser).id == eater.id {
+                return true
+            }}
+        return false
     }
 }
