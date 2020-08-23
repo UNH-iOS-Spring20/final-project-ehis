@@ -10,9 +10,25 @@ import SwiftUI
 
 struct FoodieHomeView: View {
     @EnvironmentObject var sessionUser: SessionUser
+    var fromHomeTab: Bool
     
     var body: some View {
-        NavigationView{
+        
+        HStack{
+            if !fromHomeTab {
+                NavigationView {
+                    DebugView()
+                }
+            }
+            else {
+                DebugView()
+            }
+        }
+    }
+    
+    struct DebugView: View{
+        @EnvironmentObject var sessionUser: SessionUser
+        var body: some View {
             VStack {
                 if (sessionUser.isFoodie) {
                     FoodieDetailView(foodie: sessionUser.sessionUser as! FoodieUser)
@@ -20,22 +36,14 @@ struct FoodieHomeView: View {
                 else {
                     ListFoodiesView()
                 }
-                /*
-                 NavigationLink(
-                 destination: ListFoodiesView()
-                 ){
-                 Text("List foodies")
-                 .font(.largeTitle)
-                 }.padding()
-                 */
-            }//.navigationBarItems(leading: EditButton())
+            }
         }
     }
 }
 
 struct FoodieHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodieHomeView()
+        FoodieHomeView(fromHomeTab: false)
     }
 }
 

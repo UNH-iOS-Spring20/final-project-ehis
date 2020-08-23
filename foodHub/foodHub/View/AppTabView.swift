@@ -16,7 +16,7 @@ struct AppTabView: View {
                 Text("Home")
             }
             
-            FoodieHomeView().tabItem{
+            FoodieHomeView(fromHomeTab: false).tabItem{
                 Image(systemName: "list.dash")
                 Text("Foodies")
             }
@@ -25,6 +25,7 @@ struct AppTabView: View {
                 Image(systemName: "c.circle")
                 Text("Credits")
             }
+            
         }
     }
 }

@@ -33,7 +33,7 @@ struct FoodieLandingView: View {
                 .padding(10)
             }
             else {
-                FoodieHomeView()
+                FoodieHomeView(fromHomeTab: true)
             }
         }
         
