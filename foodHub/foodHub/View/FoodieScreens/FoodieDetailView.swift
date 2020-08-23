@@ -31,6 +31,7 @@ struct FoodieDetailView: View {
                 }.onDelete(perform: deleteItem)
                 Spacer()
             }
+            
             HStack{
                 NavigationLink(
                     destination: StoreInfoView(foodie: self.foodie)

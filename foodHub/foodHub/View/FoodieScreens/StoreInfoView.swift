@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct StoreInfoView: View {
+    @EnvironmentObject var sessionUser: SessionUser
     @ObservedObject var foodie: FoodieUser
     var body: some View {
         VStack (alignment: .leading, spacing: 10) {
@@ -43,11 +44,16 @@ struct StoreInfoView: View {
                     }
                 }
             }
-            NavigationLink(
-                destination: EditFoodieView(foodie: self.foodie)
-            ){
-                Text("Edit info")
+            if sessionUser.isFoodie {
+                if (sessionUser.sessionUser as! FoodieUser).id == foodie.id {
+                    NavigationLink(
+                        destination: EditFoodieView(foodie: self.foodie)
+                    ){
+                        Text("Edit info")
+                    }
+                }
             }
+            
         }.padding()
             .font(.body)
         
