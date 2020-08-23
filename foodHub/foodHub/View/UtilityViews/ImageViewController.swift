@@ -19,7 +19,7 @@ struct ImageViewController: View {
         Image(uiImage: UIImage(data: self.url.data) ?? UIImage())
             .resizable()
             .clipShape(Circle())
-            .overlay(Circle().stroke(Color.white, lineWidth: 2))
+            .overlay(Circle().stroke(Color.gray, lineWidth: 2))
 //            .shadow(radius: 5)
             .frame(width: 60, height: 60)
     }
@@ -48,6 +48,6 @@ class LoadUrlImage: ObservableObject {
 
 struct ImageViewController_Previews: PreviewProvider {
     static var previews: some View {
-        ImageViewController(imageUrl: "https://firebasestorage.googleapis.com/v0/b/foodhub-ios.appspot.com/o/iu.jpeg?alt=media&token=9124df60-e097-4798-8cab-bf9655a8b4fa")
+        ImageViewController(imageUrl: defaultPhoto)
     }
 }

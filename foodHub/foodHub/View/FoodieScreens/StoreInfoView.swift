@@ -9,12 +9,13 @@
 import SwiftUI
 
 struct StoreInfoView: View {
+    @EnvironmentObject var sessionUser: SessionUser
     @ObservedObject var foodie: FoodieUser
     var body: some View {
         VStack (alignment: .leading, spacing: 10) {
             HStack{
                 ImageViewController(imageUrl: foodie.photo)
-
+                
                 Text(foodie.name)
                     .font(.title)                
             }
@@ -43,11 +44,15 @@ struct StoreInfoView: View {
                     }
                 }
             }
-            NavigationLink(
-                destination: EditFoodieView(foodie: self.foodie)
-            ){
-                Text("Edit info")
+            if sessionUser.validateFoodie(foodie: foodie) {
+                NavigationLink(
+                    destination: EditFoodieView(foodie: self.foodie)
+                ){
+                    Text("Edit info")
+                }
             }
+            
+            
         }.padding()
             .font(.body)
         
@@ -56,15 +61,6 @@ struct StoreInfoView: View {
 
 struct StoreInfoView_Previews: PreviewProvider {
     static var previews: some View {
-        StoreInfoView(foodie: FoodieUser(id: "1", data: [
-            "name": "name",
-            "address": "address",
-            "email": "email",
-            "phone": "phone",
-            "isActive": true,
-            "zipCode": "zipCode",
-            "city": "city",
-            "state": "state"
-        ])!)
+        StoreInfoView(foodie: FoodieUser.example)
     }
 }

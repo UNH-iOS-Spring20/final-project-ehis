@@ -14,6 +14,8 @@ let foodiesCollectionRef = Firestore.firestore().collection("foodies")
 let eatersCollectionRef = Firestore.firestore().collection("eaters")
 
 struct ContentView: View {
+    @EnvironmentObject var sessionUser: SessionUser
+    
     @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (collectionRef: foodiesCollectionRef)
     
     var body: some View {
@@ -33,14 +35,22 @@ struct ContentView: View {
                     Text("sell food")
                         .font(.largeTitle)
                 }
+                Button(action: {
+                    self.logOff()
+                }) {
+                    HStack{
+                        Image(systemName: "stop.circle")
+                        Text("Log off")
+                            .font(.largeTitle)
+                    }
+                }
             }.navigationBarTitle("FoodHub", displayMode: .inline)
-            .navigationBarItems(trailing: NavigationLink(
-                    destination: CreditsView()
-                    )
-                {
-                    Image(systemName: "c.circle")
-                })
         }
+    }
+    
+    func logOff(){
+        sessionUser.reset()
+        print("session user reset")
     }
     
 }

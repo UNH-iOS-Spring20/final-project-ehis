@@ -19,8 +19,8 @@ struct ListFoodiesView: View {
                     if foodie.data["isActive"] as! Bool {
                         NavigationLink(destination: FoodieDetailView(foodie: foodie)){
                             HStack{
-                            ImageViewController(imageUrl: foodie.data["photo"] as! String)
-                            Text(foodie.data["name"] as! String)
+                                ImageViewController(imageUrl: foodie.data["photo"] as! String)
+                                Text(foodie.data["name"] as! String)
                             }
                         }
                     }

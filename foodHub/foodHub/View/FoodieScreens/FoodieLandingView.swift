@@ -1,5 +1,5 @@
 //
-//  FoodieView.swift
+//  FoodieLandingView.swift
 //  foodHub
 //
 //  Created by Ekore, Ehiremen Alex on 3/1/20.
@@ -10,26 +10,65 @@ import SwiftUI
 import FirebaseFirestore
 
 struct FoodieLandingView: View {
-    @State static var sessionFoodieUser: FoodieUser?
-    // static state var makes it such that there can be ONE active foodie user during the session
+    @EnvironmentObject var sessionUser: SessionUser
     
     var body: some View {
+        
         VStack {
-            NavigationLink(
-                destination: CreateFoodieView()
-            ){
-                Text("New foodie")
-                    .font(.largeTitle)
+            if !sessionUser.isFoodie && !sessionUser.isEater {
+                NavigationLink(
+                    destination: CreateFoodieView()
+                ){
+                    Text("New foodie")
+                        .font(.largeTitle)
+                }
+                .padding(10)
+                
+                NavigationLink(
+                    destination: SelectFoodiesView()
+                ){
+                    Text("Login")
+                        .font(.largeTitle)
+                }
+                .padding(10)
             }
-            .padding(10)
-            
-            NavigationLink(
-                destination: FoodieHomeView()
-            ){
-                Text("Skip")
-                    .font(.largeTitle)
+            else {
+                FoodieHomeView(fromHomeTab: true)
             }
-            .padding(10)
+        }
+        
+    }
+    
+    struct SelectFoodiesView: View {
+        @EnvironmentObject var sessionUser: SessionUser
+        @Environment(\.presentationMode) var presentationMode
+        @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (collectionRef: foodiesCollectionRef)
+        var body: some View {
+            VStack{
+                Text("Select your user: ")
+                List {
+                    ForEach(foodies.items) { foodie in
+                        
+                        Button(action: {
+                            self.setSessionFoodie(foodie: foodie)
+                        }){
+                            HStack{
+                                ImageViewController(imageUrl: foodie.data["photo"] as! String)
+                                Text(foodie.data["name"] as! String)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        private func setSessionFoodie(foodie: FoodieUser) {
+            sessionUser.setFoodie(foodie: foodie)
+            dismiss()
+        }
+        
+        func dismiss() {
+            presentationMode.wrappedValue.dismiss()
         }
     }
 }

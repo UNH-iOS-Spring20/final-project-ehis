@@ -10,8 +10,10 @@ import SwiftUI
 import FirebaseFirestore
 
 struct MenuView: View {
+    @EnvironmentObject var sessionUser: SessionUser
     var menuCollectionRef: CollectionReference
     @ObservedObject var menuItem: MenuItem
+    @ObservedObject var owner: FoodieUser
     
     var body: some View {
         Group {
@@ -34,22 +36,21 @@ struct MenuView: View {
                 }
             }
         }
-        .navigationBarItems(trailing: NavigationLink(
-            destination: EditMenuView(menuCollectionRef: menuCollectionRef, menuItem: menuItem)
-        ){
-            Image(systemName: "square.and.pencil")
+        .navigationBarItems(trailing:
+            HStack{
+                if sessionUser.validateFoodie(foodie: owner) {
+                    NavigationLink(
+                        destination: EditMenuView(menuCollectionRef: menuCollectionRef, menuItem: menuItem)
+                    ){
+                        Image(systemName: "square.and.pencil")
+                    }
+                }
         })
     }
 }
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView(menuCollectionRef: foodiesCollectionRef.document().collection("menu"), menuItem: MenuItem(id: "test", data:[
-            "name": "name",
-            "customizable": true,
-            "description": "description",
-            "size": ["small", "medium"],
-            "price": [0.99, 1.99]
-        ])!)
+        MenuView(menuCollectionRef: foodiesCollectionRef.document().collection("menu"), menuItem: MenuItem.example, owner: FoodieUser.example)
     }
 }

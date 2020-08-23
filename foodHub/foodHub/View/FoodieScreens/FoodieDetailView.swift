@@ -8,8 +8,12 @@
 
 import SwiftUI
 import FirebaseFirestore
-
+/*
+ if sessionUser.isFoodie {
+ if (sessionUser.sessionUser as! FoodieUser).id == foodie.id {
+ */
 struct FoodieDetailView: View {
+    @EnvironmentObject var sessionUser: SessionUser
     @ObservedObject var foodie: FoodieUser
     @ObservedObject var menu: FirebaseCollection<MenuItem>
     private var menuCollectionRef: CollectionReference
@@ -24,13 +28,14 @@ struct FoodieDetailView: View {
         VStack {
             List {
                 ForEach(menu.items) { menuItem in
-                    NavigationLink(destination: MenuView(menuCollectionRef: self.menuCollectionRef, menuItem: menuItem)){
+                    NavigationLink(destination: MenuView(menuCollectionRef: self.menuCollectionRef, menuItem: menuItem, owner: self.foodie)){
                         Text(menuItem.name)
                     }
                     
                 }.onDelete(perform: deleteItem)
                 Spacer()
             }
+            
             HStack{
                 NavigationLink(
                     destination: StoreInfoView(foodie: self.foodie)
@@ -38,15 +43,23 @@ struct FoodieDetailView: View {
                     Image(systemName: "info.circle")
                 }
                 Spacer()
-                NavigationLink(
-                    destination: CreateMenuView(menuCollectionRef: menuCollectionRef)
-                ){
-                    Image(systemName: "plus.circle")
+                
+                if sessionUser.validateFoodie(foodie: foodie) {
+                    NavigationLink(
+                        destination: CreateMenuView(menuCollectionRef: menuCollectionRef)
+                    ){
+                        Image(systemName: "plus.circle")
+                    }
                 }
             }
         }.padding()
             .navigationBarTitle("\(foodie.name)'s Menu")
-            .navigationBarItems(trailing: EditButton())
+            .navigationBarItems(trailing:
+                HStack{
+                    if sessionUser.validateFoodie(foodie: foodie) {
+                        EditButton()
+                    }
+            })
     }
     
     func deleteItem(at offsets: IndexSet){
@@ -58,15 +71,6 @@ struct FoodieDetailView: View {
 
 struct FoodieDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodieDetailView(foodie: FoodieUser(id: "1", data: [
-            "name": "name",
-            "address": "address",
-            "email": "email",
-            "phone": "phone",
-            "isActive": true,
-            "zipCode": "zipCode",
-            "city": "city",
-            "state": "state"
-        ])!)
+        FoodieDetailView(foodie: FoodieUser.example)
     }
 }
