@@ -38,7 +38,11 @@ struct ContentView: View {
                 Button(action: {
                     self.logOff()
                 }) {
-                    Image(systemName: "stop.circle")
+                    HStack{
+                        Image(systemName: "stop.circle")
+                        Text("Log off")
+                            .font(.largeTitle)
+                    }
                 }
             }.navigationBarTitle("FoodHub", displayMode: .inline)
         }

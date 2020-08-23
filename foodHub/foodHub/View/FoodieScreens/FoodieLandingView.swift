@@ -13,27 +13,35 @@ struct FoodieLandingView: View {
     @EnvironmentObject var sessionUser: SessionUser
     
     var body: some View {
+        
         VStack {
-            NavigationLink(
-                destination: CreateFoodieView()
-            ){
-                Text("New foodie")
-                    .font(.largeTitle)
+            if !sessionUser.isFoodie && !sessionUser.isEater {
+                NavigationLink(
+                    destination: CreateFoodieView()
+                ){
+                    Text("New foodie")
+                        .font(.largeTitle)
+                }
+                .padding(10)
+                
+                NavigationLink(
+                    destination: SelectFoodiesView()
+                ){
+                    Text("Login")
+                        .font(.largeTitle)
+                }
+                .padding(10)
             }
-            .padding(10)
-            
-            NavigationLink(
-                destination: SelectFoodiesView()
-            ){
-                Text("Login")
-                    .font(.largeTitle)
+            else {
+                FoodieHomeView()
             }
-            .padding(10)
         }
+        
     }
     
     struct SelectFoodiesView: View {
         @EnvironmentObject var sessionUser: SessionUser
+        @Environment(\.presentationMode) var presentationMode
         @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (collectionRef: foodiesCollectionRef)
         var body: some View {
             VStack{
@@ -51,18 +59,16 @@ struct FoodieLandingView: View {
                         }
                     }
                 }
-                NavigationLink(
-                    destination: FoodieHomeView()
-                    )
-                {
-                    Text("Confirm")
-                        .font(.largeTitle)
-                }
             }
         }
         
         private func setSessionFoodie(foodie: FoodieUser) {
             sessionUser.setFoodie(foodie: foodie)
+            dismiss()
+        }
+        
+        func dismiss() {
+            presentationMode.wrappedValue.dismiss()
         }
     }
 }

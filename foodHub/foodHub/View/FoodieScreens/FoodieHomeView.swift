@@ -12,22 +12,24 @@ struct FoodieHomeView: View {
     @EnvironmentObject var sessionUser: SessionUser
     
     var body: some View {
-        VStack {
-            if (sessionUser.isFoodie) {
-                FoodieDetailView(foodie: sessionUser.sessionUser as! FoodieUser)
-            }
-            else {
-                ListFoodiesView()
-            }
-            /*
-             NavigationLink(
-             destination: ListFoodiesView()
-             ){
-             Text("List foodies")
-             .font(.largeTitle)
-             }.padding()
-             */
-        }//.navigationBarItems(leading: EditButton())
+        NavigationView{
+            VStack {
+                if (sessionUser.isFoodie) {
+                    FoodieDetailView(foodie: sessionUser.sessionUser as! FoodieUser)
+                }
+                else {
+                    ListFoodiesView()
+                }
+                /*
+                 NavigationLink(
+                 destination: ListFoodiesView()
+                 ){
+                 Text("List foodies")
+                 .font(.largeTitle)
+                 }.padding()
+                 */
+            }//.navigationBarItems(leading: EditButton())
+        }
     }
 }
 

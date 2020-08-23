@@ -12,23 +12,21 @@ import FirebaseFirestore
 struct ListFoodiesView: View {
     @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (collectionRef: foodiesCollectionRef)
     var body: some View {
-        NavigationView{
-            VStack{
-                List {
-                    ForEach(foodies.items) { foodie in
-                        
-                        if foodie.data["isActive"] as! Bool {
-                            NavigationLink(destination: FoodieDetailView(foodie: foodie)){
-                                HStack{
-                                    ImageViewController(imageUrl: foodie.data["photo"] as! String)
-                                    Text(foodie.data["name"] as! String)
-                                }
+        VStack{
+            List {
+                ForEach(foodies.items) { foodie in
+                    
+                    if foodie.data["isActive"] as! Bool {
+                        NavigationLink(destination: FoodieDetailView(foodie: foodie)){
+                            HStack{
+                                ImageViewController(imageUrl: foodie.data["photo"] as! String)
+                                Text(foodie.data["name"] as! String)
                             }
                         }
                     }
                 }
-                .navigationBarTitle("Foodies near me")
             }
+            .navigationBarTitle("Foodies near me")
         }
     }
 }

@@ -16,7 +16,7 @@ struct AppTabView: View {
                 Text("Home")
             }
             
-            ListFoodiesView().tabItem{
+            FoodieHomeView().tabItem{
                 Image(systemName: "list.dash")
                 Text("Foodies")
             }
