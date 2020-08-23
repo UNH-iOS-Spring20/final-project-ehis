@@ -24,7 +24,7 @@ class SessionUser: ObservableObject{
     
     func setEater (eater: EaterUser) {
         self.sessionUser = eater
-        self.isFoodie = true
+        self.isFoodie = false
         self.isEater = true
     }
     

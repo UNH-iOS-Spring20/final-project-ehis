@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct AppTabView: View {
+    @EnvironmentObject var sessionUser: SessionUser
+    
     var body: some View {
         TabView {
             FoodieHomeView().tabItem{
@@ -21,11 +23,17 @@ struct AppTabView: View {
                 Text("Settings")
             }
             
+            if sessionUser.isEater {
+                EaterDetailView(eater: sessionUser.sessionUser as! EaterUser).tabItem{
+                    Image(systemName: "info.circle")
+                    Text("My info")
+                }
+            }
+            
             CreditsView().tabItem{
                 Image(systemName: "c.circle")
                 Text("Credits")
             }
-            
         }
     }
 }

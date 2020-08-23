@@ -28,7 +28,7 @@ struct FoodieLandingView: View {
                 NavigationLink(
                     destination: SelectFoodiesView()
                 ){
-                    Text("Login")
+                    Text("Select existing foodie")
                         .font(.largeTitle)
                 }
                 .padding(10)

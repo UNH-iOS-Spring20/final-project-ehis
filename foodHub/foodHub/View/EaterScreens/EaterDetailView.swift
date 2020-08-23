@@ -9,9 +9,6 @@
 import SwiftUI
 import FirebaseFirestore
 
-/*
- @Published var favorites: Set<String>
- */
 struct EaterDetailView: View {
     @EnvironmentObject var sessionUser: SessionUser
     @ObservedObject var eater: EaterUser
@@ -46,13 +43,14 @@ struct EaterDetailView: View {
                 Text("Zipcode: ")
                 Text(eater.zipCode)
             }
-            
+            Text("\n\(eater.name)'s Favorite Foodies")
+                .bold()
             List {
-                Section(header: Text("Favorite Foodies")) {
-                    ForEach(eater.favorites, id: \.self) { index in
+                //Section(header: Text("\(eater.name)'s Favorite Foodies")) {
+                    ForEach(Array(eater.favorites), id: \.self) { index in
                         Text(index)
                     }
-                }
+                //}
             }
             if sessionUser.validateEater(eater: eater) {
                 NavigationLink(
@@ -64,7 +62,7 @@ struct EaterDetailView: View {
             
         }.padding()
             .font(.body).padding()
-            .navigationBarTitle("\(foodie.name)'s Menu")
+            .navigationBarTitle("About \(eater.name)")
     }
 }
 

@@ -14,9 +14,12 @@ struct FoodieHomeView: View {
     var body: some View {
         NavigationView{
             VStack {
-                if (sessionUser.isFoodie) {
+                if sessionUser.isFoodie {
                     FoodieDetailView(foodie: sessionUser.sessionUser as! FoodieUser)
                 }
+//                else if sessionUser.isEater {
+//                    EaterDetailView(eater: sessionUser.sessionUser as! EaterUser)
+//                }
                 else {
                     ListFoodiesView()
                 }
