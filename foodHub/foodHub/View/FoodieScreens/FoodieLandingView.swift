@@ -15,32 +15,23 @@ struct FoodieLandingView: View {
     @State private var cantLogin = false
     var body: some View {
         VStack {
+            NavigationLink(
+                destination: CreateFoodieView()
+            ){
+                Text("New foodie")
+                    .font(.largeTitle)
+            }
+            .padding(10)
             
-            //if !sessionUser.isFoodie && !sessionUser.isEater {
-                NavigationLink(
-                    destination: CreateFoodieView()
-                ){
-                    Text("New foodie")
-                        .font(.largeTitle)
-                }
-                .padding(10)
-                
-                NavigationLink(
-                    destination: SelectFoodiesView()
-                ){
-                    Text("Select existing foodie")
-                        .font(.largeTitle)
-                }
-                .padding(10)
-           // }
-        }//.onAppear {self.setCantLogin()}
-//        .alert(isPresented: $cantLogin){
-//            Alert(title: Text("Can't Login!"), message: Text("Logout first, please"), dismissButton: .default(Text("OK ")))}
+            NavigationLink(
+                destination: SelectFoodiesView()
+            ){
+                Text("Select existing foodie")
+                    .font(.largeTitle)
+            }
+            .padding(10)
+        }
         
-    }
-    func setCantLogin() {
-        cantLogin = sessionUser.isFoodie || sessionUser.isEater
-        presentationMode.wrappedValue.dismiss()
     }
     
     struct SelectFoodiesView: View {
@@ -76,8 +67,6 @@ struct FoodieLandingView: View {
             self.showingConfirmLogin.toggle()
             presentationMode.wrappedValue.dismiss()
         }
-        
-        
     }
 }
 

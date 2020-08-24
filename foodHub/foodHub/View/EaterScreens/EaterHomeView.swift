@@ -15,14 +15,6 @@ struct EaterHomeView: View {
         NavigationView{
             VStack {
                 ListFoodiesView()
-                /*
-                if (sessionUser.isEater) {
-                    EaterDetailView(eater: sessionUser.sessionUser as! EaterUser)
-                }
-                else {
-                    ListFoodiesView()
-                }
- */
             }
         }
     }

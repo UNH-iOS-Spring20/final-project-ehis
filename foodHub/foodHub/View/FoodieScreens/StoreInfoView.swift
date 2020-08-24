@@ -44,6 +44,7 @@ struct StoreInfoView: View {
                     }
                 }
             }
+            
             if sessionUser.validateFoodie(foodie: foodie) {
                 NavigationLink(
                     destination: EditFoodieView(foodie: self.foodie)
@@ -51,8 +52,6 @@ struct StoreInfoView: View {
                     Text("Edit info")
                 }
             }
-            
-            
         }.padding()
             .font(.body)
         

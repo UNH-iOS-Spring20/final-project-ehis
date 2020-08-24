@@ -8,10 +8,7 @@
 
 import SwiftUI
 import FirebaseFirestore
-/*
- if sessionUser.isFoodie {
- if (sessionUser.sessionUser as! FoodieUser).id == foodie.id {
- */
+
 struct FoodieDetailView: View {
     @EnvironmentObject var sessionUser: SessionUser
     @ObservedObject var foodie: FoodieUser

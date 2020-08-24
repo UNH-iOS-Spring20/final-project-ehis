@@ -46,8 +46,7 @@ struct EditFoodieView: View {
                 Button(action: {
                     self.updateFoodie()
                 }) {
-                    Text("Update!")
-                        .font(.largeTitle)
+                    Image(systemName: "square.and.arrow.up")
                 }
             }.font(.body)
                 .navigationBarTitle("Edit \(foodie.name)")

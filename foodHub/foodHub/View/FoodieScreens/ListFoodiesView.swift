@@ -18,19 +18,30 @@ struct ListFoodiesView: View {
                 ForEach(foodies.items) { foodie in
                     
                     if foodie.data["isActive"] as! Bool {
-                        NavigationLink(destination: FoodieDetailView(foodie: foodie)){
-                            HStack{
-                                if self.sessionUser.isEater {
-                                    if (self.sessionUser.sessionUser as! EaterUser).favorites.contains(foodie.id) {
+                        HStack {
+                            if self.sessionUser.isEater {
+                                if (self.sessionUser.sessionUser as! EaterUser).favorites.contains(foodie.id) {
+                                    Button(action: {
+                                        (self.sessionUser.sessionUser as! EaterUser).favorites.remove(foodie.id)
+                                    }){
                                         Image(systemName: "star.fill")
                                     }
-                                    else {
+                                }
+                                else {
+                                    Button(action: {
+                                        (self.$sessionUser.sessionUser as! EaterUser).favorites.insert(foodie.id)
+                                    }){
                                         Image(systemName: "star")
                                     }
                                 }
-                                
+                                Divider()
+                            }
+                            
+                            
+                            NavigationLink(destination: FoodieDetailView(foodie: foodie)){
                                 ImageViewController(imageUrl: foodie.data["photo"] as! String)
                                 Text(foodie.data["name"] as! String)
+                                
                             }
                         }
                     }
