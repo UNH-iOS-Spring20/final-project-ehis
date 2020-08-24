@@ -10,12 +10,13 @@ import SwiftUI
 import FirebaseFirestore
 
 struct FoodieLandingView: View {
+    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var sessionUser: SessionUser
-    
+    @State private var cantLogin = false
     var body: some View {
-        
         VStack {
-            if !sessionUser.isFoodie && !sessionUser.isEater {
+            
+            //if !sessionUser.isFoodie && !sessionUser.isEater {
                 NavigationLink(
                     destination: CreateFoodieView()
                 ){
@@ -27,22 +28,28 @@ struct FoodieLandingView: View {
                 NavigationLink(
                     destination: SelectFoodiesView()
                 ){
-                    Text("Login")
+                    Text("Select existing foodie")
                         .font(.largeTitle)
                 }
                 .padding(10)
-            }
-            else {
-                FoodieHomeView(fromHomeTab: true)
-            }
-        }
+           // }
+        }//.onAppear {self.setCantLogin()}
+//        .alert(isPresented: $cantLogin){
+//            Alert(title: Text("Can't Login!"), message: Text("Logout first, please"), dismissButton: .default(Text("OK ")))}
         
+    }
+    func setCantLogin() {
+        cantLogin = sessionUser.isFoodie || sessionUser.isEater
+        presentationMode.wrappedValue.dismiss()
     }
     
     struct SelectFoodiesView: View {
         @EnvironmentObject var sessionUser: SessionUser
         @Environment(\.presentationMode) var presentationMode
         @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (collectionRef: foodiesCollectionRef)
+        
+        @State private var showingConfirmLogin = false
+        
         var body: some View {
             VStack{
                 Text("Select your user: ")
@@ -59,17 +66,18 @@ struct FoodieLandingView: View {
                         }
                     }
                 }
+            }.alert(isPresented: $showingConfirmLogin){
+                Alert(title: Text("Successful Login!"), message: Text("Session user set as \((sessionUser.sessionUser as! FoodieUser).name)"), dismissButton: .default(Text("OK ")))
             }
         }
         
         private func setSessionFoodie(foodie: FoodieUser) {
             sessionUser.setFoodie(foodie: foodie)
-            dismiss()
-        }
-        
-        func dismiss() {
+            self.showingConfirmLogin.toggle()
             presentationMode.wrappedValue.dismiss()
         }
+        
+        
     }
 }
 

@@ -10,29 +10,16 @@ import SwiftUI
 
 struct FoodieHomeView: View {
     @EnvironmentObject var sessionUser: SessionUser
-    var fromHomeTab: Bool
     
     var body: some View {
-        
-        HStack{
-            if !fromHomeTab {
-                NavigationView {
-                    DebugView()
-                }
-            }
-            else {
-                DebugView()
-            }
-        }
-    }
-    
-    struct DebugView: View{
-        @EnvironmentObject var sessionUser: SessionUser
-        var body: some View {
+        NavigationView{
             VStack {
-                if (sessionUser.isFoodie) {
+                if sessionUser.isFoodie {
                     FoodieDetailView(foodie: sessionUser.sessionUser as! FoodieUser)
                 }
+//                else if sessionUser.isEater {
+//                    EaterDetailView(eater: sessionUser.sessionUser as! EaterUser)
+//                }
                 else {
                     ListFoodiesView()
                 }
@@ -43,7 +30,7 @@ struct FoodieHomeView: View {
 
 struct FoodieHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodieHomeView(fromHomeTab: false)
+        FoodieHomeView()
     }
 }
 

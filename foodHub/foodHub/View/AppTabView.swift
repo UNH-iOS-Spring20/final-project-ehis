@@ -7,25 +7,37 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
+
+let foodiesCollectionRef = Firestore.firestore().collection("foodies")
+let eatersCollectionRef = Firestore.firestore().collection("eaters")
 
 struct AppTabView: View {
+    @EnvironmentObject var sessionUser: SessionUser
+    
     var body: some View {
-        TabView{
-            ContentView().tabItem{
+        TabView {
+            FoodieHomeView().tabItem{
                 Image(systemName: "house")
                 Text("Home")
             }
             
-            FoodieHomeView(fromHomeTab: false).tabItem{
-                Image(systemName: "list.dash")
-                Text("Foodies")
+            SettingsView(newNavView: true).tabItem{
+                Image(systemName: "gear")
+                Text("Settings")
+            }
+            
+            if sessionUser.isEater {
+                EaterDetailView(eater: sessionUser.sessionUser as! EaterUser).tabItem{
+                    Image(systemName: "info.circle")
+                    Text("My info")
+                }
             }
             
             CreditsView().tabItem{
                 Image(systemName: "c.circle")
                 Text("Credits")
             }
-            
         }
     }
 }

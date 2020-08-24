@@ -7,13 +7,12 @@
 //
 // back on 07/28 :)
 import SwiftUI
-import FirebaseFirestore
-
-
-let foodiesCollectionRef = Firestore.firestore().collection("foodies")
-let eatersCollectionRef = Firestore.firestore().collection("eaters")
 
 struct ContentView: View {
+    var body: some View {
+        Text("Content view")
+    }
+    /*
     @EnvironmentObject var sessionUser: SessionUser
     
     @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (collectionRef: foodiesCollectionRef)
@@ -35,24 +34,10 @@ struct ContentView: View {
                     Text("sell food")
                         .font(.largeTitle)
                 }
-                Button(action: {
-                    self.logOff()
-                }) {
-                    HStack{
-                        Image(systemName: "stop.circle")
-                        Text("Log off")
-                            .font(.largeTitle)
-                    }
-                }
             }.navigationBarTitle("FoodHub", displayMode: .inline)
         }
     }
-    
-    func logOff(){
-        sessionUser.reset()
-        print("session user reset")
-    }
-    
+ */
 }
 
 struct ContentView_Previews: PreviewProvider {

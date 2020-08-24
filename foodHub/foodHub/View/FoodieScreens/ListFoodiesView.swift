@@ -10,6 +10,7 @@ import SwiftUI
 import FirebaseFirestore
 
 struct ListFoodiesView: View {
+    @EnvironmentObject var sessionUser: SessionUser
     @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (collectionRef: foodiesCollectionRef)
     var body: some View {
         VStack{
@@ -19,6 +20,15 @@ struct ListFoodiesView: View {
                     if foodie.data["isActive"] as! Bool {
                         NavigationLink(destination: FoodieDetailView(foodie: foodie)){
                             HStack{
+                                if self.sessionUser.isEater {
+                                    if (self.sessionUser.sessionUser as! EaterUser).favorites.contains(foodie.id) {
+                                        Image(systemName: "star.fill")
+                                    }
+                                    else {
+                                        Image(systemName: "star")
+                                    }
+                                }
+                                
                                 ImageViewController(imageUrl: foodie.data["photo"] as! String)
                                 Text(foodie.data["name"] as! String)
                             }
