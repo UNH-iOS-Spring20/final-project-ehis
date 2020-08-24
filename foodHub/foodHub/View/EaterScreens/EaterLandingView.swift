@@ -63,22 +63,7 @@ struct EaterLandingView: View {
             self.showingConfirmLogin.toggle()
             presentationMode.wrappedValue.dismiss()
         }
-        
-        
     }
-}
-
-private func updateEater(){
-    /*
-     let eaterRef = db.collection("eaters")
-     
-     eaterRef.document("test_2@gmail.com").setData([
-     "address": "Buckman 226, UNH",
-     "isAdmin": false,
-     "isActive": true
-     ], merge: true)
-     */
-    print("Eater(s) updated")
 }
 
 struct EaterView_Previews: PreviewProvider {
