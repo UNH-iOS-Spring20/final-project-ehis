@@ -28,6 +28,7 @@ struct EaterLandingView: View {
             }
             .padding(10)
         }
+        //presentationMode.wrappedValue.dismiss()
     }
     
     struct SelectEaterView: View {
