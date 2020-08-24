@@ -12,42 +12,42 @@ import FirebaseFirestore
 struct ListFoodiesView: View {
     @EnvironmentObject var sessionUser: SessionUser
     @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (collectionRef: foodiesCollectionRef)
+    
+    @State var showFavorites: Bool = false
+    
     var body: some View {
         VStack{
             List {
+                
+                if self.sessionUser.isEater {
+                    Toggle(isOn: $showFavorites) {
+                        Text("Favorites")
+                    }
+                }
+                
                 ForEach(foodies.items) { foodie in
-                    
                     if foodie.data["isActive"] as! Bool {
                         HStack {
-                            if self.sessionUser.isEater {
-                                if (self.sessionUser.sessionUser as! EaterUser).favorites.contains(foodie.id) {
-                                    Button(action: {
-                                        (self.sessionUser.sessionUser as! EaterUser).favorites.remove(foodie.id)
-                                    }){
-                                        Image(systemName: "star.fill")
-                                    }
+                            if !self.showFavorites {
+                                NavigationLink(destination: FoodieDetailView(foodie: foodie)){
+                                    ImageViewController(imageUrl: foodie.data["photo"] as! String)
+                                    Text(foodie.data["name"] as! String)
                                 }
-                                else {
-                                    Button(action: {
-                                        (self.sessionUser.sessionUser as! EaterUser).favorites.insert(foodie.id)
-                                    }){
-                                        Image(systemName: "star")
-                                    }
-                                }
-                                Divider()
                             }
-                            
-                            
-                            NavigationLink(destination: FoodieDetailView(foodie: foodie)){
-                                ImageViewController(imageUrl: foodie.data["photo"] as! String)
-                                Text(foodie.data["name"] as! String)
-                                
+                            else {
+                                if (self.sessionUser.sessionUser as! EaterUser).favorites.contains(foodie.id) {
+                                    NavigationLink(destination: FoodieDetailView(foodie: foodie)){
+                                        ImageViewController(imageUrl: foodie.data["photo"] as! String)
+                                        Text(foodie.data["name"] as! String)
+                                    }
+                                }
                             }
                         }
                     }
+                    
                 }
+                .navigationBarTitle("Foodies near me")
             }
-            .navigationBarTitle("Foodies near me")
         }
     }
 }
