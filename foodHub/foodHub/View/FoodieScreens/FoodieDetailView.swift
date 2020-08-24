@@ -10,6 +10,7 @@ import SwiftUI
 import FirebaseFirestore
 
 struct FoodieDetailView: View {
+    //    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var sessionUser: SessionUser
     @ObservedObject var foodie: FoodieUser
     @ObservedObject var menu: FirebaseCollection<MenuItem>
@@ -40,6 +41,27 @@ struct FoodieDetailView: View {
                     Image(systemName: "info.circle")
                 }
                 Spacer()
+                
+                if self.sessionUser.isEater {
+                    if (self.sessionUser.sessionUser as! EaterUser).favorites.contains(self.foodie.id) {
+                        Button(action: {
+                            (self.sessionUser.sessionUser as! EaterUser).favorites.remove(self.foodie.id)
+                            
+                            (self.sessionUser.sessionUser as! EaterUser).favesArr = Array((self.sessionUser.sessionUser as! EaterUser).favorites)
+                        }){
+                            Image(systemName: "star.fill")
+                        }
+                    }
+                    else {
+                        Button(action: {
+                            (self.sessionUser.sessionUser as! EaterUser).favorites.insert(self.foodie.id)
+                            
+                            (self.sessionUser.sessionUser as! EaterUser).favesArr = Array((self.sessionUser.sessionUser as! EaterUser).favorites)
+                        }){
+                            Image(systemName: "star")
+                        }
+                    }
+                }
                 
                 if sessionUser.validateFoodie(foodie: foodie) {
                     NavigationLink(
