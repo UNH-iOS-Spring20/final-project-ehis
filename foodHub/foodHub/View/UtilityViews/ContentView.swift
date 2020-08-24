@@ -7,13 +7,14 @@
 //
 // back on 07/28 :)
 import SwiftUI
-import FirebaseFirestore
-
-
-let foodiesCollectionRef = Firestore.firestore().collection("foodies")
-let eatersCollectionRef = Firestore.firestore().collection("eaters")
 
 struct ContentView: View {
+    var body: some View {
+        Text("Content view")
+    }
+    /*
+    @EnvironmentObject var sessionUser: SessionUser
+    
     @ObservedObject private var foodies = FirebaseCollection<FoodieUser> (collectionRef: foodiesCollectionRef)
     
     var body: some View {
@@ -34,15 +35,9 @@ struct ContentView: View {
                         .font(.largeTitle)
                 }
             }.navigationBarTitle("FoodHub", displayMode: .inline)
-            .navigationBarItems(trailing: NavigationLink(
-                    destination: CreditsView()
-                    )
-                {
-                    Image(systemName: "c.circle")
-                })
         }
     }
-    
+ */
 }
 
 struct ContentView_Previews: PreviewProvider {

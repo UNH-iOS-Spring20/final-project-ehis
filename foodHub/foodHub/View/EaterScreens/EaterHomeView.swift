@@ -9,17 +9,21 @@
 import SwiftUI
 
 struct EaterHomeView: View {
+    @EnvironmentObject var sessionUser: SessionUser
+    
     var body: some View {
-        VStack {
-            ListFoodiesView()
-            /*
-             NavigationLink(
-             destination: ListFoodiesView()
-             ){
-             Text("List foodies")
-             .font(.largeTitle)
-             }.padding()
-             */
+        NavigationView{
+            VStack {
+                ListFoodiesView()
+                /*
+                if (sessionUser.isEater) {
+                    EaterDetailView(eater: sessionUser.sessionUser as! EaterUser)
+                }
+                else {
+                    ListFoodiesView()
+                }
+ */
+            }
         }
     }
 }

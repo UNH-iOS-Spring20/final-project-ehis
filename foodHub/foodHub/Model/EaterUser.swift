@@ -13,6 +13,8 @@ class EaterUser: FirebaseCodable{
     @Published var isActive: Bool
     @Published var isAdmin: Bool
     @Published var zipCode: String
+    @Published var photo: String
+    @Published var favorites: Set<String>
     
     var data: [String: Any] {
         return [
@@ -20,7 +22,9 @@ class EaterUser: FirebaseCodable{
             "email": email,
             "isActive": isActive,
             "isAdmin": isAdmin,
-            "zipCode": zipCode
+            "zipCode": zipCode,
+            "photo": photo,
+            "favorites": favorites
         ]
     }
     
@@ -41,37 +45,18 @@ class EaterUser: FirebaseCodable{
         self.isActive = isActive
         self.isAdmin = isAdmin
         self.zipCode = zipCode
+        self.photo = data["photo"] as? String ?? defaultPhoto
+        let favesArr = data["favorites"] as? [String] ?? [String]()
+        self.favorites = Set(favesArr)
     }
     
-    
+    #if DEBUG
+        static let example = EaterUser(id: "1", data: [
+            "name": "Test Eater",
+            "email": "test@email.com",
+            "isActive": true,
+            "isAdmin": false,
+            "zipCode": "00000"
+        ])!
+    #endif
 }
-
-/*
- init? (_ name: String, _ address: String, _ email: String, isAdmin: Bool, zipCode: String){
- if name.isEmpty || email.isEmpty {
- return nil
- }
- if isAdmin != true {
- self.isAdmin = false
- }
- else {
- self.isAdmin = true
- }
- self.id = email
- self.name = name
- self.address = address
- self.email = email
- self.isActive = true
- self.zipCode = zipCode
- }
- 
- init? (allFields id: String, name: String, address: String, email: String, isActive: Bool, isAdmin: Bool, zipCode: String) {
- if name.isEmpty || email.isEmpty {
- return nil
- }
- else {
- self.id = id
- 
- }
- }
- */

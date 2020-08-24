@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct CreateFoodieView: View {
+    @EnvironmentObject var sessionUser: SessionUser
     @Environment(\.presentationMode) var presentationMode
     @State var name = ""
     @State var address = ""
@@ -77,7 +78,9 @@ struct CreateFoodieView: View {
                 "state": state
                 ] as [String : Any]
             
-            foodiesCollectionRef.addDocument(data: data)
+            let docId = foodiesCollectionRef.addDocument(data: data).documentID
+            // lets me have a copy of the new doc's id... for use with initializing sessionFoodieUser
+            //foodiesCollectionRef.addDocument(data: data)
             print("foodie created!")
         }
         else {
@@ -96,80 +99,3 @@ struct CreateFoodieView_Previews: PreviewProvider {
         CreateFoodieView()
     }
 }
-
-/*
- private func createFoodie(_ name: String, _ email: String, _ address: String, _ zipCode: String, _ city: String, _ state: String, _ isActive: Bool) -> (Bool, String, FoodieUser?) {
- /*
- let foodieRef = db.collection("foodies")
- let tempId = name + "-" + zipCode
- let tempFoodie: FoodieUser? = FoodieUser(name, address, email, zipCode, city, state)
- //    let tempFoodie = FoodieUser(allFields: tempId, name: name, address: address, email: email, isActive: isActive, zipCode: zipCode, city: city, state: state)
- var outBool: Bool = false
- var outString: String = "User already exists"
- 
- if (tempFoodie == nil) {
- print("Unable to create foodie")
- outString = "Invalid details given"
- }
- else {
- foodieRef.document(tempId).getDocument {
- (document, error) in
- if !document!.exists {
- foodieRef.document(tempId).setData([
- "name": tempFoodie?.name,
- "email": tempFoodie?.email,
- "zipCode": tempFoodie?.zipCode,
- "city": tempFoodie?.city,
- "state": tempFoodie?.state,
- "isActive": tempFoodie?.isActive
- ], merge: true)
- if tempFoodie?.address != "" {
- foodieRef.document(tempId).setData([
- "address": tempFoodie?.address
- ], merge: true)
- }
- print("Foodie created")
- outBool = true
- outString = ""
- }
- else {
- print("Unable to create foodie")
- print("Foodie exists")
- }
- }
- }
- 
- /*
- else {
- foodieRef.document(tempId).getDocument {
- (document, error) in
- if !document!.exists {
- foodieRef.document(tempId).setData([
- "name": tempFoodie?.name!,
- "email": tempFoodie?.email!,
- "zipCode": tempFoodie?.zipCode!,
- "city": tempFoodie?.city!,
- "state": tempFoodie?.state!,
- "isActive": tempFoodie?.isActive!
- ], merge: true)
- if tempFoodie?.address != "" {
- foodieRef.document(tempId).setData([
- "address": tempFoodie?.address!
- ], merge: true)
- }
- print("Foodie created")
- outBool = true
- outString = ""
- }
- else {
- print("Unable to create foodie")
- print("Foodie exists")
- }
- }
- }
- */
- return (outBool, outString)
- */
- return (true, "Hard code", nil)
- }
- */

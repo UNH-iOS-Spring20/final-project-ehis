@@ -8,46 +8,7 @@
 
 import SwiftUI
 import FirebaseFirestore
-/*
- struct EaterView: View {
- var body: some View {
- VStack {
- NavigationLink(
- destination: CreateEaterView()
- ){
- Text("New eater")
- .font(.largeTitle)
- }
- .padding(10)
- 
- Button(action: {
- updateEater()
- }) {
- Text("Update eaters")
- .font(.largeTitle)
- }
- .padding(10)
- 
- Button(action: {
- ContentView.getCollection(collection: "eaters")
- }) {
- Text("Get all eaters")
- .font(.largeTitle)
- }
- .padding(10)
- 
- Button(action: {
- ContentView.deleteCollection(collection: "eaters")
- }) {
- Text("Delete all eaters")
- .font(.largeTitle)
- }
- .padding(10)
- }
- .navigationBarTitle(Text("Eater"), displayMode: .inline)
- }
- }
- */
+
 struct EaterLandingView: View {
     var body: some View {
         VStack {
@@ -60,14 +21,50 @@ struct EaterLandingView: View {
             .padding(10)
             
             NavigationLink(
-                destination: EaterHomeView()
+                destination: SelectEaterView()
             ){
-                Text("Skip")
+                Text("Select existing eater")
                     .font(.largeTitle)
             }
             .padding(10)
         }
-        //        .navigationBarTitle(Text("Go back"))
+    }
+    
+    struct SelectEaterView: View {
+        @EnvironmentObject var sessionUser: SessionUser
+        @Environment(\.presentationMode) var presentationMode
+        @ObservedObject private var eaters = FirebaseCollection<EaterUser> (collectionRef: eatersCollectionRef)
+        
+        @State private var showingConfirmLogin = false
+        
+        var body: some View {
+            VStack{
+                Text("Select your user: ")
+                List {
+                    ForEach(eaters.items) { eater in
+                        
+                        Button(action: {
+                            self.setSessionEater(eater: eater)
+                        }){
+                            HStack{
+                                ImageViewController(imageUrl: eater.data["photo"] as! String)
+                                Text(eater.data["name"] as! String)
+                            }
+                        }
+                    }
+                }
+            }.alert(isPresented: $showingConfirmLogin){
+                Alert(title: Text("Successful Login!"), message: Text("Session user set as \((sessionUser.sessionUser as! EaterUser).name)"), dismissButton: .default(Text("OK ")))
+            }
+        }
+        
+        private func setSessionEater(eater: EaterUser) {
+            sessionUser.setEater(eater: eater)
+            self.showingConfirmLogin.toggle()
+            presentationMode.wrappedValue.dismiss()
+        }
+        
+        
     }
 }
 

@@ -64,6 +64,7 @@ struct EditMenuView: View {
         }
     }
     
+    //helps me make local copies of size and price arrays
     func initArrays (){
         numSizes = menuItem.size.count
         for index in 0..<numSizes {
@@ -87,12 +88,13 @@ struct EditMenuView: View {
                 return
             }
         }
-        
+
         menuCollectionRef.document(menuItem.id).setData(menuItem.data)
         
         print("item successfully updated")
         dismiss()
     }
+    
     func dismiss() {
         presentationMode.wrappedValue.dismiss()
     }
@@ -100,12 +102,6 @@ struct EditMenuView: View {
 
 struct AppendMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        EditMenuView(menuCollectionRef: foodiesCollectionRef.document().collection("menu"), menuItem: MenuItem(id: "test", data:[
-            "name": "name",
-            "customizable": true,
-            "description": "description",
-            "size": ["small", "medium"],
-            "price": [0.99, 1.99]
-        ])!)
+        EditMenuView(menuCollectionRef: foodiesCollectionRef.document().collection("menu"), menuItem: MenuItem.example)
     }
 }
