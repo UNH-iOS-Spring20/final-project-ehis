@@ -7,6 +7,10 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
+
+let foodiesCollectionRef = Firestore.firestore().collection("foodies")
+let eatersCollectionRef = Firestore.firestore().collection("eaters")
 
 struct AppTabView: View {
     @EnvironmentObject var sessionUser: SessionUser

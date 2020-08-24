@@ -7,11 +7,6 @@
 //
 
 import SwiftUI
-import FirebaseFirestore
-
-
-let foodiesCollectionRef = Firestore.firestore().collection("foodies")
-let eatersCollectionRef = Firestore.firestore().collection("eaters")
 
 struct SettingsView: View {
     @EnvironmentObject var sessionUser: SessionUser
@@ -29,28 +24,46 @@ struct SettingsView: View {
                 DebugView()
             }
         }
-        
+    }
+    
+    struct AlertItem: Identifiable {
+        var id = UUID()
+        var title: Text
+        var message: Text?
+        var dismissButton: Alert.Button?
     }
     
     struct DebugView: View{
         @EnvironmentObject var sessionUser: SessionUser
+        
+        @State private var alertItem: AlertItem?
+        
         var body: some View {
             VStack (alignment: .leading, spacing: 20){
-                NavigationLink(
-                    destination: EaterLandingView()
-                    )
-                {
-                    Text("Login as Eater")
-                        .font(.largeTitle)
-                }
-                NavigationLink(
-                    destination: FoodieLandingView()
-                    )
-                {
-                    Text("Login as Foodie")
-                        .font(.largeTitle)
+                if !self.sessionUser.isEater && !self.sessionUser.isFoodie {
+                    NavigationLink(
+                        destination: EaterLandingView()
+                        )
+                    {
+                        Text("Login as Eater")
+                            .font(.largeTitle)
+                    }
+                    NavigationLink(
+                        destination: FoodieLandingView()
+                        )
+                    {
+                        Text("Login as Foodie")
+                            .font(.largeTitle)
+                    }
                 }
                 Button(action: {
+                    if self.sessionUser.isEater || self.sessionUser.isFoodie{
+                        self.alertItem = AlertItem(title: Text("Logoff successful!"), message: Text(""), dismissButton: .default(Text("OK ")))
+                    }
+                    else {
+                        self.alertItem = AlertItem(title: Text("Can't logoff!"), message: Text("Sign in before logoff."), dismissButton: .default(Text("OK ")))
+                    }
+                    
                     self.sessionUser.reset()
                     print("session user reset")
                 }) {
@@ -61,9 +74,11 @@ struct SettingsView: View {
                     }
                 }
             }.navigationBarTitle("FoodHub", displayMode: .inline)
+                .alert(item: $alertItem) { alertItem in
+                    Alert(title: alertItem.title, message: alertItem.message, dismissButton: alertItem.dismissButton)
+            }
         }
     }
-    
 }
 
 struct SettingsView_Previews: PreviewProvider {
