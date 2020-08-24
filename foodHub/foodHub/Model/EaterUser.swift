@@ -15,6 +15,7 @@ class EaterUser: FirebaseCodable{
     @Published var zipCode: String
     @Published var photo: String
     @Published var favorites: Set<String>
+    @Published var favesArr: [String]
     
     var data: [String: Any] {
         return [
@@ -24,7 +25,7 @@ class EaterUser: FirebaseCodable{
             "isAdmin": isAdmin,
             "zipCode": zipCode,
             "photo": photo,
-            "favorites": favorites
+            "favorites": favesArr
         ]
     }
     
@@ -46,17 +47,18 @@ class EaterUser: FirebaseCodable{
         self.isAdmin = isAdmin
         self.zipCode = zipCode
         self.photo = data["photo"] as? String ?? defaultPhoto
-        let favesArr = data["favorites"] as? [String] ?? [String]()
-        self.favorites = Set(favesArr)
+        let temp = data["favorites"] as? [String] ?? [String]()
+        self.favesArr = temp
+        self.favorites = Set(temp)
     }
     
     #if DEBUG
-        static let example = EaterUser(id: "1", data: [
-            "name": "Test Eater",
-            "email": "test@email.com",
-            "isActive": true,
-            "isAdmin": false,
-            "zipCode": "00000"
-        ])!
+    static let example = EaterUser(id: "1", data: [
+        "name": "Test Eater",
+        "email": "test@email.com",
+        "isActive": true,
+        "isAdmin": false,
+        "zipCode": "00000"
+    ])!
     #endif
 }

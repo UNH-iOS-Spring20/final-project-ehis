@@ -301,10 +301,10 @@
 			isa = PBXGroup;
 			children = (
 				8C802739240C4B6E001FD693 /* FoodieLandingView.swift */,
-				8C5B13BC2415A2C800A53689 /* CreateFoodieView.swift */,
 				CD48A44024E4252A00445241 /* FoodieDetailView.swift */,
 				CD48A44824E4AFC400445241 /* FoodieHomeView.swift */,
 				CD4F774124E6245D0014AC77 /* StoreInfoView.swift */,
+				8C5B13BC2415A2C800A53689 /* CreateFoodieView.swift */,
 				CDC83E2A24EF472F00388308 /* EditFoodieView.swift */,
 				CD48A44624E436F200445241 /* ListFoodiesView.swift */,
 				CDC83E2924EF40D900388308 /* MenuViews */,
@@ -340,9 +340,9 @@
 			isa = PBXGroup;
 			children = (
 				8C802735240C4B58001FD693 /* EaterLandingView.swift */,
-				8CEB66D924132BAB00E1DEBF /* CreateEaterView.swift */,
 				CD48A44424E435E100445241 /* EaterHomeView.swift */,
 				CDC83E4624F2FB1B00388308 /* ListEatersView.swift */,
+				8CEB66D924132BAB00E1DEBF /* CreateEaterView.swift */,
 				CDC83E4824F2FCD500388308 /* EaterDetailView.swift */,
 				CDC83E4A24F301C500388308 /* EditEaterView.swift */,
 			);

@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct CreateEaterView: View {
+    @EnvironmentObject var sessionUser: SessionUser
     @Environment(\.presentationMode) var presentationMode
     @State var name: String = ""
     @State var email: String = ""
@@ -52,7 +53,11 @@ struct CreateEaterView: View {
                 "zipCode": zipCode
                 ] as [String : Any]
             
-            eatersCollectionRef.addDocument(data: data)
+            let docID = eatersCollectionRef.addDocument(data: data).documentID
+            // docID will be used to initialize sessionUser
+            
+            self.sessionUser.setEater(eater: EaterUser(id: docID, data: data)!)
+            
             print("eater created!")
         }
         else {

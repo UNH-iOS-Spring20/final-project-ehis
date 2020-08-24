@@ -55,7 +55,7 @@ class SessionUser: ObservableObject{
     
     // is the sessionUser the same as the EaterUser passed?
     func validateEater (eater: EaterUser) -> Bool {
-        if isFoodie {
+        if isEater {
             if (sessionUser as! EaterUser).id == eater.id {
                 return true
             }}
