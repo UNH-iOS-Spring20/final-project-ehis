@@ -17,8 +17,7 @@ struct CreateFoodieView: View {
     @State var phone = ""
     @State var zipCode = ""
     @State var city = ""
-    @State var state = ""    
-    //    @State var sessionFoodieUser: FoodieUser?
+    @State var state = ""
     
     var body: some View {
         Group{
@@ -78,9 +77,11 @@ struct CreateFoodieView: View {
                 "state": state
                 ] as [String : Any]
             
-            let docId = foodiesCollectionRef.addDocument(data: data).documentID
-            // lets me have a copy of the new doc's id... for use with initializing sessionFoodieUser
-            //foodiesCollectionRef.addDocument(data: data)
+            // lets me have a copy of the new doc's id... for use with initializing sessionUser
+            let docID = foodiesCollectionRef.addDocument(data: data).documentID
+            
+            self.sessionUser.setFoodie(foodie: FoodieUser(id: docID, data: data)!)
+            
             print("foodie created!")
         }
         else {

@@ -10,19 +10,34 @@ import SwiftUI
 import FirebaseFirestore
 
 struct CreditsView: View {
-    @ObservedObject private var credits = FirebaseCollection<Credit> (collectionRef: Firestore.firestore().collection("credits"))
+    @EnvironmentObject var sessionUser: SessionUser
+    @ObservedObject private var credits = FirebaseCollection<Credit> (collectionRef: creditsCollectionRef)
     
     var body: some View {
         NavigationView{
-            List {
-                ForEach (credits.items) { credit in
-                    NavigationLink(
-                        destination: CreditsDetailView(credit: credit)
-                    ){
-                        Text(credit.name)
+            VStack{
+                Text ("Credits")
+                    .font(.largeTitle)
+
+                List {
+                    ForEach (credits.items) { credit in
+                        NavigationLink(
+                            destination: CreditsDetailView(credit: credit)
+                        ){
+                            Text(credit.name)                        }
                     }
                 }
-            }
+                
+                if sessionUser.isEater {
+                    if (sessionUser.sessionUser as! EaterUser).isAdmin {
+                        NavigationLink(
+                            destination: AddCreditsView()
+                        ){
+                            Image(systemName: "plus.circle")
+                        }
+                    }
+                }
+            }.padding(20)
         }
     }
     
@@ -31,9 +46,10 @@ struct CreditsView: View {
         
         var body: some View {
             VStack (alignment: .leading) {
-                Text(credit.name)
-                Text(credit.description)
-                Text(dateAsString(date: credit.date))
+                Text("\(credit.name)\n")
+                Text("\(credit.description)\n")
+                Text("\(dateAsString(date: credit.date))\n")
+                Spacer()
             }
         }
         

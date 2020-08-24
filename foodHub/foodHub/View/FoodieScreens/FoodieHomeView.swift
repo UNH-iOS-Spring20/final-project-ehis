@@ -17,9 +17,6 @@ struct FoodieHomeView: View {
                 if sessionUser.isFoodie {
                     FoodieDetailView(foodie: sessionUser.sessionUser as! FoodieUser)
                 }
-//                else if sessionUser.isEater {
-//                    EaterDetailView(eater: sessionUser.sessionUser as! EaterUser)
-//                }
                 else {
                     ListFoodiesView()
                 }

@@ -59,17 +59,19 @@ struct EaterDetailView: View {
                         }
                     }
                 }
-                if sessionUser.validateEater(eater: eater) {
-                    NavigationLink(
-                        destination: EditEaterView(eater: self.eater)
-                    ){
-                        Text("Edit info")
-                    }
-                }
-                
             }.padding()
                 .font(.body).padding()
                 .navigationBarTitle("About \(eater.name)")
+                .navigationBarItems(trailing:
+                    HStack{
+                        if sessionUser.validateEater(eater: eater) {
+                            NavigationLink(
+                                destination: EditEaterView(eater: eater)
+                            ){
+                                Image(systemName: "square.and.pencil")
+                            }
+                        }
+                })
         }
     }
 }
