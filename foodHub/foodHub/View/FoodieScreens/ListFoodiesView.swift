@@ -29,7 +29,7 @@ struct ListFoodiesView: View {
                                 }
                                 else {
                                     Button(action: {
-                                        (self.$sessionUser.sessionUser as! EaterUser).favorites.insert(foodie.id)
+                                        (self.sessionUser.sessionUser as! EaterUser).favorites.insert(foodie.id)
                                     }){
                                         Image(systemName: "star")
                                     }
