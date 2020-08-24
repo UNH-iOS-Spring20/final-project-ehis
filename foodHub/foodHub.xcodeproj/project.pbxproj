@@ -86,6 +86,7 @@
 		CDC83E4724F2FB1B00388308 /* ListEatersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E4624F2FB1B00388308 /* ListEatersView.swift */; };
 		CDC83E4924F2FCD500388308 /* EaterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E4824F2FCD500388308 /* EaterDetailView.swift */; };
 		CDC83E4B24F301C500388308 /* EditEaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E4A24F301C500388308 /* EditEaterView.swift */; };
+		CDC83E4C24F3761100388308 /* ListFoodiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48A44624E436F200445241 /* ListFoodiesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -692,6 +693,7 @@
 				8C4F11C0241450AC00541E5E /* FoodieUser.swift in Sources */,
 				8CEB66D624131F9000E1DEBF /* EaterUser.swift in Sources */,
 				8CEB66DB24132BAB00E1DEBF /* CreateEaterView.swift in Sources */,
+				CDC83E4C24F3761100388308 /* ListFoodiesView.swift in Sources */,
 				CDC83E4124F207DF00388308 /* SessionUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
