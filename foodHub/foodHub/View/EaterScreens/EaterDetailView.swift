@@ -57,12 +57,12 @@ struct EaterDetailView: View {
                                         self.foodies.items.firstIndex(where: { $0.id == index })!
                                     ].name)
                         }
-                    }
+                    }.onDelete(perform: deleteFavorite)
                 }
             }.padding()
                 .font(.body).padding()
                 .navigationBarTitle("About \(eater.name)")
-                .navigationBarItems(trailing:
+                .navigationBarItems(leading: EditButton(), trailing:
                     HStack{
                         if sessionUser.validateEater(eater: eater) {
                             NavigationLink(
@@ -73,6 +73,12 @@ struct EaterDetailView: View {
                         }
                 })
         }
+    }
+    
+    func deleteFavorite(at offsets: IndexSet){
+        print("Starting delete...")
+        eater.favorites.remove(at: offsets.first!)
+        eatersCollectionRef.document(eater.id).setData(eater.data)
     }
 }
 

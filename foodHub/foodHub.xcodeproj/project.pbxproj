@@ -11,7 +11,6 @@
 		5CDB56FAAF028856CAD60BE7 /* Pods_foodHub_foodHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C2A99504108F76922582649 /* Pods_foodHub_foodHubUITests.framework */; };
 		8C19DBFB23F895DC004F1380 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19DBFA23F895DC004F1380 /* AppDelegate.swift */; };
 		8C19DBFD23F895DC004F1380 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19DBFC23F895DC004F1380 /* SceneDelegate.swift */; };
-		8C19DBFF23F895DC004F1380 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19DBFE23F895DC004F1380 /* ContentView.swift */; };
 		8C19DC0123F895E0004F1380 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C19DC0023F895E0004F1380 /* Assets.xcassets */; };
 		8C19DC0423F895E0004F1380 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C19DC0323F895E0004F1380 /* Preview Assets.xcassets */; };
 		8C19DC0723F895E0004F1380 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C19DC0523F895E0004F1380 /* LaunchScreen.storyboard */; };
@@ -674,7 +673,6 @@
 				CDC83E2D24F079C100388308 /* CreateMenuView.swift in Sources */,
 				8C19DBFD23F895DC004F1380 /* SceneDelegate.swift in Sources */,
 				8C80273A240C4B6E001FD693 /* FoodieLandingView.swift in Sources */,
-				8C19DBFF23F895DC004F1380 /* ContentView.swift in Sources */,
 				CDC83E2F24F1A5A300388308 /* EditMenuView.swift in Sources */,
 				CDC83E2B24EF472F00388308 /* EditFoodieView.swift in Sources */,
 				CDC83E4524F2DF9100388308 /* SettingsView.swift in Sources */,

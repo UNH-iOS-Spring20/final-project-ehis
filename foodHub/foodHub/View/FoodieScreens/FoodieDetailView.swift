@@ -56,6 +56,7 @@ struct FoodieDetailView: View {
                     if !(self.sessionUser.sessionUser as! EaterUser).favorites.contains(self.foodie.id) {
                         Button(action: {
                             (self.sessionUser.sessionUser as! EaterUser).favorites.append(self.foodie.id)
+                            self.updateFavorites()
                             self.isFavorite.toggle()
                             
                         }){
@@ -85,6 +86,10 @@ struct FoodieDetailView: View {
         })
     }
     
+    func updateFavorites(){
+        let eater = self.sessionUser.sessionUser as! EaterUser
+        eatersCollectionRef.document(eater.id).setData(eater.data)
+    }
     func deleteItem(at offsets: IndexSet){
         print("Starting delete...")
         menu.deleteItem(collectionRef: menuCollectionRef, index: offsets.first!)
