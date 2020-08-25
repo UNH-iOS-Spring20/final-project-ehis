@@ -15,6 +15,7 @@ struct FoodieLandingView: View {
     @State private var cantLogin = false
     var body: some View {
         VStack {
+            if !sessionUser.isFoodie {
             NavigationLink(
                 destination: CreateFoodieView()
             ){
@@ -29,8 +30,11 @@ struct FoodieLandingView: View {
                 Text("Select existing foodie")
                     .font(.largeTitle)
             }
-            .padding(10)
         }
+            else {
+                SettingsView(newNavView: false)
+            }
+        }.padding(10)
         
     }
     

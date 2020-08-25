@@ -22,15 +22,19 @@ struct MenuView: View {
                 Text("Customizable ")
                 Image(systemName: (menuItem.customizable ? "checkmark.square" : "x.square"))
             }
-            List {
-                ForEach (menuItem.price.indices) { index in
-                    HStack {
-                        VStack{
-                            Text(self.menuItem.size[index])
+            HStack{
+                VStack{
+                    List {
+                        ForEach (self.menuItem.size, id: \.self) { size in
+                            Text("\(size)")
                         }
-                        Spacer()
-                        VStack (alignment: .trailing){
-                            Text(String(format: "$%.2f", self.menuItem.price[index]))
+                    }
+                }
+                
+                VStack{
+                    List{
+                        ForEach (self.menuItem.price, id: \.self) { price in
+                            Text(String(format: "$%.2f", price))
                         }
                     }
                 }
@@ -38,7 +42,7 @@ struct MenuView: View {
         }
         .navigationBarItems(trailing:
             HStack{
-                if sessionUser.validateFoodie(foodie: owner){
+                if sessionUser.validateFoodie(foodie: owner) || sessionUser.isAdmin() {
                     NavigationLink(
                         destination: EditMenuView(menuCollectionRef: menuCollectionRef, menuItem: menuItem)
                     ){

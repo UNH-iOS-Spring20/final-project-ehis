@@ -56,7 +56,10 @@ struct CreateEaterView: View {
             let docID = eatersCollectionRef.addDocument(data: data).documentID
             // docID will be used to initialize sessionUser
             
-            self.sessionUser.setEater(eater: EaterUser(id: docID, data: data)!)
+            //only change session user if user isn't admin
+            if !self.sessionUser.isAdmin(){
+                self.sessionUser.setEater(eater: EaterUser(id: docID, data: data)!)
+            }
             
             print("eater created!")
         }

@@ -80,8 +80,10 @@ struct CreateFoodieView: View {
             // lets me have a copy of the new doc's id... for use with initializing sessionUser
             let docID = foodiesCollectionRef.addDocument(data: data).documentID
             
-            self.sessionUser.setFoodie(foodie: FoodieUser(id: docID, data: data)!)
-            
+            // only initialize sessionUser if current user isn't admin
+            if !self.sessionUser.isAdmin(){
+                self.sessionUser.setFoodie(foodie: FoodieUser(id: docID, data: data)!)
+            }
             print("foodie created!")
         }
         else {
