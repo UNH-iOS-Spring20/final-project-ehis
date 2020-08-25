@@ -39,6 +39,9 @@ class EaterUser: FirebaseCodable{
                 return nil
         }
         
+        if name.isEmpty || email.isEmpty || zipCode.isEmpty {
+            return nil
+        }
         self.id = id
         self.name = name
         self.email = email

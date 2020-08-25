@@ -64,7 +64,7 @@ class FoodieUser: FirebaseCodable{
     
     #if DEBUG
         static let example = FoodieUser(id: "1", data: [
-            "name": "Test Eater",
+            "name": "Test Foodie",
             "address": "Address",
             "email": "test@email.com",
             "phone": "200-TESTING",

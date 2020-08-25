@@ -35,6 +35,14 @@ class MenuItem: FirebaseCodable {
                 return nil
         }
         
+        if size.count != price.count {
+            return nil
+        }
+        
+        if price.contains(where: { $0 < 0.0 }) {
+            return nil
+        }
+        
         self.id = id
         self.name = name
         self.customizable = customizable
