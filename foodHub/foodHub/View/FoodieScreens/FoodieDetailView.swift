@@ -65,7 +65,7 @@ struct FoodieDetailView: View {
                     }
                 }
                 
-                if sessionUser.validateFoodie(foodie: foodie) {
+                if sessionUser.validateFoodie(foodie: foodie) || sessionUser.isAdmin() {
                     NavigationLink(
                         destination: CreateMenuView(menuCollectionRef: menuCollectionRef)
                     ){
@@ -80,7 +80,7 @@ struct FoodieDetailView: View {
         .navigationBarTitle("\(foodie.name)'s Menu")
         .navigationBarItems(trailing:
             HStack{
-                if sessionUser.validateFoodie(foodie: foodie) {
+                if sessionUser.validateFoodie(foodie: foodie) || sessionUser.isAdmin() {
                     EditButton()
                 }
         })

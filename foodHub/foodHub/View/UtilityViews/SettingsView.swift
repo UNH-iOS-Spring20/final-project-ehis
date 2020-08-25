@@ -58,6 +58,23 @@ struct SettingsView: View {
                 }
                 
                 else {
+                    if self.sessionUser.isAdmin() {
+                        NavigationLink(
+                            destination: CreateFoodieView()
+                        ){
+                            Text("New foodie")
+                                .font(.largeTitle)
+                        }
+                        .padding(10)
+                        
+                        NavigationLink(
+                            destination: CreateEaterView()
+                        ){
+                            Text("New eater")
+                                .font(.largeTitle)
+                        }
+                        .padding(10)
+                    }
                     if self.sessionUser.isEater {
                         NavigationLink(
                             destination: EditEaterView(eater: self.sessionUser.sessionUser as! EaterUser)

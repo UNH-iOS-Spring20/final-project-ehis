@@ -15,8 +15,7 @@ struct EaterLandingView: View {
     
     var body: some View {
         VStack {
-            if !sessionUser.isEater && !sessionUser.isEater{
-                
+            if !sessionUser.isEater {
                 NavigationLink(
                     destination: CreateEaterView()
                 ){

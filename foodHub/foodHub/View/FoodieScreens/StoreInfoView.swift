@@ -45,7 +45,7 @@ struct StoreInfoView: View {
                 }
             }
             
-            if sessionUser.validateFoodie(foodie: foodie) {
+            if sessionUser.validateFoodie(foodie: foodie) || sessionUser.isAdmin() {
                 NavigationLink(
                     destination: EditFoodieView(foodie: self.foodie)
                 ){
