@@ -20,7 +20,7 @@ struct MenuView: View {
             Text (menuItem.description)
             HStack {
                 Text("Customizable ")
-                Image(systemName: (menuItem.customizable ? "checkmark.square" : "square"))
+                Image(systemName: (menuItem.customizable ? "checkmark.square" : "x.square"))
             }
             List {
                 ForEach (menuItem.price.indices) { index in

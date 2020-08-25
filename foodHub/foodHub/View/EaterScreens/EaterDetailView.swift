@@ -29,11 +29,11 @@ struct EaterDetailView: View {
                 }
                 HStack {
                     Text("Active: ")
-                    Image(systemName: (eater.isActive ? "checkmark.square" : "square"))
+                    Image(systemName: (eater.isActive ? "checkmark.square" : "x.square"))
                 }
                 HStack {
                     Text("Admin: ")
-                    Image(systemName: (eater.isAdmin ? "checkmark.square" : "square"))
+                    Image(systemName: (eater.isAdmin ? "checkmark.square" : "x.square"))
                 }
                 
                 HStack{
