@@ -32,6 +32,12 @@ struct ListFoodiesView: View {
                                 NavigationLink(destination: FoodieDetailView(foodie: foodie)){
                                     ImageViewController(imageUrl: foodie.data["photo"] as! String)
                                     Text(foodie.data["name"] as! String)
+                                    
+                                    Spacer()
+                                    
+                                    if self.sessionUser.isEater {
+                                        Image(systemName: ((self.sessionUser.sessionUser as! EaterUser).favorites.contains(foodie.id)) ? "star.fill" : "star")
+                                    }
                                 }
                             }
                             else {
@@ -39,12 +45,13 @@ struct ListFoodiesView: View {
                                     NavigationLink(destination: FoodieDetailView(foodie: foodie)){
                                         ImageViewController(imageUrl: foodie.data["photo"] as! String)
                                         Text(foodie.data["name"] as! String)
+                                        Spacer()
+                                        Image(systemName: "star.fill")
                                     }
                                 }
                             }
                         }
                     }
-                    
                 }
                 .navigationBarTitle("Foodies near me")
             }

@@ -48,7 +48,7 @@ struct EaterDetailView: View {
                 Text("\n\(eater.name)'s Favorite Foodies")
                     .bold()
                 List {
-                    ForEach(Array(eater.favorites), id: \.self) { index in
+                    ForEach(eater.favorites, id: \.self) { index in
                         NavigationLink(
                             destination: FoodieDetailView(foodie: self.foodies.items[
                                 self.foodies.items.firstIndex(where: { $0.id == index })!

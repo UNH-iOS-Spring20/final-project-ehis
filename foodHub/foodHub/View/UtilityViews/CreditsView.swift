@@ -18,7 +18,7 @@ struct CreditsView: View {
             VStack{
                 Text ("Credits")
                     .font(.largeTitle)
-
+                
                 List {
                     ForEach (credits.items) { credit in
                         NavigationLink(
@@ -28,13 +28,11 @@ struct CreditsView: View {
                     }
                 }
                 
-                if sessionUser.isEater {
-                    if (sessionUser.sessionUser as! EaterUser).isAdmin {
-                        NavigationLink(
-                            destination: AddCreditsView()
-                        ){
-                            Image(systemName: "plus.circle")
-                        }
+                if sessionUser.isAdmin() {
+                    NavigationLink(
+                        destination: AddCreditsView()
+                    ){
+                        Image(systemName: "plus.circle")
                     }
                 }
             }.padding(20)

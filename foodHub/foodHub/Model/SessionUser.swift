@@ -61,4 +61,11 @@ class SessionUser: ObservableObject{
             }}
         return false
     }
+    
+    func isAdmin() -> Bool {
+        if isEater {
+            return (sessionUser as! EaterUser).isAdmin
+        }
+        return false
+    }
 }
