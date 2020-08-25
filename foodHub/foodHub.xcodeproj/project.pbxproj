@@ -11,7 +11,6 @@
 		5CDB56FAAF028856CAD60BE7 /* Pods_foodHub_foodHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C2A99504108F76922582649 /* Pods_foodHub_foodHubUITests.framework */; };
 		8C19DBFB23F895DC004F1380 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19DBFA23F895DC004F1380 /* AppDelegate.swift */; };
 		8C19DBFD23F895DC004F1380 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19DBFC23F895DC004F1380 /* SceneDelegate.swift */; };
-		8C19DBFF23F895DC004F1380 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19DBFE23F895DC004F1380 /* ContentView.swift */; };
 		8C19DC0123F895E0004F1380 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C19DC0023F895E0004F1380 /* Assets.xcassets */; };
 		8C19DC0423F895E0004F1380 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C19DC0323F895E0004F1380 /* Preview Assets.xcassets */; };
 		8C19DC0723F895E0004F1380 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C19DC0523F895E0004F1380 /* LaunchScreen.storyboard */; };
@@ -19,10 +18,8 @@
 		8C19DC1D23F895E0004F1380 /* foodHubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19DC1C23F895E0004F1380 /* foodHubUITests.swift */; };
 		8C4F11BF241450AC00541E5E /* FoodieUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F11BE241450AC00541E5E /* FoodieUser.swift */; };
 		8C4F11C0241450AC00541E5E /* FoodieUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F11BE241450AC00541E5E /* FoodieUser.swift */; };
-		8C4F11C1241450AC00541E5E /* FoodieUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4F11BE241450AC00541E5E /* FoodieUser.swift */; };
 		8C5B13BD2415A2C800A53689 /* CreateFoodieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B13BC2415A2C800A53689 /* CreateFoodieView.swift */; };
 		8C5B13BE2415A2C800A53689 /* CreateFoodieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B13BC2415A2C800A53689 /* CreateFoodieView.swift */; };
-		8C5B13BF2415A2C800A53689 /* CreateFoodieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5B13BC2415A2C800A53689 /* CreateFoodieView.swift */; };
 		8C802711240C3CB4001FD693 /* foodhub 200x200.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C802710240C3CB4001FD693 /* foodhub 200x200.png */; };
 		8C802712240C3CB4001FD693 /* foodhub 200x200.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C802710240C3CB4001FD693 /* foodhub 200x200.png */; };
 		8C802713240C3CB4001FD693 /* foodhub 200x200.png in Resources */ = {isa = PBXBuildFile; fileRef = 8C802710240C3CB4001FD693 /* foodhub 200x200.png */; };
@@ -54,14 +51,11 @@
 		8C80273A240C4B6E001FD693 /* FoodieLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C802739240C4B6E001FD693 /* FoodieLandingView.swift */; };
 		8CEB66D524131F9000E1DEBF /* EaterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB66D424131F8F00E1DEBF /* EaterUser.swift */; };
 		8CEB66D624131F9000E1DEBF /* EaterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB66D424131F8F00E1DEBF /* EaterUser.swift */; };
-		8CEB66D724131F9000E1DEBF /* EaterUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB66D424131F8F00E1DEBF /* EaterUser.swift */; };
 		8CEB66DA24132BAB00E1DEBF /* CreateEaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB66D924132BAB00E1DEBF /* CreateEaterView.swift */; };
 		8CEB66DB24132BAB00E1DEBF /* CreateEaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB66D924132BAB00E1DEBF /* CreateEaterView.swift */; };
-		8CEB66DC24132BAB00E1DEBF /* CreateEaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CEB66D924132BAB00E1DEBF /* CreateEaterView.swift */; };
 		A064FF76E64D136C4FF7477A /* Pods_foodHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2600E9BFAF29878334C84DF7 /* Pods_foodHubTests.framework */; };
 		CD48A44124E4252A00445241 /* FoodieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48A44024E4252A00445241 /* FoodieDetailView.swift */; };
 		CD48A44224E4351E00445241 /* EaterLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C802735240C4B58001FD693 /* EaterLandingView.swift */; };
-		CD48A44324E4351E00445241 /* EaterLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C802735240C4B58001FD693 /* EaterLandingView.swift */; };
 		CD48A44524E435E100445241 /* EaterHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48A44424E435E100445241 /* EaterHomeView.swift */; };
 		CD48A44724E436F200445241 /* ListFoodiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48A44624E436F200445241 /* ListFoodiesView.swift */; };
 		CD48A44924E4AFC400445241 /* FoodieHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48A44824E4AFC400445241 /* FoodieHomeView.swift */; };
@@ -70,6 +64,27 @@
 		CD5489C624EB771E00164913 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5489C524EB771E00164913 /* MenuView.swift */; };
 		CD5489CB24EC87E500164913 /* FirebaseCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5489CA24EC87E500164913 /* FirebaseCollection.swift */; };
 		CD5489CC24EC87E500164913 /* FirebaseCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5489CA24EC87E500164913 /* FirebaseCollection.swift */; };
+		CD56322C24F4B9BA006DAAC4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19DBFE23F895DC004F1380 /* ContentView.swift */; };
+		CD56322D24F4BF7C006DAAC4 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5489BF24EB34B700164913 /* MenuItem.swift */; };
+		CD56322E24F4BF81006DAAC4 /* Credit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E3924F1DA5700388308 /* Credit.swift */; };
+		CD56322F24F4BF89006DAAC4 /* AppTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E3B24F2066800388308 /* AppTabView.swift */; };
+		CD56323024F4BFCB006DAAC4 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E3724F1C65F00388308 /* ImageViewController.swift */; };
+		CD56323124F4BFCF006DAAC4 /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E3224F1B93400388308 /* CreditsView.swift */; };
+		CD56323224F4BFD3006DAAC4 /* AddCreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E4D24F398B000388308 /* AddCreditsView.swift */; };
+		CD56323324F4BFD9006DAAC4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E4424F2DF9100388308 /* SettingsView.swift */; };
+		CD56323424F4BFDD006DAAC4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C19DBFE23F895DC004F1380 /* ContentView.swift */; };
+		CD56323524F4BFF0006DAAC4 /* EaterHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48A44424E435E100445241 /* EaterHomeView.swift */; };
+		CD56323624F4BFF0006DAAC4 /* ListEatersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E4624F2FB1B00388308 /* ListEatersView.swift */; };
+		CD56323724F4BFF0006DAAC4 /* EaterDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E4824F2FCD500388308 /* EaterDetailView.swift */; };
+		CD56323824F4BFF0006DAAC4 /* EditEaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E4A24F301C500388308 /* EditEaterView.swift */; };
+		CD56323924F4BFFF006DAAC4 /* FoodieLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C802739240C4B6E001FD693 /* FoodieLandingView.swift */; };
+		CD56323A24F4BFFF006DAAC4 /* FoodieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48A44024E4252A00445241 /* FoodieDetailView.swift */; };
+		CD56323B24F4BFFF006DAAC4 /* FoodieHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD48A44824E4AFC400445241 /* FoodieHomeView.swift */; };
+		CD56323C24F4BFFF006DAAC4 /* StoreInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4F774124E6245D0014AC77 /* StoreInfoView.swift */; };
+		CD56323D24F4BFFF006DAAC4 /* EditFoodieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E2A24EF472F00388308 /* EditFoodieView.swift */; };
+		CD56323E24F4C006006DAAC4 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5489C524EB771E00164913 /* MenuView.swift */; };
+		CD56323F24F4C006006DAAC4 /* CreateMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E2C24F079C100388308 /* CreateMenuView.swift */; };
+		CD56324024F4C006006DAAC4 /* EditMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC83E2E24F1A5A300388308 /* EditMenuView.swift */; };
 		CD68D40E24E10BCA00436DD5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD68D40D24E10BCA00436DD5 /* GoogleService-Info.plist */; };
 		CD68D40F24E10BCA00436DD5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD68D40D24E10BCA00436DD5 /* GoogleService-Info.plist */; };
 		CD68D41024E10BCA00436DD5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CD68D40D24E10BCA00436DD5 /* GoogleService-Info.plist */; };
@@ -674,12 +689,12 @@
 				CDC83E2D24F079C100388308 /* CreateMenuView.swift in Sources */,
 				8C19DBFD23F895DC004F1380 /* SceneDelegate.swift in Sources */,
 				8C80273A240C4B6E001FD693 /* FoodieLandingView.swift in Sources */,
-				8C19DBFF23F895DC004F1380 /* ContentView.swift in Sources */,
 				CDC83E2F24F1A5A300388308 /* EditMenuView.swift in Sources */,
 				CDC83E2B24EF472F00388308 /* EditFoodieView.swift in Sources */,
 				CDC83E4524F2DF9100388308 /* SettingsView.swift in Sources */,
 				CD5489CB24EC87E500164913 /* FirebaseCollection.swift in Sources */,
 				8C4F11BF241450AC00541E5E /* FoodieUser.swift in Sources */,
+				CD56322C24F4B9BA006DAAC4 /* ContentView.swift in Sources */,
 				CD48A44724E436F200445241 /* ListFoodiesView.swift in Sources */,
 				CD48A44124E4252A00445241 /* FoodieDetailView.swift in Sources */,
 				CD5489C024EB34B700164913 /* MenuItem.swift in Sources */,
@@ -690,15 +705,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD56323224F4BFD3006DAAC4 /* AddCreditsView.swift in Sources */,
+				CD56323524F4BFF0006DAAC4 /* EaterHomeView.swift in Sources */,
 				8C5B13BE2415A2C800A53689 /* CreateFoodieView.swift in Sources */,
+				CD56323124F4BFCF006DAAC4 /* CreditsView.swift in Sources */,
 				8C19DC1223F895E0004F1380 /* foodHubTests.swift in Sources */,
 				CD5489CC24EC87E500164913 /* FirebaseCollection.swift in Sources */,
 				CD48A44224E4351E00445241 /* EaterLandingView.swift in Sources */,
 				8C4F11C0241450AC00541E5E /* FoodieUser.swift in Sources */,
+				CD56323D24F4BFFF006DAAC4 /* EditFoodieView.swift in Sources */,
+				CD56323424F4BFDD006DAAC4 /* ContentView.swift in Sources */,
 				8CEB66D624131F9000E1DEBF /* EaterUser.swift in Sources */,
+				CD56323024F4BFCB006DAAC4 /* ImageViewController.swift in Sources */,
+				CD56323A24F4BFFF006DAAC4 /* FoodieDetailView.swift in Sources */,
+				CD56323724F4BFF0006DAAC4 /* EaterDetailView.swift in Sources */,
+				CD56323924F4BFFF006DAAC4 /* FoodieLandingView.swift in Sources */,
+				CD56323324F4BFD9006DAAC4 /* SettingsView.swift in Sources */,
+				CD56322F24F4BF89006DAAC4 /* AppTabView.swift in Sources */,
 				8CEB66DB24132BAB00E1DEBF /* CreateEaterView.swift in Sources */,
+				CD56323B24F4BFFF006DAAC4 /* FoodieHomeView.swift in Sources */,
 				CDC83E4C24F3761100388308 /* ListFoodiesView.swift in Sources */,
+				CD56323624F4BFF0006DAAC4 /* ListEatersView.swift in Sources */,
+				CD56323C24F4BFFF006DAAC4 /* StoreInfoView.swift in Sources */,
+				CD56323E24F4C006006DAAC4 /* MenuView.swift in Sources */,
 				CDC83E4124F207DF00388308 /* SessionUser.swift in Sources */,
+				CD56322D24F4BF7C006DAAC4 /* MenuItem.swift in Sources */,
+				CD56323824F4BFF0006DAAC4 /* EditEaterView.swift in Sources */,
+				CD56322E24F4BF81006DAAC4 /* Credit.swift in Sources */,
+				CD56324024F4C006006DAAC4 /* EditMenuView.swift in Sources */,
+				CD56323F24F4C006006DAAC4 /* CreateMenuView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,12 +741,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C5B13BF2415A2C800A53689 /* CreateFoodieView.swift in Sources */,
 				8C19DC1D23F895E0004F1380 /* foodHubUITests.swift in Sources */,
-				CD48A44324E4351E00445241 /* EaterLandingView.swift in Sources */,
-				8C4F11C1241450AC00541E5E /* FoodieUser.swift in Sources */,
-				8CEB66D724131F9000E1DEBF /* EaterUser.swift in Sources */,
-				8CEB66DC24132BAB00E1DEBF /* CreateEaterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

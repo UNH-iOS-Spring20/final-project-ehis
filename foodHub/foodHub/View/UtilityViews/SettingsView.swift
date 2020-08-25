@@ -56,6 +56,35 @@ struct SettingsView: View {
                             .font(.largeTitle)
                     }
                 }
+                
+                else {
+                    if self.sessionUser.isEater {
+                        NavigationLink(
+                            destination: EditEaterView(eater: self.sessionUser.sessionUser as! EaterUser)
+                            )
+                        {
+                            HStack{
+                                Image(systemName: "square.and.pencil")
+                            Text("Edit profile")
+                                .font(.largeTitle)
+                            }
+                        }
+                    }
+                    else {
+                        NavigationLink(
+                            destination: EditFoodieView(foodie: self.sessionUser.sessionUser as! FoodieUser)
+                            )
+                        {
+                            HStack{
+                                Image(systemName: "square.and.pencil")
+                            Text("Edit profile")
+                                .font(.largeTitle)
+                            }
+                        }
+                    }
+                    
+                }
+                
                 Button(action: {
                     if self.sessionUser.isEater || self.sessionUser.isFoodie{
                         self.alertItem = AlertItem(title: Text("Logoff successful!"), message: Text(""), dismissButton: .default(Text("OK ")))

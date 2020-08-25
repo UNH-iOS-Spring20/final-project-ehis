@@ -33,7 +33,7 @@ struct EditEaterView: View {
                     Image(systemName: "square.and.arrow.up")
                 }
             }.font(.title)
-                .navigationBarTitle("Create user")
+                .navigationBarTitle("Editing \(eater.name)")
             Spacer()
         }.padding()
     }

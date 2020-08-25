@@ -38,7 +38,7 @@ struct MenuView: View {
         }
         .navigationBarItems(trailing:
             HStack{
-                if sessionUser.validateFoodie(foodie: owner) {
+                if sessionUser.validateFoodie(foodie: owner){
                     NavigationLink(
                         destination: EditMenuView(menuCollectionRef: menuCollectionRef, menuItem: menuItem)
                     ){

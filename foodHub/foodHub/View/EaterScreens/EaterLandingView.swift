@@ -10,25 +10,35 @@ import SwiftUI
 import FirebaseFirestore
 
 struct EaterLandingView: View {
+    @EnvironmentObject var sessionUser: SessionUser
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack {
-            NavigationLink(
-                destination: CreateEaterView()
-            ){
-                Text("New eater")
-                    .font(.largeTitle)
+            if !sessionUser.isEater && !sessionUser.isEater{
+                
+                NavigationLink(
+                    destination: CreateEaterView()
+                ){
+                    Text("New eater")
+                        .font(.largeTitle)
+                }
+                .padding(10)
+                
+                NavigationLink(
+                    destination: SelectEaterView()
+                ){
+                    Text("Select existing eater")
+                        .font(.largeTitle)
+                }
             }
-            .padding(10)
+            else{
+                SettingsView(newNavView: false)
+            }
             
-            NavigationLink(
-                destination: SelectEaterView()
-            ){
-                Text("Select existing eater")
-                    .font(.largeTitle)
-            }
-            .padding(10)
-        }
-        //presentationMode.wrappedValue.dismiss()
+        }.padding(10)
+        
+        
     }
     
     struct SelectEaterView: View {

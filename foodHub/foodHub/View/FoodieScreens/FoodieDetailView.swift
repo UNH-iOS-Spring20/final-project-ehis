@@ -10,11 +10,12 @@ import SwiftUI
 import FirebaseFirestore
 
 struct FoodieDetailView: View {
-    //    @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var sessionUser: SessionUser
     @ObservedObject var foodie: FoodieUser
     @ObservedObject var menu: FirebaseCollection<MenuItem>
     private var menuCollectionRef: CollectionReference
+    
+    @State private var isFavorite = false
     
     init(foodie: FoodieUser) {
         self.foodie = foodie
@@ -25,12 +26,21 @@ struct FoodieDetailView: View {
     var body: some View {
         VStack {
             List {
-                ForEach(menu.items) { menuItem in
-                    NavigationLink(destination: MenuView(menuCollectionRef: self.menuCollectionRef, menuItem: menuItem, owner: self.foodie)){
-                        Text(menuItem.name)
+                if sessionUser.validateFoodie(foodie: foodie) || sessionUser.isAdmin() {
+                    //only want to enable deletes for appropriate superUser
+                    ForEach(menu.items) { menuItem in
+                        NavigationLink(destination: MenuView(menuCollectionRef: self.menuCollectionRef, menuItem: menuItem, owner: self.foodie)){
+                            Text(menuItem.name)
+                        }
+                    }.onDelete(perform: deleteItem)
+                }
+                else {
+                    ForEach(menu.items) { menuItem in
+                        NavigationLink(destination: MenuView(menuCollectionRef: self.menuCollectionRef, menuItem: menuItem, owner: self.foodie)){
+                            Text(menuItem.name)
+                        }
                     }
-                    
-                }.onDelete(perform: deleteItem)
+                }
                 Spacer()
             }
             
@@ -43,22 +53,14 @@ struct FoodieDetailView: View {
                 Spacer()
                 
                 if self.sessionUser.isEater {
-                    if (self.sessionUser.sessionUser as! EaterUser).favorites.contains(self.foodie.id) {
+                    if !(self.sessionUser.sessionUser as! EaterUser).favorites.contains(self.foodie.id) {
                         Button(action: {
-                            (self.sessionUser.sessionUser as! EaterUser).favorites.remove(self.foodie.id)
+                            (self.sessionUser.sessionUser as! EaterUser).favorites.append(self.foodie.id)
+                            self.updateFavorites()
+                            self.isFavorite.toggle()
                             
-                            (self.sessionUser.sessionUser as! EaterUser).favesArr = Array((self.sessionUser.sessionUser as! EaterUser).favorites)
                         }){
-                            Image(systemName: "star.fill")
-                        }
-                    }
-                    else {
-                        Button(action: {
-                            (self.sessionUser.sessionUser as! EaterUser).favorites.insert(self.foodie.id)
-                            
-                            (self.sessionUser.sessionUser as! EaterUser).favesArr = Array((self.sessionUser.sessionUser as! EaterUser).favorites)
-                        }){
-                            Image(systemName: "star")
+                            Text("Add to favorites")
                         }
                     }
                 }
@@ -72,19 +74,25 @@ struct FoodieDetailView: View {
                 }
             }
         }.padding()
-            .navigationBarTitle("\(foodie.name)'s Menu")
-            .navigationBarItems(trailing:
-                HStack{
-                    if sessionUser.validateFoodie(foodie: foodie) {
-                        EditButton()
-                    }
-            })
+            .alert(isPresented: $isFavorite){
+                Alert(title: Text("Added to favorites!"), dismissButton: .default(Text("OK ")))
+        }
+        .navigationBarTitle("\(foodie.name)'s Menu")
+        .navigationBarItems(trailing:
+            HStack{
+                if sessionUser.validateFoodie(foodie: foodie) {
+                    EditButton()
+                }
+        })
     }
     
+    func updateFavorites(){
+        let eater = self.sessionUser.sessionUser as! EaterUser
+        eatersCollectionRef.document(eater.id).setData(eater.data)
+    }
     func deleteItem(at offsets: IndexSet){
         print("Starting delete...")
         menu.deleteItem(collectionRef: menuCollectionRef, index: offsets.first!)
-        
     }
 }
 
@@ -93,3 +101,8 @@ struct FoodieDetailView_Previews: PreviewProvider {
         FoodieDetailView(foodie: FoodieUser.example)
     }
 }
+
+
+/*
+ (self.sessionUser.sessionUser as! EaterUser).favorites.remove(at: (self.sessionUser.sessionUser as! EaterUser).favorites.firstIndex(of: self.foodie.id)!)
+ */
