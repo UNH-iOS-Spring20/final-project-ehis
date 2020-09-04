@@ -1,5 +1,5 @@
 # final-project-ehis
-Link to youtube video: https://youtu.be/6DWxypAdfHw
+Link to demo video: https://youtu.be/6DWxypAdfHw
 
 My iOS development class' project... uses Swift/SwiftUI and Google's Cloud Firestore
 
