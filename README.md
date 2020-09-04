@@ -1,4 +1,6 @@
 # final-project-ehis
+Link to youtube video: https://youtu.be/6DWxypAdfHw
+
 My iOS development class' project... uses Swift/SwiftUI and Google's Cloud Firestore
 
 Ever experienced the frustration of jumping through different apps looking for something to eat? Same, so I came up with FoodHub!
